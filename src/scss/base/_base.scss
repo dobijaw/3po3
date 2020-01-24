@@ -5,3 +5,9 @@ html {
 body {
     background: $background-color;
 }
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}

@@ -1,0 +1,14 @@
+.logo {
+    padding: 0;
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+
+    @media(min-width: 960px) {
+        font-size: 32px;
+    }
+
+    @media(min-width: 1200px) {
+        font-size: 38px;
+    }
+}
