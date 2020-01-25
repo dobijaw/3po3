@@ -1,0 +1,12 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px $window-padding;
+    border-top: 1px solid rgba($dark-color, .2);
+    background: $background-color;
+}
