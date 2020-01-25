@@ -11,28 +11,40 @@
 <body>
   <div class="container">
     <header class="header">
-      <h1 class="logo">KaPaNo</h1>
+      <h1 class="logo">Ka<span class="logo__mark">Pa</span>No</h1>
     </header>
 
     <main class="main">
       <section>
         <h2 class="headline">Grasz z botem</h2>
         <p class="copy">Wybierz swoją łapkę!</p>
-        <div class="boards">
-          <div class="boards__item">
-            <div>kamien</div>
-            <div>strzalka</div>
+      </section>
+      <div class="board">
+        <div class="board__item">
+          <div class="board__box">
+            <img src="../img/stone.jpg" alt="" class="board__img">
           </div>
-          <div class="boards__item">
-            <div>kamien</div>
-            <div>strzalka</div>
-          </div>
-          <div class="boards__item">
-            <div>kamien</div>
-            <div>strzalka</div>
+          <div class="board__arrow">
+            <img src="../img/arrow-left.svg" alt="" class="board__icon">
           </div>
         </div>
-      </section>
+        <div class="board__item">
+          <div class="board__box">
+            <img src="../img/paper.jpg" alt="" class="board__img">
+          </div>
+          <div class="board__arrow">
+            <img src="../img/arrow-down.svg" alt="" class="board__icon">
+          </div>
+        </div>
+        <div class="board__item">
+          <div class="board__box">
+            <img src="../img/shears.jpg" alt="" class="board__img">
+          </div>
+          <div class="board__arrow">
+            <img src="../img/arrow-right.svg" alt="" class="board__icon">
+          </div>
+        </div>
+      </div>
       <section class="summary">
         <h2 class="summary__headline">Twoje wyniki</h2>
         <div class="summary__scoreboard">
