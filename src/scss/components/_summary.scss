@@ -1,0 +1,44 @@
+.summary {
+  &__headline {
+    margin: 0 0 10px;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
+  }
+
+  &__scoreboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  &__box {
+    padding: 10px;
+
+    &--to-right {
+      text-align: right;
+    }
+
+    &--center {
+      text-align: center;
+    }
+
+    &--to-left {
+      text-align: left;
+    }
+  }
+
+  &__type {
+    margin: 0 0 6px;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  &__score {
+    font-size: 24px;
+    font-weight: 500;
+  }
+}
