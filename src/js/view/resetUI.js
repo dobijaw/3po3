@@ -2,6 +2,9 @@ import {
     DOMelements,
     DOMclasses
 } from '../base';
+import {
+    state
+} from '../state';
 
 const resetBoxUI = () => {
     DOMelements.symbols.forEach(box => {
@@ -15,6 +18,8 @@ const resetUI = () => {
     DOMelements.summaryScore.forEach(score => {
         score.textContent = 0;
     });
+
+    state.isPopupOpen = false;
 }
 
 export {

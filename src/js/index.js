@@ -5,7 +5,8 @@ import {
     resetStateChoice
 } from './state';
 import {
-    DOMelements
+    DOMelements,
+    DOMclasses
 } from './base';
 
 import playerChoiceView from './view/playerChoiceView';
@@ -25,14 +26,19 @@ const init = () => {
 
 init();
 
+
 DOMelements.symbols.forEach((box, index, arr) => box.addEventListener('click', ({
     currentTarget
 }) => {
+    if (state.isPopupOpen) return;
+
     playerChoiceView(currentTarget, index, arr);
     new PlayerChoice(currentTarget);
 }));
 
 DOMelements.playBtn.addEventListener('click', () => {
+    if (state.isPopupOpen) return;
+
     new AIChoice();
     const winner = new Winner();
     const scoreStatus = winner.checkStatusWin();
@@ -45,6 +51,17 @@ DOMelements.playBtn.addEventListener('click', () => {
     console.log(state);
 })
 
+
 DOMelements.reset.addEventListener('click', () => {
-    init();
+    DOMelements.popup.classList.add(DOMclasses.popupActive);
+    state.isPopupOpen = true;
+
+    DOMelements.popupBtns.forEach(btn => btn.addEventListener('click', () => {
+        DOMelements.popup.classList.remove(DOMclasses.popupActive);
+        state.isPopupOpen = false;
+
+        if (btn.dataset.btn === 'no') return;
+        init();
+
+    }))
 })

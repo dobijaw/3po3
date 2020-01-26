@@ -6,7 +6,8 @@ const state = {
         wins: 0,
         draws: 0,
         losses: 0
-    }
+    },
+    isPopupOpen: false
 }
 
 const resetStateChoice = () => {

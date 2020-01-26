@@ -55,15 +55,15 @@
         <div class="summary__scoreboard">
           <section class="summary__box summary__box--to-right">
             <h3 class="summary__type">Wygrane</h3>
-            <span class="summary__score" data-type="wins">120</span>
+            <span class="summary__score" data-type="wins">0</span>
           </section>
           <section class="summary__box summary__box--center">
             <h3 class="summary__type">Remisy</h3>
-            <span class="summary__score" data-type="draws">120</span>
+            <span class="summary__score" data-type="draws">0</span>
           </section>
           <section class="summary__box summary__box--to-left">
             <h3 class="summary__type">Porażki</h3>
-            <span class="summary__score" data-type="losses">120</span>
+            <span class="summary__score" data-type="losses">0</span>
           </section>
         </div>
       </section>
@@ -75,6 +75,17 @@
       </div>
       <div class="footer__col">
         <button id="reset" class="btn btn--noborder">resetuj wyniki</button>
+        <div class="popup">
+          <p class="copy popup__copy">Jesteś pewny? Twój wynik zostanie utracony!</p>
+          <div class="popup__btns">
+            <div class="popup__btn-container">
+              <button class="popup__btn" data-btn="no">&#60; nie &#62;</button>
+            </div>
+            <div class="popup__btn-container">
+              <button class="popup__btn" data-btn="yes">&#60; tak &#62;</button>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   </div>
