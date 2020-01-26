@@ -44,6 +44,7 @@ DOMelements.playBtn.addEventListener('click', () => {
     if (state.isPopupOpen) return;
 
     if (state.isGameBoard) {
+        if (state.playerChoice === '') return;
         new AIChoice();
         const winner = new Winner();
         const scoreStatus = winner.checkStatusWin();
