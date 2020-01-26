@@ -24,5 +24,6 @@ const resetAllState = () => {
 
 export {
     state,
-    resetAllState
+    resetAllState,
+    resetStateChoice
 };

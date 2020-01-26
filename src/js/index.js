@@ -1,7 +1,8 @@
 import '../scss/index.scss';
 import {
     state,
-    resetAllState
+    resetAllState,
+    resetStateChoice
 } from './state';
 import {
     DOMelements
@@ -9,8 +10,20 @@ import {
 
 import playerChoiceView from './view/playerChoiceView';
 import PlayerChoice from './model/PlayerChoice';
+import Winner from './model/Winner';
 import AIChoice from './model/AIChoice';
-import resetUI from './view/resetUI';
+import {
+    resetUI,
+    resetBoxUI
+} from './view/resetUI';
+import updateScore from './view/updateScore';
+
+const init = () => {
+    resetUI();
+    resetAllState();
+}
+
+init();
 
 DOMelements.symbols.forEach((box, index, arr) => box.addEventListener('click', ({
     currentTarget
@@ -21,9 +34,17 @@ DOMelements.symbols.forEach((box, index, arr) => box.addEventListener('click', (
 
 DOMelements.playBtn.addEventListener('click', () => {
     new AIChoice();
+    const winner = new Winner();
+    const scoreStatus = winner.checkStatusWin();
+
+    winner.updateStateScore(scoreStatus);
+    updateScore(scoreStatus);
+
+    resetBoxUI();
+    resetStateChoice();
+    console.log(state);
 })
 
 DOMelements.reset.addEventListener('click', () => {
-    resetUI();
-    resetAllState();
+    init();
 })
