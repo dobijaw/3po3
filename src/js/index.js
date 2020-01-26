@@ -1,5 +1,8 @@
 import '../scss/index.scss';
-import state from './state';
+import {
+    state,
+    resetAllState
+} from './state';
 import {
     DOMelements
 } from './base';
@@ -17,4 +20,8 @@ DOMelements.symbols.forEach((box, index, arr) => box.addEventListener('click', (
 
 DOMelements.playBtn.addEventListener('click', () => {
     new AIChoice();
+})
+
+DOMelements.reset.addEventListener('click', () => {
+    resetAllState();
 })

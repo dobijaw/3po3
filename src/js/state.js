@@ -9,4 +9,20 @@ const state = {
     }
 }
 
-export default state;
+const resetStateChoice = () => {
+    state.playerChoice = '';
+    state.aiChoice = '';
+}
+
+const resetAllState = () => {
+    resetStateChoice();
+
+    for (const key of Object.keys(state.summary)) {
+        state.summary[key] = 0;
+    }
+}
+
+export {
+    state,
+    resetAllState
+};

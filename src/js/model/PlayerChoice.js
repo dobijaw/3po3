@@ -1,4 +1,6 @@
-import state from '../state';
+import {
+    state
+} from '../state';
 
 class PlayerChoice {
     constructor(selectedSymbol) {
