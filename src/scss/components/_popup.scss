@@ -1,8 +1,8 @@
 .popup {
     display: none;
     position: fixed;
-    bottom: 60px;
-    right: 60px;
+    bottom: 80px;
+    right: $window-padding;
     border: 1px solid $dark-color;
     padding: 20px;
     max-width: 300px;
@@ -19,19 +19,5 @@
 
     &__btn-container {
         padding: 20px 10px 0;
-    }
-
-    &__btn {
-        background: none;
-        border: 0;
-        font-weight: 600;
-        font-size: 16px;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: opacity .25s ease-in-out;
-
-        &:hover {
-            opacity: .5;
-        }
     }
 }

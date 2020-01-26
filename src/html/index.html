@@ -12,6 +12,7 @@
   <div class="container">
     <header class="header">
       <h1 class="logo">Ka<span class="logo__mark">Pa</span>No</h1>
+      <button class="btn">wersja zręcznościowa</button>
     </header>
 
     <main class="main">
@@ -19,7 +20,7 @@
         <h2 class="headline headline--result">Grasz z botem</h2>
         <p class="copy copy--result">Wybierz swoją łapkę!</p>
       </section>
-      <div class="board">
+      <div class="board board--random-game">
         <div class="board__container">
           <div class="board__item">
             <div class="board__box board__box--game" data-symbol="stone">
@@ -62,6 +63,7 @@
           <button id="play" class="board__play btn">play</button>
         </div>
       </div>
+      <div class="board board--arcade-game"></div>
       <section class="summary">
         <h2 class="summary__headline">Twoje wyniki</h2>
         <div class="summary__scoreboard">
@@ -91,10 +93,10 @@
           <p class="copy popup__copy">Jesteś pewny? Twój wynik zostanie utracony!</p>
           <div class="popup__btns">
             <div class="popup__btn-container">
-              <button class="popup__btn" data-btn="no">&#60; nie &#62;</button>
+              <button class="btn btn--short popup__btn" data-btn="no">nie</button>
             </div>
             <div class="popup__btn-container">
-              <button class="popup__btn" data-btn="yes">&#60; tak &#62;</button>
+              <button class="btn btn--short popup__btn" data-btn="yes">tak</button>
             </div>
           </div>
         </div>
