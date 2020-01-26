@@ -7,6 +7,18 @@
     &__container {
         display: flex;
         justify-content: center;
+
+        &--hidden {
+            display: none;
+        }
+    }
+
+    &__result {
+        display: flex;
+
+        &--hidden {
+            display: none;
+        }
     }
 
     &__item {
@@ -18,10 +30,10 @@
 
     &__box {
         width: 100%;
-        border: 10px solid $background-color;
+        border: 6px solid $background-color;
 
         &--active {
-            border-color: red;
+            border-color: $dark-color;
         }
     }
 

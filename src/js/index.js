@@ -10,6 +10,8 @@ import {
 } from './base';
 
 import playerChoiceView from './view/playerChoiceView';
+import showResult from './view/showResult';
+import showGameBoard from './view/showGameBoard';
 import PlayerChoice from './model/PlayerChoice';
 import Winner from './model/Winner';
 import AIChoice from './model/AIChoice';
@@ -22,6 +24,8 @@ import updateScore from './view/updateScore';
 const init = () => {
     resetUI();
     resetAllState();
+    showGameBoard();
+    state.isGameBoard = true;
 }
 
 init();
@@ -39,16 +43,22 @@ DOMelements.symbols.forEach((box, index, arr) => box.addEventListener('click', (
 DOMelements.playBtn.addEventListener('click', () => {
     if (state.isPopupOpen) return;
 
-    new AIChoice();
-    const winner = new Winner();
-    const scoreStatus = winner.checkStatusWin();
+    if (state.isGameBoard) {
+        new AIChoice();
+        const winner = new Winner();
+        const scoreStatus = winner.checkStatusWin();
+        winner.updateStateScore(scoreStatus);
+        updateScore(scoreStatus);
+        const copyStatus = winner.renderWinnerStatus(scoreStatus);
+        showResult(copyStatus, scoreStatus);
+        resetBoxUI();
+        resetStateChoice();
 
-    winner.updateStateScore(scoreStatus);
-    updateScore(scoreStatus);
-
-    resetBoxUI();
-    resetStateChoice();
-    console.log(state);
+        state.isGameBoard = false;
+    } else {
+        showGameBoard();
+        state.isGameBoard = true;
+    }
 })
 
 

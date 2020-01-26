@@ -27,6 +27,17 @@ class Winner {
         state.summary.games++;
         state.summary[score]++;
     }
+
+    renderWinnerStatus(score) {
+        switch (score) {
+            case 'wins':
+                return ['Wygrałeś!', 'Zagraj jeszcze raz!']
+            case 'losses':
+                return ['Przegrałeś :(', 'Ale.. możesz zagrać ponownie!']
+            default:
+                return ['REMIS', 'Może mały rewanżyk?']
+        }
+    }
 }
 
 export default Winner;

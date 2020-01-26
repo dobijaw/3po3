@@ -16,13 +16,13 @@
 
     <main class="main">
       <section>
-        <h2 class="headline">Grasz z botem</h2>
-        <p class="copy">Wybierz swoją łapkę!</p>
+        <h2 class="headline headline--result">Grasz z botem</h2>
+        <p class="copy copy--result">Wybierz swoją łapkę!</p>
       </section>
       <div class="board">
         <div class="board__container">
           <div class="board__item">
-            <div class="board__box" data-symbol="stone">
+            <div class="board__box board__box--game" data-symbol="stone">
               <img src="../img/stone.jpg" alt="" class="board__img">
             </div>
             <div class="board__arrow">
@@ -30,7 +30,7 @@
             </div>
           </div>
           <div class="board__item">
-            <div class="board__box" data-symbol="paper">
+            <div class="board__box board__box--game" data-symbol="paper">
               <img src="../img/paper.jpg" alt="" class="board__img">
             </div>
             <div class="board__arrow">
@@ -38,11 +38,23 @@
             </div>
           </div>
           <div class="board__item">
-            <div class="board__box" data-symbol="shears">
+            <div class="board__box board__box--game" data-symbol="shears">
               <img src="../img/shears.jpg" alt="" class="board__img">
             </div>
             <div class="board__arrow">
               <img src="../img/arrow-right.svg" alt="" class="board__icon">
+            </div>
+          </div>
+        </div>
+        <div class="board__result board__result--hidden">
+          <div class="board__item">
+            <div class="board__box board__box--result" data-symbol="paper">
+              <img src="../img/paper.jpg" alt="" class="board__img board__img--result">
+            </div>
+          </div>
+          <div class="board__item">
+            <div class="board__box board__box--result" data-symbol="paper">
+              <img src="../img/paper.jpg" alt="" class="board__img board__img--result">
             </div>
           </div>
         </div>
