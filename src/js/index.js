@@ -6,6 +6,7 @@ import {
 
 import playerChoiceView from './view/playerChoiceView';
 import PlayerChoice from './model/PlayerChoice';
+import AIChoice from './model/AIChoice';
 
 DOMelements.symbols.forEach((box, index, arr) => box.addEventListener('click', ({
     currentTarget
@@ -13,3 +14,7 @@ DOMelements.symbols.forEach((box, index, arr) => box.addEventListener('click', (
     playerChoiceView(currentTarget, index, arr);
     new PlayerChoice(currentTarget);
 }));
+
+DOMelements.playBtn.addEventListener('click', () => {
+    new AIChoice();
+})
