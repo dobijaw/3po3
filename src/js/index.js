@@ -10,6 +10,7 @@ import {
 import playerChoiceView from './view/playerChoiceView';
 import PlayerChoice from './model/PlayerChoice';
 import AIChoice from './model/AIChoice';
+import resetUI from './view/resetUI';
 
 DOMelements.symbols.forEach((box, index, arr) => box.addEventListener('click', ({
     currentTarget
@@ -23,5 +24,6 @@ DOMelements.playBtn.addEventListener('click', () => {
 })
 
 DOMelements.reset.addEventListener('click', () => {
+    resetUI();
     resetAllState();
 })
