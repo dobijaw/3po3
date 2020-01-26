@@ -4,13 +4,12 @@ import {
     DOMelements
 } from './base';
 
-let clickedIndex = null;
+import playerChoiceView from './view/playerChoiceView';
+import PlayerChoice from './model/PlayerChoice';
 
 DOMelements.symbols.forEach((box, index, arr) => box.addEventListener('click', ({
     currentTarget
 }) => {
-    if (clickedIndex !== null) arr[clickedIndex].classList.remove('board__box--active')
-    state.playerChoice = currentTarget.dataset.symbol;
-    currentTarget.classList.add('board__box--active');
-    clickedIndex = index;
-}))
+    playerChoiceView(currentTarget, index, arr);
+    new PlayerChoice(currentTarget);
+}));
