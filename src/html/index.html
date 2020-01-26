@@ -20,29 +20,34 @@
         <p class="copy">Wybierz swoją łapkę!</p>
       </section>
       <div class="board">
-        <div class="board__item">
-          <div class="board__box">
-            <img src="../img/stone.jpg" alt="" class="board__img">
+        <div class="board__container">
+          <div class="board__item">
+            <div class="board__box" data-symbol="stone">
+              <img src="../img/stone.jpg" alt="" class="board__img">
+            </div>
+            <div class="board__arrow">
+              <img src="../img/arrow-left.svg" alt="" class="board__icon">
+            </div>
           </div>
-          <div class="board__arrow">
-            <img src="../img/arrow-left.svg" alt="" class="board__icon">
+          <div class="board__item">
+            <div class="board__box" data-symbol="paper">
+              <img src="../img/paper.jpg" alt="" class="board__img">
+            </div>
+            <div class="board__arrow">
+              <img src="../img/arrow-down.svg" alt="" class="board__icon">
+            </div>
+          </div>
+          <div class="board__item">
+            <div class="board__box" data-symbol="shears">
+              <img src="../img/shears.jpg" alt="" class="board__img">
+            </div>
+            <div class="board__arrow">
+              <img src="../img/arrow-right.svg" alt="" class="board__icon">
+            </div>
           </div>
         </div>
-        <div class="board__item">
-          <div class="board__box">
-            <img src="../img/paper.jpg" alt="" class="board__img">
-          </div>
-          <div class="board__arrow">
-            <img src="../img/arrow-down.svg" alt="" class="board__icon">
-          </div>
-        </div>
-        <div class="board__item">
-          <div class="board__box">
-            <img src="../img/shears.jpg" alt="" class="board__img">
-          </div>
-          <div class="board__arrow">
-            <img src="../img/arrow-right.svg" alt="" class="board__icon">
-          </div>
+        <div>
+          <button id="play" class="board__play btn">play</button>
         </div>
       </div>
       <section class="summary">
