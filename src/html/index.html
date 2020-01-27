@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>KaPaNo - spróbujesz?</title>
+  <title>3 po 3 - spróbujesz?</title>
 </head>
 
 <body>
   <div class="container">
     <header class="header">
-      <h1 class="logo">Ka<span class="logo__mark">Pa</span>No</h1>
-      <button class="btn">wersja zręcznościowa</button>
+      <h1 class="logo">3<span class="logo__mark">po</span>3</h1>
+      <button class="btn">poziom 2</button>
     </header>
 
     <main class="main">
@@ -24,7 +24,7 @@
         <div class="board__container">
           <div class="board__item">
             <div class="board__box board__box--game" data-symbol="stone">
-              <img src="../img/stone.jpg" alt="" class="board__img">
+              <img src="../img/stone.png" alt="" class="board__img">
             </div>
             <div class="board__arrow">
               <img src="../img/arrow-left.svg" alt="" class="board__icon">
@@ -32,7 +32,7 @@
           </div>
           <div class="board__item">
             <div class="board__box board__box--game" data-symbol="paper">
-              <img src="../img/paper.jpg" alt="" class="board__img">
+              <img src="../img/paper.png" alt="" class="board__img">
             </div>
             <div class="board__arrow">
               <img src="../img/arrow-down.svg" alt="" class="board__icon">
@@ -40,7 +40,7 @@
           </div>
           <div class="board__item">
             <div class="board__box board__box--game" data-symbol="shears">
-              <img src="../img/shears.jpg" alt="" class="board__img">
+              <img src="../img/shears.png" alt="" class="board__img">
             </div>
             <div class="board__arrow">
               <img src="../img/arrow-right.svg" alt="" class="board__icon">
@@ -50,12 +50,12 @@
         <div class="board__result board__result--hidden">
           <div class="board__item">
             <div class="board__box board__box--result" data-symbol="paper">
-              <img src="../img/paper.jpg" alt="" class="board__img board__img--result">
+              <img src="../img/paper.png" alt="" class="board__img board__img--result">
             </div>
           </div>
           <div class="board__item">
             <div class="board__box board__box--result" data-symbol="paper">
-              <img src="../img/paper.jpg" alt="" class="board__img board__img--result">
+              <img src="../img/paper.png" alt="" class="board__img board__img--result">
             </div>
           </div>
         </div>
@@ -63,7 +63,41 @@
           <button id="play" class="board__play btn">play</button>
         </div>
       </div>
-      <div class="board board--arcade-game"></div>
+      <div class="board board--arcade-game">
+        <div class="board__container">
+          <div class="board__item">
+            <div class="board__box board__box--game" data-symbol="stone">
+              <img src="../img/stone.png" alt="" class="board__img">
+            </div>
+            <div class="board__arrow">
+              <img src="../img/arrow-left.svg" alt="" class="board__icon">
+            </div>
+          </div>
+          <div class="board__item">
+            <div class="board__box board__box--game" data-symbol="paper">
+              <img src="../img/paper.png" alt="" class="board__img">
+            </div>
+            <div class="board__arrow">
+              <img src="../img/arrow-down.svg" alt="" class="board__icon">
+            </div>
+          </div>
+          <div class="board__item">
+            <div class="board__box board__box--game" data-symbol="shears">
+              <img src="../img/shears.png" alt="" class="board__img">
+            </div>
+            <div class="board__arrow">
+              <img src="../img/arrow-right.svg" alt="" class="board__icon">
+            </div>
+          </div>
+        </div>
+        <div class="board__ai">
+          <div class="board__item">
+            <div class="board__box board__box--game" data-symbol="stone">
+              <img src="../img/stone.png" alt="" class="board__img">
+            </div>
+          </div>
+        </div>
+      </div>
       <section class="summary">
         <h2 class="summary__headline">Twoje wyniki</h2>
         <div class="summary__scoreboard">

@@ -1,4 +1,5 @@
 const state = {
+    gameVariant: 1,
     playerChoice: '',
     aiChoice: '',
     summary: {

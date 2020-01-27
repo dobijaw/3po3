@@ -11,8 +11,8 @@ const showSymbolsInBoxes = (score) => {
     const resultsImg = [...document.querySelectorAll(`.${DOMclasses.resultSymbolsImg}`)];
     const resultsBox = [...document.querySelectorAll(`.${DOMclasses.resultSymbolsBox}`)];
 
-    resultsImg[0].src = `../img/${state.playerChoice}.jpg`;
-    resultsImg[1].src = `../img/${state.aiChoice}.jpg`;
+    resultsImg[0].src = `../img/${state.playerChoice}.png`;
+    resultsImg[1].src = `../img/${state.aiChoice}.png`;
     // console.log(score);
     switch (score) {
         case 'wins':

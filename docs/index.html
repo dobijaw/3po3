@@ -1,15 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>3 po 3 - spróbujesz?</title>
 <link href="index.css" rel="stylesheet"></head>
 
 <body>
-    <h1>Elo</h1>
+  <div class="container">
+    <header class="header">
+      <h1 class="logo">3<span class="logo__mark">po</span>3</h1>
+      <!-- <button class="btn">wersja zręcznościowa</button> -->
+    </header>
+
+    <main class="main">
+      <section>
+        <h2 class="headline headline--result">Grasz z botem</h2>
+        <p class="copy copy--result">Wybierz swoją łapkę!</p>
+      </section>
+      <div class="board board--random-game">
+        <div class="board__container">
+          <div class="board__item">
+            <div class="board__box board__box--game" data-symbol="stone">
+              <img src="./img/stone.png" alt="" class="board__img">
+            </div>
+            <div class="board__arrow">
+              <img src="./img/arrow-left.svg" alt="" class="board__icon">
+            </div>
+          </div>
+          <div class="board__item">
+            <div class="board__box board__box--game" data-symbol="paper">
+              <img src="./img/paper.png" alt="" class="board__img">
+            </div>
+            <div class="board__arrow">
+              <img src="./img/arrow-down.svg" alt="" class="board__icon">
+            </div>
+          </div>
+          <div class="board__item">
+            <div class="board__box board__box--game" data-symbol="shears">
+              <img src="./img/shears.png" alt="" class="board__img">
+            </div>
+            <div class="board__arrow">
+              <img src="./img/arrow-right.svg" alt="" class="board__icon">
+            </div>
+          </div>
+        </div>
+        <div class="board__result board__result--hidden">
+          <div class="board__item">
+            <div class="board__box board__box--result" data-symbol="paper">
+              <img src="./img/paper.png" alt="" class="board__img board__img--result">
+            </div>
+          </div>
+          <div class="board__item">
+            <div class="board__box board__box--result" data-symbol="paper">
+              <img src="./img/paper.png" alt="" class="board__img board__img--result">
+            </div>
+          </div>
+        </div>
+        <div>
+          <button id="play" class="board__play btn">play</button>
+        </div>
+      </div>
+      <div class="board board--arcade-game"></div>
+      <section class="summary">
+        <h2 class="summary__headline">Twoje wyniki</h2>
+        <div class="summary__scoreboard">
+          <section class="summary__box summary__box--to-right">
+            <h3 class="summary__type">Wygrane</h3>
+            <span class="summary__score" data-type="wins">0</span>
+          </section>
+          <section class="summary__box summary__box--center">
+            <h3 class="summary__type">Remisy</h3>
+            <span class="summary__score" data-type="draws">0</span>
+          </section>
+          <section class="summary__box summary__box--to-left">
+            <h3 class="summary__type">Porażki</h3>
+            <span class="summary__score" data-type="losses">0</span>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__col">
+        <button class="btn btn--noborder btn--active">dźwięk</button>
+      </div>
+      <div class="footer__col">
+        <button id="reset" class="btn btn--noborder">resetuj wyniki</button>
+        <div class="popup">
+          <p class="copy popup__copy">Jesteś pewny? Twój wynik zostanie utracony!</p>
+          <div class="popup__btns">
+            <div class="popup__btn-container">
+              <button class="btn btn--short popup__btn" data-btn="no">nie</button>
+            </div>
+            <div class="popup__btn-container">
+              <button class="btn btn--short popup__btn" data-btn="yes">tak</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
 <script type="text/javascript" src="js/bundle.js"></script></body>
 
 </html>
