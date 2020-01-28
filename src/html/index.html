@@ -20,91 +20,66 @@
       <button id="levelBtn" class="btn btn--border btn--active" type="button" aria-label="Poziom 2">poziom 2</button>
     </header>
 
-    <!-- <main class="main">
-      <section>
-        <h2 class="headline headline--result">Grasz z botem</h2>
-        <p class="copy copy--result">Wybierz swoją łapkę!</p>
-      </section>
-      <div class="board board--random-game">
-        <div class="board__container">
-          <div class="board__item">
-            <div class="board__box board__box--game" data-symbol="stone">
-              <img src="../img/stone.png" alt="" class="board__img">
+    <main class="main">
+      <header class="main__headline">
+        <h2 class="headline headline--result">Grasz na Poziomie 2</h2>
+        <p class="copy copy--result">Wybierz symbol bądź szybki.</p>
+      </header>
+
+      <div class="board">
+
+
+        <div class="board__container board__container--arcade">
+
+          <div class="board__items board__items--arcade">
+
+            <div class="board__item board__item--arcade">
+              <div class="board__box board__box--game" data-symbol="stone">
+                <img src="../img/stone.svg" alt="" class="board__img">
+              </div>
+              <div class="board__arrow board__arrow--hidden">
+                <img src="../img/arrow-left.svg" alt="" class="board__icon">
+              </div>
             </div>
-            <div class="board__arrow">
-              <img src="../img/arrow-left.svg" alt="" class="board__icon">
+
+            <div class="board__item board__item--arcade">
+              <div class="board__box board__box--game" data-symbol="stone">
+                <img src="../img/paper.svg" alt="" class="board__img">
+              </div>
+              <div class="board__arrow board__arrow--hidden">
+                <img src="../img/arrow-left.svg" alt="" class="board__icon">
+              </div>
+            </div>
+
+            <div class="board__item board__item--arcade">
+              <div class="board__box board__box--game" data-symbol="shears">
+                <img src="../img/shears.svg" alt="" class="board__img">
+              </div>
+              <div class="board__arrow board__arrow--hidden">
+                <img src="../img/arrow-right.svg" alt="" class="board__icon">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="board__ai">
+            <div class="board__item board__item--ai board__item--arcade">
+              <div class="board__box board__box--ai board__box--game" data-symbol="stone">
+                <img src="../img/stone.svg" alt="" class="board__img">
+              </div>
+              <div class="board__title">
+                <p class="borad__name">Przeciwnik</p>
+              </div>
             </div>
           </div>
-          <div class="board__item">
-            <div class="board__box board__box--game" data-symbol="paper">
-              <img src="../img/paper.png" alt="" class="board__img">
-            </div>
-            <div class="board__arrow">
-              <img src="../img/arrow-down.svg" alt="" class="board__icon">
-            </div>
-          </div>
-          <div class="board__item">
-            <div class="board__box board__box--game" data-symbol="shears">
-              <img src="../img/shears.png" alt="" class="board__img">
-            </div>
-            <div class="board__arrow">
-              <img src="../img/arrow-right.svg" alt="" class="board__icon">
-            </div>
-          </div>
+
         </div>
-        <div class="board__result board__result--hidden">
-          <div class="board__item">
-            <div class="board__box board__box--result" data-symbol="paper">
-              <img src="../img/paper.png" alt="" class="board__img board__img--result">
-            </div>
-          </div>
-          <div class="board__item">
-            <div class="board__box board__box--result" data-symbol="paper">
-              <img src="../img/paper.png" alt="" class="board__img board__img--result">
-            </div>
-          </div>
-        </div>
-        <div>
-          <button id="play" class="board__play btn" type="button">play</button>
-        </div>
+
+
       </div>
-      <div class="board board--arcade-game">
-        <div class="board__container">
-          <div class="board__item">
-            <div class="board__box board__box--game" data-symbol="stone">
-              <img src="../img/stone.png" alt="" class="board__img">
-            </div>
-            <div class="board__arrow">
-              <img src="../img/arrow-left.svg" alt="" class="board__icon">
-            </div>
-          </div>
-          <div class="board__item">
-            <div class="board__box board__box--game" data-symbol="paper">
-              <img src="../img/paper.png" alt="" class="board__img">
-            </div>
-            <div class="board__arrow">
-              <img src="../img/arrow-down.svg" alt="" class="board__icon">
-            </div>
-          </div>
-          <div class="board__item">
-            <div class="board__box board__box--game" data-symbol="shears">
-              <img src="../img/shears.png" alt="" class="board__img">
-            </div>
-            <div class="board__arrow">
-              <img src="../img/arrow-right.svg" alt="" class="board__icon">
-            </div>
-          </div>
-        </div>
-        <div class="board__ai">
-          <div class="board__item">
-            <div class="board__box board__box--game" data-symbol="stone">
-              <img src="../img/stone.png" alt="" class="board__img">
-            </div>
-          </div>
-        </div>
-      </div>
+
       <section class="summary">
-        <h2 class="summary__headline">Twoje wyniki</h2>
+        <h2 class="summary__headline">Twój wynik</h2>
         <div class="summary__scoreboard">
           <section class="summary__box summary__box--to-right">
             <h3 class="summary__type">Wygrane</h3>
@@ -120,7 +95,7 @@
           </section>
         </div>
       </section>
-    </main> -->
+    </main>
 
     <footer class="footer">
       <div class="footer__col">
@@ -145,3 +120,120 @@
 </body>
 
 </html>
+
+<template class="template game-board-level-1">
+  <div class="board__container board__container--random">
+
+    <div class="board__items">
+
+      <div class="board__item board__item--random">
+        <div class="board__box board__box--game" data-symbol="stone">
+          <img src="../img/stone.svg" alt="" class="board__img">
+        </div>
+        <div class="board__arrow board__arrow--hidden">
+          <img src="../img/arrow-left.svg" alt="" class="board__icon">
+        </div>
+      </div>
+
+      <div class="board__item board__item--random">
+        <div class="board__box board__box--game" data-symbol="stone">
+          <img src="../img/paper.svg" alt="" class="board__img">
+        </div>
+        <div class="board__arrow board__arrow--hidden">
+          <img src="../img/arrow-left.svg" alt="" class="board__icon">
+        </div>
+      </div>
+
+      <div class="board__item board__item--random">
+        <div class="board__box board__box--game" data-symbol="shears">
+          <img src="../img/shears.svg" alt="" class="board__img">
+        </div>
+        <div class="board__arrow board__arrow--hidden">
+          <img src="../img/arrow-right.svg" alt="" class="board__icon">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</template>
+
+<template class="template game-board-level-2">
+  <div class="board__container board__container--random">
+
+    <div class="board__items">
+
+      <div class="board__item board__item--random">
+        <div class="board__box board__box--game" data-symbol="stone">
+          <img src="../img/stone.svg" alt="" class="board__img">
+        </div>
+        <div class="board__arrow board__arrow--hidden">
+          <img src="../img/arrow-left.svg" alt="" class="board__icon">
+        </div>
+      </div>
+
+      <div class="board__item board__item--random">
+        <div class="board__box board__box--game" data-symbol="stone">
+          <img src="../img/paper.svg" alt="" class="board__img">
+        </div>
+        <div class="board__arrow board__arrow--hidden">
+          <img src="../img/arrow-left.svg" alt="" class="board__icon">
+        </div>
+      </div>
+
+      <div class="board__item board__item--random">
+        <div class="board__box board__box--game" data-symbol="shears">
+          <img src="../img/shears.svg" alt="" class="board__img">
+        </div>
+        <div class="board__arrow board__arrow--hidden">
+          <img src="../img/arrow-right.svg" alt="" class="board__icon">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="board__ai">
+      <div class="board__item">
+        <div class="board__box board__box--game" data-symbol="stone">
+          <img src="../img/stone.png" alt="" class="board__img">
+        </div>
+        <div class="board__title">
+          <p class="borad__name">Przeciwnik</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</template>
+
+<template class="template game-board-results">
+  <div class="board__container board__container--results">
+
+    <div class="board__items">
+
+      <div class="board__item">
+        <div class="board__box board__box--game" data-symbol="stone">
+          <img src="../img/stone.png" alt="" class="board__img">
+        </div>
+        <div class="board__arrow">
+          <img src="../img/arrow-left.svg" alt="" class="board__icon">
+        </div>
+      </div>
+
+      <div class="board__item">
+        <div class="board__box board__box--game" data-symbol="stone">
+          <img src="../img/stone.png" alt="" class="board__img">
+        </div>
+        <div class="board__arrow">
+          <img src="../img/arrow-left.svg" alt="" class="board__icon">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="board__btn">
+      <button class="btn btn--border">Zagraj ponownie</button>
+    </div>
+
+  </div>
+</template>
