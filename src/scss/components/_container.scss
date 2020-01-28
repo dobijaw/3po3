@@ -1,4 +1,21 @@
+@mixin containerProperties {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
 .container {
+    min-height: 100vh;
     width: 100%;
     padding: $window-padding;
+
+
+    @media(min-width:600px) and (orientation: portrait) {
+        @include containerProperties;
+    }
+
+    @media(min-width:960px) and (orientation: landscape) {
+        @include containerProperties;
+    }
 }

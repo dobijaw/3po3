@@ -5,17 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>3 po 3 - spróbujesz?</title>
+  <title>3 po 3 | Kamień Papier Nożyce</title>
 </head>
 
 <body>
   <div class="container">
+
     <header class="header">
-      <h1 class="logo">3<span class="logo__mark">po</span>3</h1>
-      <button class="btn">poziom 2</button>
+      <h1 class="logo">
+        <a class="logo__link" href="index.html">
+          <img src="../img/logo.svg" alt="3po3 Logo" class="logo__img" title="3po3">
+        </a>
+      </h1>
+      <button id="levelBtn" class="btn btn--border btn--active" type="button" aria-label="Poziom 2">poziom 2</button>
     </header>
 
-    <main class="main">
+    <!-- <main class="main">
       <section>
         <h2 class="headline headline--result">Grasz z botem</h2>
         <p class="copy copy--result">Wybierz swoją łapkę!</p>
@@ -60,7 +65,7 @@
           </div>
         </div>
         <div>
-          <button id="play" class="board__play btn">play</button>
+          <button id="play" class="board__play btn" type="button">play</button>
         </div>
       </div>
       <div class="board board--arcade-game">
@@ -115,11 +120,11 @@
           </section>
         </div>
       </section>
-    </main>
+    </main> -->
 
     <footer class="footer">
       <div class="footer__col">
-        <button class="btn btn--noborder btn--active">dźwięk</button>
+        <button class="btn btn--noborder btn--active" type="button">dźwięk</button>
       </div>
       <div class="footer__col">
         <button id="reset" class="btn btn--noborder">resetuj wyniki</button>
@@ -127,10 +132,10 @@
           <p class="copy popup__copy">Jesteś pewny? Twój wynik zostanie utracony!</p>
           <div class="popup__btns">
             <div class="popup__btn-container">
-              <button class="btn btn--short popup__btn" data-btn="no">nie</button>
+              <button class="btn btn--quickanswer popup__btn" data-btn="no" type="button" aria-label="Nie">nie</button>
             </div>
             <div class="popup__btn-container">
-              <button class="btn btn--short popup__btn" data-btn="yes">tak</button>
+              <button class="btn btn--quickanswer popup__btn" data-btn="yes" type="button" aria-label="Tak">tak</button>
             </div>
           </div>
         </div>

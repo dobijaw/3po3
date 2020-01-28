@@ -1,16 +1,21 @@
 .btn {
-  padding: 10px 16px;
-  border: 1px solid $dark-color;
+  padding: 0;
+  border: 0;
   margin: 0;
   background: none;
   color: $dark-color;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
   line-height: 1;
+  letter-spacing: .1em;
   cursor: pointer;
 
-  &--short {
+  @media(min-width: 768px) {
+    font-size: 16px;
+  }
+
+  &--quickanswer {
     position: relative;
     border: 0;
 
@@ -43,11 +48,27 @@
     }
   }
 
+  &--border {
+    padding: 10px 24px;
+    border: 1px solid $dark-color;
+    transition: all .25s ease-out;
+
+    @media(min-width: 768px) {
+      padding: 12px 34px;
+    }
+
+    &:hover {
+      opacity: .4;
+    }
+  }
+
+  &--border.btn--active {
+    opacity: .4;
+  }
+
   &--noborder {
     position: relative;
     overflow: hidden;
-    padding: 0;
-    border: 0;
 
     &::after {
       content: "";
@@ -69,9 +90,15 @@
     }
   }
 
-  &--active {
+  &--noborder.btn--active {
     &::after {
       transform: translateX(0);
+    }
+
+    &:hover {
+      &::after {
+        transform: translateX(-100%);
+      }
     }
   }
 }

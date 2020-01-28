@@ -1,3 +1,9 @@
+@mixin footerRespProperties {
+    position: relative;
+    padding: 0;
+    border-top: 0;
+}
+
 .footer {
     position: fixed;
     bottom: 0;
@@ -9,4 +15,12 @@
     padding: 16px $window-padding;
     border-top: 1px solid rgba($dark-color, .2);
     background: $background-color;
+
+    @media(min-width: 600px) and (orientation: portrait) {
+        @include footerRespProperties;
+    }
+
+    @media(min-width:960px) and (orientation: landscape) {
+        @include footerRespProperties;
+    }
 }

@@ -1,23 +1,23 @@
 .logo {
     padding: 0;
     margin: 0;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: .8;
-    text-align: center;
+    height: 46px;
 
-    &__mark {
-        display: inline-block;
-        line-height: 1;
-        background: $dark-color;
-        color: $background-color;
+    @media (min-width: 768px) {
+        height: 60px;
     }
 
-    @media(min-width: 960px) {
-        font-size: 32px;
+    @media (min-width: 1024px) {
+        height: 70px;
     }
 
-    @media(min-width: 1200px) {
-        font-size: 38px;
+    &__link,
+    &__img {
+        display: block;
+        height: 100%;
+    }
+
+    &__link {
+        text-decoration: none;
     }
 }
