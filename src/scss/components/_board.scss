@@ -1,66 +1,50 @@
 .board {
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    padding: 30px 0;
+  }
+
+  &__list {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 40px 0;
+    padding: 0;
+    margin: 0 20px;
+  }
 
-    &--random-game {
-        display: none;
-    }
+  &__box {
+    position: relative;
+    width: 10vw;
+    height: 10vw;
+    border: 1px solid $dark-color;
+    background: $neutral-color;
+  }
 
+  &__img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 60%;
+    transform: translate(-50%, -50%);
+  }
 
-    &__container {
-        display: flex;
-        justify-content: center;
+  &__arrow {
+    width: 40%;
+    margin: 10px 0 0;
+  }
 
-        &--hidden {
-            display: none;
-        }
-    }
-
-    &__result {
-        display: flex;
-
-        &--hidden {
-            display: none;
-        }
-    }
-
-    &__item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 4px;
-    }
-
-    &__box {
-        width: 100%;
-        border: 6px solid $background-color;
-
-        &--active {
-            border-color: $dark-color;
-        }
-    }
-
-    &__img {
-        display: block;
-        width: 100%;
-    }
-
-    &__arrow {
-        display: none;
-        width: 50%;
-        margin-top: 10px;
-    }
-
-    &__icon {
-        display: block;
-        width: 100%;
-    }
-
-    &__play {
-        border: 1px solid $dark-color;
-        padding: 10px;
-        margin: 40px 0;
-    }
+  &__icon {
+    display: block;
+    width: 100%;
+  }
 }
