@@ -5,4 +5,8 @@
     font-weight: 400;
     text-align: center;
     line-height: 1.3;
+
+    @media(min-width: 380px) {
+        font-size: 19px;
+    }
 }

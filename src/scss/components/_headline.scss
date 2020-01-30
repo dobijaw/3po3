@@ -4,4 +4,8 @@
     font-size: 18px;
     font-weight: 600;
     text-align: center;
+
+    @media(min-width: 380px) {
+        font-size: 22px;
+    }
 }

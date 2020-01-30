@@ -1,4 +1,11 @@
 .summary {
+  @media(orientation: portrait) {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   &__headline {
     margin: 0;
     padding: 0;
@@ -6,6 +13,10 @@
     font-weight: 600;
     text-transform: capitalize;
     text-align: center;
+
+    @media (min-width:360px) {
+      font-size: 18px;
+    }
   }
 
   &__scoreboard {
@@ -14,7 +25,12 @@
   }
 
   &__box {
-    padding: 10px;
+    padding: 5px 10px;
+
+    @media (min-width:360px) {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
 
     &--to-right {
       text-align: right;
@@ -35,11 +51,20 @@
     font-size: 14px;
     font-weight: 400;
     text-transform: uppercase;
+
+    @media (min-width:360px) {
+      margin: 0 0 4px;
+      font-size: 18px;
+    }
   }
 
   &__score {
     margin: 0;
     font-size: 20px;
     font-weight: 500;
+
+    @media (min-width:360px) {
+      font-size: 24px;
+    }
   }
 }

@@ -54,73 +54,100 @@
 
 
 
-        <div class="board__container">
+        <div id="option2" class="board__container board__container--option2">
 
           <ul class="board__list">
-
-            <li class="board__item">
-
-              <button class="board__box" data-symbol="stone">
+            <li class="board__item board__item--option2">
+              <button class="board__box board__box--option2" data-symbol="stone">
                 <img src="../img/stone.svg" alt="" class="board__img">
               </button>
-
               <div class="board__arrow board__arrow--hidden">
                 <img src="../img/arrow-left.svg" alt="" class="board__icon">
               </div>
-
             </li>
-
-            <li class="board__item">
-
-              <button class="board__box" data-symbol="stone">
+            <li class="board__item board__item--option2">
+              <button class="board__box board__box--option2" data-symbol="stone">
                 <img src="../img/stone.svg" alt="" class="board__img">
               </button>
-
               <div class="board__arrow board__arrow--hidden">
                 <img src="../img/arrow-left.svg" alt="" class="board__icon">
               </div>
-
             </li>
-
-
-            <li class="board__item">
-
-              <button class="board__box" data-symbol="stone">
+            <li class="board__item board__item--option2">
+              <button class="board__box board__box--option2" data-symbol="stone">
                 <img src="../img/stone.svg" alt="" class="board__img">
               </button>
-
               <div class="board__arrow board__arrow--hidden">
                 <img src="../img/arrow-left.svg" alt="" class="board__icon">
               </div>
-
             </li>
-
           </ul>
+
+          <div class="board__ai">
+            <div class="board__item board__item--ai board__item--option2">
+              <button class="board__box board__box--ai board__box--option2" data-symbol="stone">
+                <img src="../img/stone.svg" alt="" class="board__img">
+              </button>
+              <div class="board__player">
+                <p class="board__copy">Przeciwnik</p>
+              </div>
+            </div>
+          </div>
 
         </div>
 
+        <div id="option1" class="board__container">
+          <ul class="board__list">
+            <li class="board__item">
+              <button class="board__box" data-symbol="stone">
+                <img src="../img/stone.svg" alt="" class="board__img">
+              </button>
+              <div class="board__arrow board__arrow--hidden">
+                <img src="../img/arrow-left.svg" alt="" class="board__icon">
+              </div>
+            </li>
+            <li class="board__item">
+              <button class="board__box" data-symbol="stone">
+                <img src="../img/stone.svg" alt="" class="board__img">
+              </button>
+              <div class="board__arrow board__arrow--hidden">
+                <img src="../img/arrow-left.svg" alt="" class="board__icon">
+              </div>
+            </li>
+            <li class="board__item">
+              <button class="board__box" data-symbol="stone">
+                <img src="../img/stone.svg" alt="" class="board__img">
+              </button>
+              <div class="board__arrow board__arrow--hidden">
+                <img src="../img/arrow-left.svg" alt="" class="board__icon">
+              </div>
+            </li>
+          </ul>
+        </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <div id="result" class="board__container">
+          <ul class="board__list">
+            <li class="board__item">
+              <button class="board__box" data-symbol="stone">
+                <img src="../img/stone.svg" alt="" class="board__img">
+              </button>
+              <div class="board__arrow board__arrow--hidden">
+                <img src="../img/arrow-left.svg" alt="" class="board__icon">
+              </div>
+            </li>
+            <li class="board__item">
+              <button class="board__box" data-symbol="stone">
+                <img src="../img/stone.svg" alt="" class="board__img">
+              </button>
+              <div class="board__arrow board__arrow--hidden">
+                <img src="../img/arrow-left.svg" alt="" class="board__icon">
+              </div>
+            </li>
+          </ul>
+          <div class="board__btn">
+            <button class="btn btn--border">Zagraj ponownie</button>
+          </div>
+        </div>
 
 
 
@@ -182,39 +209,33 @@
 </html>
 
 <template class="template game-board-level-1">
-  <div class="board__container board__container--random">
-
-    <div class="board__items">
-
-      <div class="board__item board__item--random">
-        <div class="board__box board__box--game" data-symbol="stone">
+  <div class="board__container">
+    <ul class="board__list">
+      <li class="board__item">
+        <button class="board__box" data-symbol="stone">
           <img src="../img/stone.svg" alt="" class="board__img">
-        </div>
+        </button>
         <div class="board__arrow board__arrow--hidden">
           <img src="../img/arrow-left.svg" alt="" class="board__icon">
         </div>
-      </div>
-
-      <div class="board__item board__item--random">
-        <div class="board__box board__box--game" data-symbol="stone">
-          <img src="../img/paper.svg" alt="" class="board__img">
-        </div>
+      </li>
+      <li class="board__item">
+        <button class="board__box" data-symbol="stone">
+          <img src="../img/stone.svg" alt="" class="board__img">
+        </button>
         <div class="board__arrow board__arrow--hidden">
           <img src="../img/arrow-left.svg" alt="" class="board__icon">
         </div>
-      </div>
-
-      <div class="board__item board__item--random">
-        <div class="board__box board__box--game" data-symbol="shears">
-          <img src="../img/shears.svg" alt="" class="board__img">
-        </div>
+      </li>
+      <li class="board__item">
+        <button class="board__box" data-symbol="stone">
+          <img src="../img/stone.svg" alt="" class="board__img">
+        </button>
         <div class="board__arrow board__arrow--hidden">
-          <img src="../img/arrow-right.svg" alt="" class="board__icon">
+          <img src="../img/arrow-left.svg" alt="" class="board__icon">
         </div>
-      </div>
-
-    </div>
-
+      </li>
+    </ul>
   </div>
 </template>
 

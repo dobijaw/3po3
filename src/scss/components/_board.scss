@@ -1,9 +1,41 @@
+#option1 {
+  display: none;
+}
+
+// #option2 {
+//   display: none;
+// }
+
+#result {
+  display: none;
+}
+
 .board {
   display: flex;
   justify-content: center;
 
   &__container {
-    padding: 30px 0;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (orientation: landscape) {
+      padding: 30px 0;
+    }
+
+    &--option2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 25px 0;
+
+      @media (orientation: landscape) {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+      }
+    }
   }
 
   &__list {
@@ -17,16 +49,83 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 26vw;
     padding: 0;
-    margin: 0 20px;
+    margin: 0 2px;
+
+    @media (orientation: landscape) {
+      width: 15vw;
+      margin: 0 6px;
+    }
+
+    &--option2 {
+      width: 55px;
+
+      @media (min-height: 480px) and (orientation: portrait) {
+        width: 20vw;
+      }
+
+      @media (orientation: landscape) {
+        width: 16vw;
+      }
+    }
+
+    &--ai {
+      display: flex;
+      flex-direction: column-reverse;
+
+      @media (orientation: landscape) {
+        flex-direction: row;
+        justify-content: flex-start;
+        width: auto;
+      }
+    }
+  }
+
+  &__ai {
+    margin: 15px 0 0;
+
+    @media (min-width:360px) and (min-height: 600px) and (orientation: portrait) {
+      margin-top: 30px;
+    }
+
+    @media (orientation: landscape) {
+      margin: 0 0 0 15px;
+    }
   }
 
   &__box {
     position: relative;
-    width: 10vw;
-    height: 10vw;
+    width: 26vw;
+    height: 26vw;
     border: 1px solid $dark-color;
     background: $neutral-color;
+    padding: 0;
+
+    @media (orientation: landscape) {
+      width: 15vw;
+      height: 15vw;
+    }
+
+    &--option2 {
+      width: 55px;
+      height: 55px;
+
+      @media (min-height: 480px) and (orientation: portrait) {
+        width: 20vw;
+        height: 20vw;
+      }
+
+
+      @media (orientation: landscape) {
+        width: 16vw;
+        height: 16vw;
+      }
+    }
+
+    &--ai {
+      border-radius: 50%;
+    }
   }
 
   &__img {
@@ -41,10 +140,43 @@
   &__arrow {
     width: 40%;
     margin: 10px 0 0;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__player {
+    @media (orientation: landscape) {
+      transform: rotate(-90deg);
+      margin-left: -20px;
+      margin-right: -29px;
+      display: block;
+    }
+  }
+
+  &__copy {
+    margin: 0 0 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    @media (min-width:360px) and (min-height: 600px) and (orientation: portrait) {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    @media (orientation: landscape) {
+      margin: 0;
+    }
   }
 
   &__icon {
     display: block;
     width: 100%;
+  }
+
+  &__btn {
+    margin-top: 20px;
   }
 }
