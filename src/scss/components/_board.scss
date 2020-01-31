@@ -2,13 +2,13 @@
   display: none;
 }
 
-// #option2 {
-//   display: none;
-// }
-
-#result {
+#option2 {
   display: none;
 }
+
+// #result {
+//   display: none;
+// }
 
 .board {
   display: flex;
@@ -19,6 +19,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media(min-width: 360px) and (min-height: 530px) {
+      padding: 40px 0;
+    }
 
     @media (orientation: landscape) {
       padding: 30px 0;
@@ -34,6 +38,11 @@
         flex-direction: row;
         align-items: flex-start;
         justify-content: center;
+      }
+
+      @media(min-width: 415px) and (min-height: 768px) and (orientation: portrait) {
+        padding-top: 60px;
+        padding-bottom: 60px;
       }
     }
   }
@@ -58,11 +67,53 @@
       margin: 0 6px;
     }
 
+
+    @media (min-width: 660px) {
+      margin: 0 10px;
+    }
+
     &--option2 {
       width: 55px;
 
-      @media (min-height: 480px) and (orientation: portrait) {
+      @media (min-width: 380px) and (min-height: 540px) and (orientation: portrait) {
+        width: 19vw;
+      }
+
+      @media (min-width: 440px) and (min-height: 520px) and (orientation: portrait) {
+        width: 16vw;
+      }
+
+      @media (min-width: 450px) and (min-height: 570px) and (orientation: portrait) {
+        width: 85px;
+      }
+
+      @media (min-width: 450px) and (min-height: 680px) and (orientation: portrait) {
         width: 20vw;
+        margin: 0 4px;
+      }
+
+      @media (min-width: 360px) and (min-height: 730px) and (orientation: portrait) {
+        width: 24vw;
+      }
+
+      @media (min-width: 540px) and (min-height: 540px) and (orientation: portrait) {
+        width: 80px;
+      }
+
+      @media (min-width: 540px) and (min-height: 768px) and (orientation: portrait) {
+        width: 100px;
+      }
+
+      @media (min-width: 680px) and (min-height: 880px) and (orientation: portrait) {
+        width: 20vw;
+      }
+
+      @media (min-width: 800px) and (min-height: 880px) and (orientation: portrait) {
+        width: 18vw;
+      }
+
+      @media (min-width: 600px) {
+        margin: 0 10px;
       }
 
       @media (orientation: landscape) {
@@ -71,6 +122,8 @@
     }
 
     &--ai {
+      position: relative;
+      z-index: 5;
       display: flex;
       flex-direction: column-reverse;
 
@@ -86,7 +139,7 @@
     margin: 15px 0 0;
 
     @media (min-width:360px) and (min-height: 600px) and (orientation: portrait) {
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     @media (orientation: landscape) {
@@ -111,11 +164,53 @@
       width: 55px;
       height: 55px;
 
-      @media (min-height: 480px) and (orientation: portrait) {
+
+      @media (min-width: 380px) and (min-height: 540px) and (orientation: portrait) {
+        width: 19vw;
+        height: 19vw;
+      }
+
+
+      @media (min-width: 440px) and (min-height: 520px) and (orientation: portrait) {
+        width: 16vw;
+        height: 16vw;
+      }
+
+      @media (min-width: 450px) and (min-height: 570px) and (orientation: portrait) {
+        width: 85px;
+        height: 85px;
+      }
+
+      @media (min-width: 450px) and (min-height: 680px) and (orientation: portrait) {
         width: 20vw;
         height: 20vw;
       }
 
+      @media (min-width: 360px) and (min-height: 730px) and (orientation: portrait) {
+        width: 24vw;
+        height: 24vw;
+      }
+
+
+      @media (min-width: 540px) and (min-height: 540px) and (orientation: portrait) {
+        width: 80px;
+        height: 80px;
+      }
+
+      @media (min-width: 540px) and (min-height: 768px) and (orientation: portrait) {
+        width: 100px;
+        height: 100px;
+      }
+
+      @media (min-width: 680px) and (min-height: 880px) and (orientation: portrait) {
+        width: 20vw;
+        height: 20vw;
+      }
+
+      @media (min-width: 800px) and (min-height: 880px) and (orientation: portrait) {
+        width: 18vw;
+        height: 18vw;
+      }
 
       @media (orientation: landscape) {
         width: 16vw;
@@ -161,9 +256,13 @@
     font-weight: 600;
     text-transform: uppercase;
 
-    @media (min-width:360px) and (min-height: 600px) and (orientation: portrait) {
+    @media (min-width:360px) and (min-height: 533px) and (orientation: portrait) {
       margin-bottom: 10px;
       font-size: 16px;
+    }
+
+    @media(min-width: 415px) and (min-height: 768px) and (orientation: portrait) {
+      font-size: 20px;
     }
 
     @media (orientation: landscape) {

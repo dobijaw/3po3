@@ -5,7 +5,15 @@
     font-weight: 600;
     text-align: center;
 
-    @media(min-width: 380px) {
-        font-size: 22px;
+    @media(min-width: 360px) and (min-height: 533px) {
+        font-size: 21px;
+    }
+
+    @media(min-width: 400px) and (min-height: 580px) {
+        font-size: 24px;
+    }
+
+    @media(min-width: 480px) and (min-height: 580px) {
+        font-size: 28px;
     }
 }

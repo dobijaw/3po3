@@ -15,6 +15,10 @@
     font-size: 16px;
   }
 
+  @media (min-height: 620px) {
+    font-size: 16px;
+  }
+
   &--quickanswer {
     position: relative;
     border: 0;
@@ -69,6 +73,18 @@
   &--noborder {
     position: relative;
     overflow: hidden;
+
+    @media(min-width:400px) {
+      letter-spacing: .2em;
+    }
+
+    @media(min-width:400px) {
+      letter-spacing: .2em;
+    }
+
+    @media(min-width:540px) {
+      letter-spacing: .4em;
+    }
 
     &::after {
       content: "";
