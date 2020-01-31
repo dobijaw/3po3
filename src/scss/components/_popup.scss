@@ -1,15 +1,45 @@
 .popup {
     display: none;
     position: fixed;
-    bottom: 80px;
-    right: $window-padding;
-    border: 1px solid $dark-color;
-    padding: 20px;
     max-width: 300px;
-    z-index: 2;
+    z-index: 999;
+
+
+    &__container {
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        border: 1px solid $dark-color;
+        background: $background-color;
+    }
 
     &--active {
         display: block;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            background: rgba($background-color, .85);
+            top: 0;
+            left: 0;
+            z-index: -10;
+        }
+    }
+
+    &--variant,
+    &--reset {
+        right: $window-padding;
+    }
+
+    &--variant {
+        top: 160px;
+    }
+
+    &--rest {
+        bottom: 80px;
     }
 
     &__btns {

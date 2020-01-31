@@ -1,6 +1,8 @@
 const DOMelements = {
+    boardTemplates: [...document.querySelectorAll('.template')],
+    board: document.querySelector('.board'),
+    variantBtn: document.querySelector('#variantBtn'),
     symbols: [...document.querySelectorAll('.board__box--game')],
-    symbolsContainer: document.querySelector('.board__container'),
     playBtn: document.querySelector('#play'),
     reset: document.querySelector('#reset'),
     summaryScore: [...document.querySelectorAll('.summary__score')],
@@ -14,7 +16,7 @@ const DOMelements = {
 
 const DOMclasses = {
     symbolActive: 'board__box--active',
-    popupActive: 'popup--active',
+    popUpActive: 'popup--active',
     boardsHidden: 'board__container--hidden',
     boardsResultHidden: 'board__result--hidden',
     resultSymbolsImg: 'board__img--result',

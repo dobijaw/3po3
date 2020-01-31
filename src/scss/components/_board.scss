@@ -144,9 +144,9 @@
         margin: 0 5px;
       }
 
-      // @media(min-width: 1800px) and (min-height: 960px) and (orientation: landscape) {
-      //   width: 186px;
-      // }
+      @media(min-width: 1800px) and (min-height: 960px) and (orientation: landscape) {
+        width: 186px;
+      }
     }
 
     &--ai {
@@ -267,10 +267,10 @@
         height: 160px;
       }
 
-      // @media(min-width: 1800px) and (min-height: 960px) and (orientation: landscape) {
-      //   width: 186px;
-      //   height: 186px;
-      // }
+      @media(min-width: 1800px) and (min-height: 960px) and (orientation: landscape) {
+        width: 186px;
+        height: 186px;
+      }
     }
 
     &--ai {
