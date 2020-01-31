@@ -22,13 +22,23 @@
   &--quickanswer {
     position: relative;
     border: 0;
+    font-size: 14px;
+    letter-spacing: 0;
+
+    &:first-of-type {
+      margin-right: 20px;
+    }
+
+    &:last-of-type {
+      margin-left: 20px;
+    }
 
     &::before {
       content: '<';
       position: absolute;
       top: 50%;
       left: 0;
-      transform: translate(0, -50%);
+      transform: translate(-15px, -50%);
       transition: all .25s ease-in-out;
     }
 
@@ -37,17 +47,17 @@
       position: absolute;
       top: 50%;
       right: 0;
-      transform: translate(0, -50%);
+      transform: translate(15px, -50%);
       transition: all .25s ease-in-out;
     }
 
     &:hover {
       &::before {
-        transform: translate(5px, -50%);
+        transform: translate(-10px, -50%);
       }
 
       &::after {
-        transform: translate(-5px, -50%);
+        transform: translate(10px, -50%);
       }
     }
   }
