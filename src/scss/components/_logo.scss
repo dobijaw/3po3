@@ -3,16 +3,24 @@
     margin: 0;
     height: 46px;
 
-    @media (min-width: 480px) {
+    @media (min-width: 480px) and (orientation:portrait) {
         height: 54px;
     }
 
-    @media (min-width: 540px) {
+    @media (min-width: 540px) and (orientation:portrait) {
         height: 60px;
     }
 
 
-    @media (min-width: 600px) {
+    @media (min-width: 600px) and (orientation:portrait) {
+        height: 70px;
+    }
+
+    @media(min-width: 800px) and (min-height: 360px) and (orientation: landscape) {
+        height: 60px;
+    }
+
+    @media(min-width: 1600px) and(min-height: 900px) and (orientation: landscape) {
         height: 70px;
     }
 
