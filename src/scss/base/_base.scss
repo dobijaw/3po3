@@ -6,6 +6,10 @@ body {
     background: $background-color;
 }
 
+*:focus {
+    outline: 0;
+}
+
 *,
 *::after,
 *::before {

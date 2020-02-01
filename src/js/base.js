@@ -1,6 +1,7 @@
 const DOMelements = {
     boardTemplates: [...document.querySelectorAll('.template')],
     board: document.querySelector('.board'),
+    allSymbols: [...document.querySelectorAll('.board__box')],
     variantBtn: document.querySelector('#variantBtn'),
     symbols: [...document.querySelectorAll('.board__box--game')],
     playBtn: document.querySelector('#play'),

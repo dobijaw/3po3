@@ -1,11 +1,7 @@
-import {
-    state
-} from '../state';
-import {
-    DOMelements
-} from '../base';
+import { state } from '../state';
+import { DOMelements } from '../base';
 
-function renderGameView() {
+function renderGameVariantView() {
     DOMelements.board.textContent = '';
 
     DOMelements.boardTemplates.forEach(template => {
@@ -16,4 +12,4 @@ function renderGameView() {
     })
 }
 
-export default renderGameView;
+export default renderGameVariantView;

@@ -69,6 +69,13 @@
     list-style: none;
   }
 
+  &__img {
+    &--ai {
+      opacity: 0;
+      transition: .2s;
+    }
+  }
+
   &__item {
     display: flex;
     flex-direction: column;
@@ -194,6 +201,16 @@
     border: 1px solid $dark-color;
     background: $neutral-color;
     padding: 0;
+    cursor: pointer;
+    transition: background .35s ease-in-out;
+
+    &:hover {
+      background: $neutral-color-hover;
+    }
+
+    &--active {
+      background: $neutral-color-hover;
+    }
 
     @media (orientation: landscape) {
       width: 15vw;

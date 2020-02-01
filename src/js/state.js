@@ -1,5 +1,5 @@
 const state = {
-    gameVariant: 'variant1',
+    gameVariant: 'variant2',
     playerChoice: '',
     aiChoice: '',
     summary: {
@@ -12,21 +12,26 @@ const state = {
     isGameBoard: true
 }
 
-// const resetStateChoice = () => {
-//     state.playerChoice = '';
-//     state.aiChoice = '';
-// }
+const resetStateGameVariant = () => {
+    if (state.gameVariant !== 'variant1')
+        state.gameVariant = 'variant1';
+}
 
-// const resetAllState = () => {
-//     resetStateChoice();
+const resetStatePlayerChoice = () => {
+    state.playerChoice = '';
+    state.aiChoice = '';
+}
 
-//     for (const key of Object.keys(state.summary)) {
-//         state.summary[key] = 0;
-//     }
-// }
+const resetState = () => {
+    resetStatePlayerChoice();
+
+    for (const key of Object.keys(state.summary)) {
+        state.summary[key] = 0;
+    }
+}
 
 export {
-    state
-    // resetAllState,
+    state,
+    resetState,
     // resetStateChoice
 };

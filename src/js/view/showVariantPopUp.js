@@ -1,5 +1,4 @@
-import renderGameView from './renderGameView';
-import changeBtnView from './changeBtnView';
+import renderGameView from './renderGameVariantView';
 import {
     DOMelements,
     DOMclasses
@@ -15,7 +14,7 @@ function makeDecision({
     DOMelements.popup.classList.remove(DOMclasses.popUpActive);
 }
 
-function showChangeGameScreen() {
+function showVariantPopUp() {
     DOMelements.popup.classList.add(DOMclasses.popUpActive);
 
     const btns = document.querySelectorAll('.popup__btn');
@@ -27,4 +26,26 @@ function showChangeGameScreen() {
     })
 }
 
-export default showChangeGameScreen;
+export default showVariantPopUp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const curVariant = this.dataset.variant;
+// state.gameVariant = curVariant;
+
+// renderGameView();
+// const variantText = curVariant === 'variant1' ? 'Wariant 2' : 'Wariant 1';
+// this.textContent = variantText;
+// this.setAttribute('aria-label', variantText);
+// this.dataset.variant = curVariant === 'variant1' ? 'variant2' : 'variant1';
