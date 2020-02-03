@@ -8,8 +8,7 @@ const state = {
         draws: 0,
         losses: 0
     },
-    isPopupOpen: false,
-    isGameBoard: true
+    keyBlocked: false
 }
 
 const resetStateGameVariant = () => {
@@ -23,6 +22,7 @@ const resetStatePlayerChoice = () => {
 }
 
 const resetState = () => {
+    resetStateGameVariant();
     resetStatePlayerChoice();
 
     for (const key of Object.keys(state.summary)) {
@@ -32,6 +32,5 @@ const resetState = () => {
 
 export {
     state,
-    resetState,
-    // resetStateChoice
+    resetState
 };

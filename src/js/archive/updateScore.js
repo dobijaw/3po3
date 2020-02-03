@@ -12,4 +12,6 @@ const updateScore = (scoreStatus) => {
     })
 }
 
+
+
 export default updateScore;

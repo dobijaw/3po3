@@ -1,95 +1,54 @@
 import '../scss/index.scss';
 
-import { DOMelements } from './base';
-
-import renderGameVariantView from './view/renderGameVariantView';
-import showVariantPopUp from './view/showVariantPopUp';
-import AIChoice from './model/AIChoice';
+import { state } from './state';
 
 
+import Variant from './model/Variant';
+import Winner from './model/Winner';
+
+import { winnerView, updateScoreView, updateHeadlineView } from './view/winnerView';
+import { resetSummaryView } from './view/summaryView';
+import VariantMethods from './model/VariantMethods';
+
+const newGame = () => {
+    state.keyBlocked = false;
+    const gameVariants = new Variant();
+    const currentVariant = gameVariants.getVariantGame(state.gameVariant);
+
+    updateScoreView();
+    currentVariant.updateHeadline();
+    currentVariant.renderGameBoard();
+    currentVariant.aiChoice();
+
+    currentVariant.subscribe(() => {
+        const aiSymbol = currentVariant.stopSymbolInterval();
+        currentVariant.saveChoiceInState(aiSymbol);
+
+        const winner = new Winner();
+        const result = winner.saveWinner();
+
+        winnerView(result);
+        updateHeadlineView(result);
+
+        document.querySelector('.btn--play-again').addEventListener('click', newGame)
+    })
+
+    currentVariant.playerChoice();
+}
 
 const initGame = () => {
+    resetSummaryView();
+    document.querySelectorAll('.btn--variant').forEach(btn => {
+        btn.addEventListener('click', () => {
+            state.gameVariant = btn.dataset.variant;
 
-    renderGameVariantView();
+            newGame();
+        })
+    })
 
-    // Update and reset State
-
-
-    // 2. Reset all Scores UI
-
-
-    DOMelements.variantBtn.addEventListener('click', showVariantPopUp);
-
-
-
-
-    const newAiChoice = new AIChoice(100);
-    newAiChoice.drawSymbolImg(true);
-
-    setTimeout(() => { newAiChoice.stopSymbolInterval() }, 5000)
-
-
-
-
-
-    // const aiSymbolBox = document.querySelector('.board__box--ai');
-    // const aiSymbolImg = [...document.querySelectorAll('.board__img--ai')];
-    // aiSymbolImg.forEach(img => { img.style.opacity = 0 })
-    // const counterNums = [1, 2, 3]
-    // let counter = 0;
-
-    // let aiInterval = setInterval(() => {
-    //     if (counter === 3) counter = 0;
-    //     aiSymbolImg.forEach(img => { img.style.opacity = 0 })
-    //     aiSymbolImg[counter].style.opacity = 1;
-
-
-    //     counter++;
-    // }, 80);
-
-    // setTimeout(() => {
-    //     clearInterval(aiInterval)
-    // }, 5000)
-
-    // const playerSymbolsBtns = [...document.querySelectorAll('.board__box--option2')];
-    // playerSymbolsBtns.forEach(symbol => {
-    //     symbol.addEventListener('click', () => {
-    //         clearInterval(aiInterval);
-    //         symbol.style.background = '#C4CFD5';
-    //     })
-    // })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    newGame();
 }
+
+
 
 document.addEventListener('DOMContentLoaded', () => initGame());

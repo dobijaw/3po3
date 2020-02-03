@@ -12,7 +12,9 @@ const DOMelements = {
     boardResultGame: document.querySelector('.board__result'),
     headlineResult: document.querySelector('.headline--result'),
     copyResult: document.querySelector('.copy--result'),
-    resultSymbols: document.querySelectorAll('.board__box--result')
+    resultSymbols: document.querySelectorAll('.board__box--result'),
+
+    symbolBoardsVariant1: [...document.querySelectorAll('.board__box--variant1')]
 }
 
 const DOMclasses = {
@@ -21,7 +23,8 @@ const DOMclasses = {
     boardsHidden: 'board__container--hidden',
     boardsResultHidden: 'board__result--hidden',
     resultSymbolsImg: 'board__img--result',
-    resultSymbolsBox: 'board__box--result'
+    resultSymbolsBox: 'board__box--result',
+    symbolBoardsVariant1: 'board__box--variant1',
 }
 
 export {

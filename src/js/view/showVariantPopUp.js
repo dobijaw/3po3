@@ -1,32 +1,32 @@
-import renderGameView from './renderGameVariantView';
-import {
-    DOMelements,
-    DOMclasses
-} from '../base';
+// import renderGameView from './renderGameVariantView';
+// import {
+//     DOMelements,
+//     DOMclasses
+// } from '../base';
 
 
 
-function makeDecision({
-    target
-}) {
-    if (target.dataset.btn === 'yes') renderGameView();
+// function makeDecision({
+//     target
+// }) {
+//     if (target.dataset.btn === 'yes') renderGameView();
 
-    DOMelements.popup.classList.remove(DOMclasses.popUpActive);
-}
+//     DOMelements.popup.classList.remove(DOMclasses.popUpActive);
+// }
 
-function showVariantPopUp() {
-    DOMelements.popup.classList.add(DOMclasses.popUpActive);
+// function showVariantPopUp() {
+//     DOMelements.popup.classList.add(DOMclasses.popUpActive);
 
-    const btns = document.querySelectorAll('.popup__btn');
-    btns.forEach(btn => btn.addEventListener('click', makeDecision));
-    document.addEventListener('click', e => {
-        if (!e.target.closest('.popup__container') && e.target !== DOMelements.variantBtn) {
-            DOMelements.popup.classList.remove(DOMclasses.popUpActive)
-        };
-    })
-}
+//     const btns = document.querySelectorAll('.popup__btn');
+//     btns.forEach(btn => btn.addEventListener('click', makeDecision));
+//     document.addEventListener('click', e => {
+//         if (!e.target.closest('.popup__container') && e.target !== DOMelements.variantBtn) {
+//             DOMelements.popup.classList.remove(DOMclasses.popUpActive)
+//         };
+//     })
+// }
 
-export default showVariantPopUp;
+// export default showVariantPopUp;
 
 
 
