@@ -1,17 +1,10 @@
 .popup {
     display: none;
     position: fixed;
+    right: $window-padding;
+    bottom: 80px;
     max-width: 300px;
     z-index: 999;
-
-
-    &__container {
-        width: 100%;
-        height: 100%;
-        padding: 20px;
-        border: 1px solid $dark-color;
-        background: $background-color;
-    }
 
     &--active {
         display: block;
@@ -29,17 +22,12 @@
         }
     }
 
-    &--variant,
-    &--reset {
-        right: $window-padding;
-    }
-
-    &--variant {
-        top: 160px;
-    }
-
-    &--rest {
-        bottom: 80px;
+    &__container {
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        border: 1px solid $dark-color;
+        background: $background-color;
     }
 
     &__btns {

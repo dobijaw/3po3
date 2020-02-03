@@ -10,6 +10,7 @@ import { winnerView, updateScoreView, updateHeadlineView } from './view/winnerVi
 import { resetSummaryView } from './view/summaryView';
 import { changeGameVariant, hideActualVariantBtn } from './view/changeGameVariant';
 import playAgainView from './view/playAgainView';
+import showResetPopUpView from './view/showResetPopUpView';
 
 const newGame = () => {
     state.keyBlocked = false;
@@ -42,7 +43,7 @@ const initGame = () => {
     resetSummaryView();
     changeGameVariant(newGame);
     hideActualVariantBtn();
-
+    showResetPopUpView(newGame);
 
     newGame();
 }

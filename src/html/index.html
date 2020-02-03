@@ -24,7 +24,7 @@
           aria-label="Wariant 2">2</button>
       </div>
 
-      <div class="popup popup--variant">
+      <!-- <div class="popup popup--variant">
         <div class="popup__container">
           <p class="copy popup__copy">Jesteś pewny? Twój wynik zostanie utracony!</p>
           <div class="popup__btns">
@@ -36,7 +36,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </header>
 
     <main class="main">
@@ -72,17 +72,23 @@
       </div>
       <div class="footer__col">
         <button id="reset" class="btn btn--noborder">resetuj wyniki</button>
-        <div class="popup popup--reset">
-          <p class="copy popup__copy">Jesteś pewny? Twój wynik zostanie utracony!</p>
-          <div class="popup__btns">
-            <div class="popup__btn-container">
-              <button class="btn btn--quickanswer popup__btn" data-btn="no" type="button" aria-label="Nie">nie</button>
-            </div>
-            <div class="popup__btn-container">
-              <button class="btn btn--quickanswer popup__btn" data-btn="yes" type="button" aria-label="Tak">tak</button>
+
+        <div class="popup">
+          <div class="popup__container">
+            <p class="copy popup__copy">Jesteś pewny? Twój wynik zostanie utracony!</p>
+            <div class="popup__btns">
+              <div class="popup__btn-container">
+                <button class="btn btn--quickanswer popup__btn" data-btn="no" type="button"
+                  aria-label="Nie">nie</button>
+              </div>
+              <div class="popup__btn-container">
+                <button class="btn btn--quickanswer popup__btn" data-btn="yes" type="button"
+                  aria-label="Tak">tak</button>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </footer>
   </div>

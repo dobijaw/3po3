@@ -14,6 +14,7 @@ const DOMelements = {
     copyResult: document.querySelector('.copy--result'),
     resultSymbols: document.querySelectorAll('.board__box--result'),
     btnVariants: [...document.querySelectorAll('.btn--variant')],
+    resetBtn: document.querySelector('#reset'),
 
     symbolBoardsVariant1: [...document.querySelectorAll('.board__box--variant1')]
 }
