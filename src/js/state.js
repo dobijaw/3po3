@@ -9,7 +9,9 @@ const state = {
         losses: 0
     },
     keyBlocked: false,
-    intervals: null
+    enterBlocked: false,
+    intervals: null,
+    intervalIndex: -1
 }
 
 const resetStateGameVariant = () => {

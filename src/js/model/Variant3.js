@@ -2,16 +2,19 @@ import VariantMethods from './VariantMethods';
 import { state } from '../state';
 
 class Variant3 extends VariantMethods {
-    constructor(variantName) {
+    constructor(variantName, timeInterval) {
         super();
         this.variantName = variantName;
+        this.timeInterval = timeInterval;
         this.subscribers = [];
-        this.symbolDrawn = this.randomNumber();
+        // this.symbolDrawn = this.randomNumber();
     }
 
     aiChoice() {
+        state.intervalIndex = this.randomNumber();
         const AISymbolImg = [...document.querySelectorAll('.board__img--ai')];
-        AISymbolImg[this.symbolDrawn].style.opacity = 1;
+        AISymbolImg[state.intervalIndex].style.opacity = 1;
+        // AISymbolImg[this.symbolDrawn].style.opacity = 1;
 
         let counter = 0;
 
@@ -24,11 +27,14 @@ class Variant3 extends VariantMethods {
 
             counter = random;
 
-            this.symbolDrawn = counter;
+            // this.symbolDrawn = counter;
+            state.intervalIndex = counter;
             AISymbolImg.forEach(symbol => { symbol.style.opacity = 0 });
-            AISymbolImg[this.symbolDrawn].style.opacity = 1;
-            console.log('Wariant 3 ' + this.symbolDrawn);
-        }, 500);
+            // AISymbolImg[this.symbolDrawn].style.opacity = 1;
+            AISymbolImg[state.intervalIndex].style.opacity = 1;
+            console.log('Wariant 3 ' + state.intervalIndex);
+            // console.log('Wariant 3 ' + this.symbolDrawn);
+        }, this.timeInterval);
     }
 }
 

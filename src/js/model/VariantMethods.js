@@ -37,7 +37,7 @@ class VariantMethods {
       })
     })
 
-    document.addEventListener('keyup', ({ keyCode, which }) => {
+    document.addEventListener('keydown', ({ keyCode, which }) => {
       if (state.keyBlocked) return;
       switch (keyCode || which) {
         case 37:
@@ -65,11 +65,13 @@ class VariantMethods {
 
   stopSymbolInterval() {
     clearInterval(state.intervals);
-    console.log(this.symbolDrawn);
+    // console.log(this.symbolDrawn);
+    console.log(state.intervalIndex);
     // this.saveChoiceInState();
     console.log(state)
 
-    return this.symbolDrawn;
+    return state.intervalIndex;
+    // return this.symbolDrawn;
   }
 
   saveChoiceInState(symbol) {

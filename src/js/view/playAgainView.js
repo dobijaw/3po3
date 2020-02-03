@@ -1,8 +1,17 @@
-const playAgainView = () => {
-    const btn = document.querySelector('.btn--play-again');
+import { state } from '../state';
 
-    btn.addEventListener('click', () => {
+const playAgainView = (startNewGame) => {
+    document.querySelector('.btn--play-again').addEventListener('click', startNewGame);
 
+    document.addEventListener('keyup', ({ keyCode, which }) => {
+        if (state.enterBlocked) return;
+
+        if (keyCode === 13 || which === 13) {
+            startNewGame();
+            state.enterBlocked = true;
+        }
     });
 };
+
+export default playAgainView;
 
