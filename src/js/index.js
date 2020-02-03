@@ -8,7 +8,7 @@ import Winner from './model/Winner';
 
 import { winnerView, updateScoreView, updateHeadlineView } from './view/winnerView';
 import { resetSummaryView } from './view/summaryView';
-import VariantMethods from './model/VariantMethods';
+import changeGameVariant from './view/changeGameVariant';
 
 const newGame = () => {
     state.keyBlocked = false;
@@ -38,13 +38,8 @@ const newGame = () => {
 
 const initGame = () => {
     resetSummaryView();
-    document.querySelectorAll('.btn--variant').forEach(btn => {
-        btn.addEventListener('click', () => {
-            state.gameVariant = btn.dataset.variant;
-            clearInterval(state.intervals);
-            newGame();
-        })
-    })
+    changeGameVariant(newGame);
+
 
     newGame();
 }
