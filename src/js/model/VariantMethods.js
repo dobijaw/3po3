@@ -64,7 +64,7 @@ class VariantMethods {
   }
 
   stopSymbolInterval() {
-    clearInterval(this.symbolInterval);
+    clearInterval(state.intervals);
     console.log(this.symbolDrawn);
     // this.saveChoiceInState();
     console.log(state)

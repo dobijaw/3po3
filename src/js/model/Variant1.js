@@ -1,4 +1,5 @@
 import VariantMethods from './VariantMethods';
+import { state } from '../state';
 
 class Variant1 extends VariantMethods {
     constructor(variantName) {
@@ -9,9 +10,9 @@ class Variant1 extends VariantMethods {
     }
 
     aiChoice() {
-        this.symbolInterval = setInterval(() => {
+        state.intervals = setInterval(() => {
             this.symbolDrawn = this.randomNumber();
-            // console.log('Wariant 1 ' + this.symbolDrawn);
+            console.log('Wariant 1 ' + this.symbolDrawn);
         }, 100);
     }
 }

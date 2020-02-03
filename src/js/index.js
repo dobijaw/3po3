@@ -41,7 +41,7 @@ const initGame = () => {
     document.querySelectorAll('.btn--variant').forEach(btn => {
         btn.addEventListener('click', () => {
             state.gameVariant = btn.dataset.variant;
-
+            clearInterval(state.intervals);
             newGame();
         })
     })

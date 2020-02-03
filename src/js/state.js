@@ -8,7 +8,8 @@ const state = {
         draws: 0,
         losses: 0
     },
-    keyBlocked: false
+    keyBlocked: false,
+    intervals: null
 }
 
 const resetStateGameVariant = () => {

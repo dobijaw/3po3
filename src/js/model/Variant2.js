@@ -1,4 +1,5 @@
 import VariantMethods from './VariantMethods';
+import { state } from '../state';
 
 class Variant2 extends VariantMethods {
     constructor(variantName) {
@@ -14,7 +15,7 @@ class Variant2 extends VariantMethods {
 
         let counter = 0;
 
-        this.symbolInterval = setInterval(() => {
+        state.intervals = setInterval(() => {
             counter = counter === 3 ? 0 : counter;
 
             this.symbolDrawn = counter;

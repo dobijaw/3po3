@@ -1,4 +1,5 @@
 import VariantMethods from './VariantMethods';
+import { state } from '../state';
 
 class Variant3 extends VariantMethods {
     constructor(variantName) {
@@ -14,7 +15,7 @@ class Variant3 extends VariantMethods {
 
         let counter = 0;
 
-        this.symbolInterval = setInterval(() => {
+        state.intervals = setInterval(() => {
             let random = 0;
 
             do {
@@ -26,7 +27,7 @@ class Variant3 extends VariantMethods {
             this.symbolDrawn = counter;
             AISymbolImg.forEach(symbol => { symbol.style.opacity = 0 });
             AISymbolImg[this.symbolDrawn].style.opacity = 1;
-            // console.log('Wariant 3 ' + this.symbolDrawn);
+            console.log('Wariant 3 ' + this.symbolDrawn);
         }, 500);
     }
 }
