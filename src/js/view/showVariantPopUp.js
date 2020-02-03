@@ -1,4 +1,3 @@
-// import renderGameView from './renderGameVariantView';
 // import {
 //     DOMelements,
 //     DOMclasses

@@ -13,7 +13,7 @@ const DOMelements = {
     headlineResult: document.querySelector('.headline--result'),
     copyResult: document.querySelector('.copy--result'),
     resultSymbols: document.querySelectorAll('.board__box--result'),
-    btnVariants: document.querySelectorAll('.btn--variant'),
+    btnVariants: [...document.querySelectorAll('.btn--variant')],
 
     symbolBoardsVariant1: [...document.querySelectorAll('.board__box--variant1')]
 }

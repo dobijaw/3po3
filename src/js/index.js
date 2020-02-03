@@ -8,7 +8,7 @@ import Winner from './model/Winner';
 
 import { winnerView, updateScoreView, updateHeadlineView } from './view/winnerView';
 import { resetSummaryView } from './view/summaryView';
-import changeGameVariant from './view/changeGameVariant';
+import { changeGameVariant, hideActualVariantBtn } from './view/changeGameVariant';
 import playAgainView from './view/playAgainView';
 
 const newGame = () => {
@@ -32,7 +32,6 @@ const newGame = () => {
         updateHeadlineView(result);
         state.enterBlocked = false;
 
-        // document.querySelector('.btn--play-again').addEventListener('click', newGame);
         playAgainView(newGame);
     })
 
@@ -42,6 +41,7 @@ const newGame = () => {
 const initGame = () => {
     resetSummaryView();
     changeGameVariant(newGame);
+    hideActualVariantBtn();
 
 
     newGame();
