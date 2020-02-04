@@ -9,6 +9,16 @@ class Variant2 extends VariantMethods {
         this.subscribers = [];
     }
 
+    getMessage() {
+        const headline = `Pęd - tryb 2`;
+        const copy = `Runda ${state.summary.games + 1}. Wybierz symbol!`;
+
+        return {
+            headline,
+            copy
+        }
+    }
+
     aiChoice() {
         state.intervalIndex = this.randomNumber();
         const AISymbolImg = [...document.querySelectorAll('.board__img--ai')];

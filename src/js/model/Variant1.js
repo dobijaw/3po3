@@ -9,6 +9,16 @@ class Variant1 extends VariantMethods {
         this.subscribers = [];
     }
 
+    getMessage() {
+        const headline = `Los - tryb 1`;
+        const copy = `Runda ${state.summary.games + 1}. Wybierz symbol!`;
+
+        return {
+            headline,
+            copy
+        }
+    }
+
     aiChoice() {
         state.intervalIndex = this.randomNumber();
         let counter = 0;
