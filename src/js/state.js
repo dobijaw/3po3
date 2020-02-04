@@ -1,5 +1,5 @@
 const state = {
-    gameVariant: 'variant2',
+    gameVariant: 'variant1',
     playerChoice: '',
     aiChoice: '',
     summary: {
@@ -25,7 +25,7 @@ const resetStatePlayerChoice = () => {
 }
 
 const resetState = () => {
-    resetStateGameVariant();
+    // resetStateGameVariant();
     resetStatePlayerChoice();
 
     for (const key of Object.keys(state.summary)) {
