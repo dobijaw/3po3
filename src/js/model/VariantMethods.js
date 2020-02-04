@@ -8,13 +8,6 @@ class VariantMethods {
     return Math.floor(Math.random() * 3);
   }
 
-  updateHeadline() {
-    const variantNumber = state.gameVariant.replace(/^\D+/g, '');
-
-    DOMelements.headlineResult.textContent = `Runda ${state.summary.games + 1}. Wariant ${variantNumber}.`;
-    DOMelements.copyResult.textContent = `Wybierz symbol aby zagrać!`;
-  }
-
   renderGameBoard() {
     DOMelements.board.textContent = '';
 

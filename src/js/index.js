@@ -3,8 +3,10 @@ import '../scss/index.scss';
 import { state } from './state';
 
 
-import Variant from './model/Variant';
+import { Variant } from './model/Variant';
 import Winner from './model/Winner';
+
+import getMessageView from './view/getMessageView';
 
 import { winnerView, updateScoreView, updateHeadlineView } from './view/winnerView';
 import { resetSummaryView } from './view/summaryView';
@@ -18,7 +20,8 @@ const newGame = () => {
     const currentVariant = gameVariants.getVariantGame(state.gameVariant);
 
     updateScoreView();
-    currentVariant.updateHeadline();
+
+    getMessageView(currentVariant.getMessage());
     currentVariant.renderGameBoard();
     currentVariant.aiChoice();
 

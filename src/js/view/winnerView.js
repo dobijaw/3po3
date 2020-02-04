@@ -46,16 +46,16 @@ const updateScoreView = () => {
 const updateHeadlineView = (result) => {
   switch (result) {
     case 'wins':
-      DOMelements.headlineResult.textContent = 'Wygrałeś! ;)';
-      DOMelements.copyResult.textContent = 'Zagraj jeszcze raz!';
+      DOMelements.messageHeadline.textContent = 'Wygrałeś! ;)';
+      DOMelements.messageCopy.textContent = 'Zagraj jeszcze raz!';
       break;
     case 'draws':
-      DOMelements.headlineResult.textContent = 'Remis :P';
-      DOMelements.copyResult.textContent = 'Było blisko. Zagraj.';
+      DOMelements.messageHeadline.textContent = 'Remis :P';
+      DOMelements.messageCopy.textContent = 'Było blisko. Zagraj.';
       break;
     case 'losses':
-      DOMelements.headlineResult.textContent = 'Przegrałeś :(';
-      DOMelements.copyResult.textContent = 'Czas na reważ!';
+      DOMelements.messageHeadline.textContent = 'Przegrałeś :(';
+      DOMelements.messageCopy.textContent = 'Czas na reważ!';
       break;
   }
 }

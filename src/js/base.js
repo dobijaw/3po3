@@ -1,4 +1,8 @@
-const DOMelements = {
+export const DOMelements = {
+    messageHeadline: document.querySelector('.headline--result'),
+    messageCopy: document.querySelector('.copy--result'),
+
+
     boardTemplates: [...document.querySelectorAll('.template')],
     board: document.querySelector('.board'),
     allSymbols: [...document.querySelectorAll('.board__box')],
@@ -10,8 +14,6 @@ const DOMelements = {
     popup: document.querySelector('.popup'),
     popupBtns: [...document.querySelectorAll('.popup__btn')],
     boardResultGame: document.querySelector('.board__result'),
-    headlineResult: document.querySelector('.headline--result'),
-    copyResult: document.querySelector('.copy--result'),
     resultSymbols: document.querySelectorAll('.board__box--result'),
     btnVariants: [...document.querySelectorAll('.btn--variant')],
     resetBtn: document.querySelector('#reset'),
@@ -19,7 +21,7 @@ const DOMelements = {
     symbolBoardsVariant1: [...document.querySelectorAll('.board__box--variant1')]
 }
 
-const DOMclasses = {
+export const DOMclasses = {
     symbolActive: 'board__box--active',
     popUpActive: 'popup--active',
     boardsHidden: 'board__container--hidden',
@@ -28,8 +30,3 @@ const DOMclasses = {
     resultSymbolsBox: 'board__box--result',
     symbolBoardsVariant1: 'board__box--variant1',
 }
-
-export {
-    DOMelements,
-    DOMclasses
-};
