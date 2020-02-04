@@ -1,4 +1,4 @@
-const state = {
+export const state = {
     gameVariant: 'variant1',
     playerChoice: '',
     aiChoice: '',
@@ -24,7 +24,7 @@ const resetStatePlayerChoice = () => {
     state.aiChoice = '';
 }
 
-const resetState = () => {
+export const resetState = () => {
     // resetStateGameVariant();
     resetStatePlayerChoice();
 
@@ -32,8 +32,3 @@ const resetState = () => {
         state.summary[key] = 0;
     }
 }
-
-export {
-    state,
-    resetState
-};
