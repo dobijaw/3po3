@@ -1,50 +1,44 @@
-import VariantMethods from './VariantMethods';
 import { state } from '../state';
 
-class Variant2 extends VariantMethods {
-    constructor(variantName, timeInterval) {
-        super();
-        this.variantName = variantName;
-        this.timeInterval = timeInterval;
-        this.subscribers = [];
+class Variant2 {
+  constructor(name, timeInterval) {
+    this.name = name;
+    this.timeInterval = timeInterval;
+  }
+
+  getMessage() {
+    const headline = `Pęd - tryb 2`;
+    const copy = `Runda ${state.summary.games + 1}. Wybierz symbol!`;
+
+    return {
+      headline,
+      copy
     }
+  }
 
-    getMessage() {
-        const headline = `Pęd - tryb 2`;
-        const copy = `Runda ${state.summary.games + 1}. Wybierz symbol!`;
+  aiChoice() {
+    const randomNumber = () => Math.floor(Math.random() * 3);
+    const allImg = [...document.querySelectorAll('.board__img--ai')];
+    let counter = randomNumber();
 
-        return {
-            headline,
-            copy
-        }
-    }
+    allImg[counter].style.opacity = 1;
 
-    aiChoice() {
-        state.intervalIndex = this.randomNumber();
-        const AISymbolImg = [...document.querySelectorAll('.board__img--ai')];
-        AISymbolImg[state.intervalIndex].style.opacity = 1;
-        // AISymbolImg[this.symbolDrawn].style.opacity = 1;
+    state.intervals = setInterval(() => {
+      let random = null;
 
-        let counter = 0;
+      do {
+        random = randomNumber();
+      } while (counter === random);
 
-        state.intervals = setInterval(() => {
-            let random = 0;
+      counter = random;
 
-            do {
-                random = this.randomNumber();
-            } while (counter === random)
+      allImg.forEach(symbol => { symbol.style.opacity = 0 });
+      allImg[counter].style.opacity = 1;
 
-            counter = random;
-
-            // this.symbolDrawn = counter;
-            state.intervalIndex = counter;
-            AISymbolImg.forEach(symbol => { symbol.style.opacity = 0 });
-            // AISymbolImg[this.symbolDrawn].style.opacity = 1;
-            AISymbolImg[state.intervalIndex].style.opacity = 1;
-            console.log('Wariant 3 ' + state.intervalIndex);
-            // console.log('Wariant 3 ' + this.symbolDrawn);
-        }, this.timeInterval);
-    }
+      state.intervalIndex = counter;
+      console.log('Wariant 2 ' + state.intervalIndex);
+    }, this.timeInterval);
+  }
 
 }
 
