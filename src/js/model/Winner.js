@@ -1,6 +1,6 @@
 import { state } from '../state';
 
-class Winner {
+export class Winner {
   constructor() {
     this.conditionsForWin = [
       state.playerChoice === 'rock' && state.aiChoice === 'scissors',
@@ -27,5 +27,3 @@ class Winner {
     }
   }
 }
-
-export default Winner;
