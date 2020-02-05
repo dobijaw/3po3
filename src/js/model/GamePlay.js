@@ -13,17 +13,22 @@ export class GamePlay {
   }
 
   saveChoiceToState(symbol) {
+    let choice = '';
+
     switch (symbol) {
       case 0:
-        state.aiChoice = 'rock';
+        choice = 'rock';
         break;
       case 1:
-        state.aiChoice = 'paper';
+        choice = 'paper';
         break;
       case 2:
-        state.aiChoice = 'scissors';
+        choice = 'scissors';
         break;
     }
+
+    if (state.aiChoice.length === 3) state.aiChoice.pop();
+    state.aiChoice.unshift(choice);
   }
 
   playerChoice() {
@@ -31,7 +36,9 @@ export class GamePlay {
 
     playerSymbols.forEach(symbol => {
       symbol.addEventListener('mousedown', () => {
-        state.playerChoice = symbol.dataset.symbol;
+
+        if (state.playerChoice.length === 3) state.playerChoice.pop();
+        state.playerChoice.unshift(symbol.dataset.symbol);
         state.keyBlocked = true;
         this.finishGame();
       })
@@ -39,25 +46,32 @@ export class GamePlay {
 
     document.addEventListener('keydown', ({ keyCode, which }) => {
       if (state.keyBlocked) return;
+
       switch (keyCode || which) {
         case 37:
           state.keyBlocked = true;
           console.log('Strzałka w lewo');
-          state.playerChoice = 'rock';
+
+          if (state.playerChoice.length === 3) state.playerChoice.pop();
+          state.playerChoice.unshift('rock');
 
           this.finishGame();
           break;
         case 40:
           state.keyBlocked = true;
           console.log('Strzałka w dół');
-          state.playerChoice = 'paper';
+
+          if (state.playerChoice.length === 3) state.playerChoice.pop();
+          state.playerChoice.unshift('paper');
 
           this.finishGame();
           break;
         case 39:
           state.keyBlocked = true;
           console.log('Strzałka w prawo');
-          state.playerChoice = 'scissors';
+
+          if (state.playerChoice.length === 3) state.playerChoice.pop();
+          state.playerChoice.unshift('scissors');
 
           this.finishGame();
           break;
@@ -68,6 +82,8 @@ export class GamePlay {
   startGame() {
     this.stopSymbolInterval();
     this.currentVariant.aiChoice();
+
+    state.keyBlocked = false;
     this.playerChoice();
   }
 

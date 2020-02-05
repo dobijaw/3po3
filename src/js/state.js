@@ -1,7 +1,7 @@
 export const state = {
     gameVariant: 'variant1',
-    playerChoice: '',
-    aiChoice: '',
+    playerChoice: [],
+    aiChoice: [],
     summary: {
         games: 0,
         wins: 0,
