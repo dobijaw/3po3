@@ -2,7 +2,7 @@ import Variant1 from './Variant1';
 import Variant2 from './Variant2';
 import Variant3 from './Variant3';
 
-export class Variant {
+export class VariantFactory {
 
   constructor() {
     this.variant1 = new Variant1('variant1', 400);

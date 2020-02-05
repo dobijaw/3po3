@@ -1,12 +1,9 @@
-import VariantMethods from './VariantMethods';
 import { state } from '../state';
 
-class Variant1 extends VariantMethods {
-    constructor(variantName, timeInterval) {
-        super();
-        this.variantName = variantName;
+class Variant1 {
+    constructor(name, timeInterval) {
+        this.name = name;
         this.timeInterval = timeInterval;
-        this.subscribers = [];
     }
 
     getMessage() {
@@ -20,14 +17,16 @@ class Variant1 extends VariantMethods {
     }
 
     aiChoice() {
-        state.intervalIndex = this.randomNumber();
+        const randomNumber = () => Math.floor(Math.random() * 3);
+
+        state.intervalIndex = randomNumber();
         let counter = 0;
 
         state.intervals = setInterval(() => {
             let random = 0;
 
             do {
-                random = this.randomNumber();
+                random = randomNumber();
             } while (counter === random)
 
             counter = random;

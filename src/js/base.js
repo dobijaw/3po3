@@ -1,7 +1,7 @@
 export const DOMelements = {
     messageHeadline: document.querySelector('.headline--result'),
     messageCopy: document.querySelector('.copy--result'),
-
+    allPlayerSymbols: [...document.querySelectorAll('.board__box--choice')],
 
     boardTemplates: [...document.querySelectorAll('.template')],
     board: document.querySelector('.board'),
@@ -22,6 +22,9 @@ export const DOMelements = {
 }
 
 export const DOMclasses = {
+    variantBtnDisabled: 'btn--active',
+    playerSymbols: 'board__box--choice',
+
     symbolActive: 'board__box--active',
     popUpActive: 'popup--active',
     boardsHidden: 'board__container--hidden',

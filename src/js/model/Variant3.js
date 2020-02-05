@@ -1,12 +1,9 @@
-import VariantMethods from './VariantMethods';
 import { state } from '../state';
 
-class Variant3 extends VariantMethods {
-    constructor(variantName, timeInterval) {
-        super();
-        this.variantName = variantName;
+class Variant3 {
+    constructor(name, timeInterval) {
+        this.name = name;
         this.timeInterval = timeInterval;
-        this.subscribers = [];
     }
 
     getMessage() {
