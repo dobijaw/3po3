@@ -91,7 +91,7 @@ export class GamePlayControler {
 
   finishGame() {
     this.stopSymbolInterval();
-    this.saveChoiceToState(state.intervalIndex);
+    this.saveChoiceToState(state.randomIndex);
     state.enterBlocked = false;
 
     const winner = new Winner();
@@ -106,7 +106,7 @@ export class GamePlayControler {
     });
 
     console.log(gameResult);
-    console.log(state.intervalIndex);
+    console.log(state.randomIndex);
     console.log(state);
   }
 

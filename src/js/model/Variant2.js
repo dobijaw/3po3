@@ -6,18 +6,9 @@ class Variant2 {
     this.timeInterval = timeInterval;
   }
 
-  getMessage() {
-    const headline = `Pęd - tryb 2`;
-    const copy = `Runda ${state.summary.games + 1}. Wybierz symbol!`;
-
-    return {
-      headline,
-      copy
-    };
-  }
-
   aiChoice() {
     state.intervals = null;
+
     const randomNumber = () => Math.floor(Math.random() * 3);
     const allImg = [...document.querySelectorAll(".board__img--ai")];
     let counter = randomNumber();
@@ -38,9 +29,19 @@ class Variant2 {
       });
       allImg[counter].style.opacity = 1;
 
-      state.intervalIndex = counter;
-      console.log("Wariant 2 " + state.intervalIndex);
+      state.randomIndex = counter;
+      console.log("Wariant 2 " + state.randomIndex);
     }, this.timeInterval);
+  }
+
+  getMessage() {
+    const headline = `Pęd - tryb 2`;
+    const copy = `Runda ${state.summary.games + 1}. Wybierz symbol!`;
+
+    return {
+      headline,
+      copy
+    };
   }
 }
 

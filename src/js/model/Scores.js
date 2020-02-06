@@ -12,7 +12,7 @@ export class Scores {
     state.keyBlocked = false;
     state.enterBlocked = false;
     state.intervals = null;
-    state.intervalIndex = -1;
+    state.randomIndex = -1;
 
     for (const key of Object.keys(state.summary)) {
       state.summary[key] = 0;

@@ -1,42 +1,40 @@
-import { state } from '../state';
+import { state } from "../state";
 
 class Variant3 {
-    constructor(name, timeInterval) {
-        this.name = name;
-        this.timeInterval = timeInterval;
-        this.symbols = ['rock', 'paper', 'scissors'];
+  constructor(name, timeInterval) {
+    this.name = name;
+    this.timeInterval = timeInterval;
+    this.symbols = ["rock", "paper", "scissors"];
+  }
+
+  getMessage() {
+    const headline = `3IQ - tryb 3`;
+    const copy = `Runda ${state.summary.games + 1}. Wybierz symbol!`;
+
+    return {
+      headline,
+      copy
+    };
+  }
+
+  aiChoice() {
+    if (state.aiChoice.length === 0) {
+      const randomIndex = Math.floor(Math.random() * 2);
+      state.randomIndex = randomIndex;
+      return;
     }
 
-    getMessage() {
-        const headline = `3IQ - tryb 3`;
-        const copy = `Runda ${state.summary.games + 1}. Wybierz symbol!`;
+    // Zwycięzca pierwszej partii powtarza ruch, a przegrany wybiera symbol którym wygrałbym w peirwszej partii
+    // Przykładowo jeśli w pierwszej walce wygraliśmy dając papier, a nasz rywal pokazał kamień, to w drugiej turze powinniśmy wybrać kamień, bo rywal najprawdopodobniej zagra nożyce.
 
-        return {
-            headline,
-            copy
-        }
-    }
+    // Jeśli przeciwnik wyrzuci kamień dwukrotnie nastepna forma beda nozyce lub papier, wiec warto wurzycic kamien.
 
-    aiChoice() {
-        if (state.aiChoice.length === 0) {
-            const randomIndex = Math.floor(Math.random() * 2);
-            state.intervalIndex = randomIndex;
-            return;
-        }
+    //Papier rzucany jest najrzadziej statystycznie.
 
-        // Zwycięzca pierwszej partii powtarza ruch, a przegrany wybiera symbol którym wygrałbym w peirwszej partii
-        // Przykładowo jeśli w pierwszej walce wygraliśmy dając papier, a nasz rywal pokazał kamień, to w drugiej turze powinniśmy wybrać kamień, bo rywal najprawdopodobniej zagra nożyce.
+    //jeśli przeciwnik wystawił nożyczki, a my papier, to w kolejnej rundzie powinniśmy wybrać kamień (licząc na to, że wygrywający powtórzy zwycięski wybór czyli nożyczki)
 
-
-        // Jeśli przeciwnik wyrzuci kamień dwukrotnie nastepna forma beda nozyce lub papier, wiec warto wurzycic kamien.
-
-        //Papier rzucany jest najrzadziej statystycznie.
-
-        //jeśli przeciwnik wystawił nożyczki, a my papier, to w kolejnej rundzie powinniśmy wybrać kamień (licząc na to, że wygrywający powtórzy zwycięski wybór czyli nożyczki)
-
-        //a więc jeśli ktoś przegrał nożyczkami postara się zmienić swój wybór w kolejnej rundzie na kamień albo papier, dlatego najrozsądniej będzie wybrać papier
-    }
-
+    //a więc jeśli ktoś przegrał nożyczkami postara się zmienić swój wybór w kolejnej rundzie na kamień albo papier, dlatego najrozsądniej będzie wybrać papier
+  }
 }
 
 export default Variant3;
