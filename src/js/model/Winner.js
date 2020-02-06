@@ -1,19 +1,19 @@
 import { state } from "../state";
-import { DOMelements } from "../base";
+import { DOMelements, DOMclasses } from "../base";
 
 export class Winner {
-  constructor() {}
-
-  saveWinnerToState() {
-    state.summary.games++;
-
-    const conditionsForWin = [
+  constructor() {
+    this.conditionsForWin = [
       state.playerChoice[0] === "rock" && state.aiChoice[0] === "scissors",
       state.playerChoice[0] === "paper" && state.aiChoice[0] === "rock",
       state.playerChoice[0] === "scissors" && state.aiChoice[0] === "paper"
     ];
+  }
 
-    const isWin = conditionsForWin.some(single => single);
+  saveWinnerToState() {
+    state.summary.games++;
+
+    const isWin = this.conditionsForWin.some(single => single);
     const isDraw = state.playerChoice[0] === state.aiChoice[0];
 
     if (isWin) {
@@ -59,7 +59,7 @@ export class Winner {
   }
 
   btnOnclick(callback) {
-    const btn = document.querySelector(".btn--play-again");
+    const btn = document.querySelector(`.${DOMclasses.playAgainBtn}`);
 
     btn.addEventListener("click", callback);
 
@@ -97,19 +97,19 @@ export class Winner {
       case "wins":
         DOMelements.board.insertAdjacentHTML(
           "beforeend",
-          this.getWinnerView("board__box--wins", "board__box--neutral")
+          this.getWinnerView(DOMclasses.boardWins, DOMclasses.boardNeutral)
         );
         break;
       case "draws":
         DOMelements.board.insertAdjacentHTML(
           "beforeend",
-          this.getWinnerView("board__box--draws", "board__box--draws")
+          this.getWinnerView(DOMclasses.boardDraws, DOMclasses.boardDraws)
         );
         break;
       case "losses":
         DOMelements.board.insertAdjacentHTML(
           "beforeend",
-          this.getWinnerView("board__box--neutral", "board__box--losses")
+          this.getWinnerView(DOMclasses.boardNeutral, DOMclasses.boardLosses)
         );
         break;
     }

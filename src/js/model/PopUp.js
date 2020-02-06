@@ -11,14 +11,14 @@ export class PopUp {
 
     document.addEventListener("click", e => {
       if (
-        !e.target.closest(".popup__container") &&
-        e.target !== DOMelements.reset
+        !e.target.closest(`.${DOMclasses.popUpContainer}`) &&
+        e.target !== DOMelements.resetBtn
       ) {
         DOMelements.popup.classList.remove(DOMclasses.popUpActive);
       }
     });
 
-    document.querySelectorAll(".popup__btn").forEach(btn => {
+    document.querySelectorAll(`.${DOMclasses.popUpBtn}`).forEach(btn => {
       btn.addEventListener("click", ({ currentTarget }) => {
         DOMelements.popup.classList.remove(DOMclasses.popUpActive);
         if (currentTarget.dataset.btn === "no") return;
@@ -29,7 +29,7 @@ export class PopUp {
   }
 
   popUpOnClickView() {
-    DOMelements.reset.addEventListener("click", () => {
+    DOMelements.resetBtn.addEventListener("click", () => {
       this.showPopUpView();
     });
   }

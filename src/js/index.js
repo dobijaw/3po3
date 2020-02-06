@@ -1,19 +1,18 @@
 import "../scss/index.scss";
-import { state } from "./state";
 
+import { PopUp } from "./model/PopUp";
+import { Scores } from "./model/Scores";
+import { GameBoard } from "./model/GameBoard";
 import { VariantFactory } from "./model/VariantFactory";
 import { GameVariantsObserve } from "./model/GameVariantsObserve";
 import { GamePlayControler } from "./model/GamePlayControler";
-import { GameBoard } from "./model/GameBoard";
-import { Scores } from "./model/Scores";
-import { PopUp } from "./model/PopUp";
 
+const popUp = new PopUp();
+const scores = new Scores();
+const gameBoard = new GameBoard();
 const variant = new VariantFactory();
 const gameVariants = new GameVariantsObserve();
 const gamePlayControler = new GamePlayControler();
-const gameBoard = new GameBoard();
-const scores = new Scores();
-const popUp = new PopUp();
 
 gameVariants.subscribe(selectedVariant => {
   const currentVariant = variant.getVariantGame(selectedVariant);
