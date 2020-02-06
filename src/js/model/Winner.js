@@ -62,6 +62,15 @@ export class Winner {
     const btn = document.querySelector(".btn--play-again");
 
     btn.addEventListener("click", callback);
+
+    document.addEventListener("keyup", ({ keyCode, which }) => {
+      if (state.enterBlocked) return;
+
+      if (keyCode === 13 || which === 13) {
+        callback();
+        state.enterBlocked = true;
+      }
+    });
   }
 
   updateMessageView(result) {

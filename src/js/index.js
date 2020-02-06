@@ -5,7 +5,6 @@ import { VariantFactory } from "./model/VariantFactory";
 import { GameVariantsObserve } from "./model/GameVariantsObserve";
 import { GamePlayControler } from "./model/GamePlayControler";
 import { GameBoard } from "./model/GameBoard";
-import { Winner } from "./model/Winner";
 
 const variant = new VariantFactory();
 const gameVariants = new GameVariantsObserve();

@@ -92,6 +92,7 @@ export class GamePlayControler {
   finishGame() {
     this.stopSymbolInterval();
     this.saveChoiceToState(state.intervalIndex);
+    state.enterBlocked = false;
 
     const winner = new Winner();
     const gameResult = winner.saveWinnerToState();
