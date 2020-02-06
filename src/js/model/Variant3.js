@@ -4,6 +4,7 @@ class Variant3 {
     constructor(name, timeInterval) {
         this.name = name;
         this.timeInterval = timeInterval;
+        this.symbols = ['rock', 'paper', 'scissors'];
     }
 
     getMessage() {
@@ -17,11 +18,23 @@ class Variant3 {
     }
 
     aiChoice() {
-        if (state.summary.games === 0) {
-            state.intervalIndex = 2;
+        if (state.aiChoice.length === 0) {
+            const randomIndex = Math.floor(Math.random() * 2);
+            state.intervalIndex = randomIndex;
             return;
         }
 
+        // Zwycięzca pierwszej partii powtarza ruch, a przegrany wybiera symbol którym wygrałbym w peirwszej partii
+        // Przykładowo jeśli w pierwszej walce wygraliśmy dając papier, a nasz rywal pokazał kamień, to w drugiej turze powinniśmy wybrać kamień, bo rywal najprawdopodobniej zagra nożyce.
+
+
+        // Jeśli przeciwnik wyrzuci kamień dwukrotnie nastepna forma beda nozyce lub papier, wiec warto wurzycic kamien.
+
+        //Papier rzucany jest najrzadziej statystycznie.
+
+        //jeśli przeciwnik wystawił nożyczki, a my papier, to w kolejnej rundzie powinniśmy wybrać kamień (licząc na to, że wygrywający powtórzy zwycięski wybór czyli nożyczki)
+
+        //a więc jeśli ktoś przegrał nożyczkami postara się zmienić swój wybór w kolejnej rundzie na kamień albo papier, dlatego najrozsądniej będzie wybrać papier
     }
 
 }

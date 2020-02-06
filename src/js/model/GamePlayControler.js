@@ -1,11 +1,12 @@
-import { DOMelements, DOMclasses } from '../base';
-import { state } from '../state';
+import { DOMclasses } from "../base";
+import { state } from "../state";
 
-import { Winner } from './Winner';
+import { Winner } from "./Winner";
 
-export class GamePlay {
+export class GamePlayControler {
   constructor() {
     this.currentVariant = null;
+    this.playAgain = [];
   }
 
   stopSymbolInterval() {
@@ -13,17 +14,17 @@ export class GamePlay {
   }
 
   saveChoiceToState(symbol) {
-    let choice = '';
+    let choice = "";
 
     switch (symbol) {
       case 0:
-        choice = 'rock';
+        choice = "rock";
         break;
       case 1:
-        choice = 'paper';
+        choice = "paper";
         break;
       case 2:
-        choice = 'scissors';
+        choice = "scissors";
         break;
     }
 
@@ -32,51 +33,52 @@ export class GamePlay {
   }
 
   playerChoice() {
-    const playerSymbols = [...document.querySelectorAll(`.${DOMclasses.playerSymbols}`)];
+    const playerSymbols = [
+      ...document.querySelectorAll(`.${DOMclasses.playerSymbols}`)
+    ];
 
     playerSymbols.forEach(symbol => {
-      symbol.addEventListener('mousedown', () => {
-
+      symbol.addEventListener("mousedown", () => {
         if (state.playerChoice.length === 3) state.playerChoice.pop();
         state.playerChoice.unshift(symbol.dataset.symbol);
         state.keyBlocked = true;
         this.finishGame();
-      })
-    })
+      });
+    });
 
-    document.addEventListener('keydown', ({ keyCode, which }) => {
+    document.addEventListener("keydown", ({ keyCode, which }) => {
       if (state.keyBlocked) return;
 
       switch (keyCode || which) {
         case 37:
           state.keyBlocked = true;
-          console.log('Strzałka w lewo');
+          console.log("Strzałka w lewo");
 
           if (state.playerChoice.length === 3) state.playerChoice.pop();
-          state.playerChoice.unshift('rock');
+          state.playerChoice.unshift("rock");
 
           this.finishGame();
           break;
         case 40:
           state.keyBlocked = true;
-          console.log('Strzałka w dół');
+          console.log("Strzałka w dół");
 
           if (state.playerChoice.length === 3) state.playerChoice.pop();
-          state.playerChoice.unshift('paper');
+          state.playerChoice.unshift("paper");
 
           this.finishGame();
           break;
         case 39:
           state.keyBlocked = true;
-          console.log('Strzałka w prawo');
+          console.log("Strzałka w prawo");
 
           if (state.playerChoice.length === 3) state.playerChoice.pop();
-          state.playerChoice.unshift('scissors');
+          state.playerChoice.unshift("scissors");
 
           this.finishGame();
           break;
       }
-    })
+    });
   }
 
   startGame() {
@@ -91,10 +93,24 @@ export class GamePlay {
     this.stopSymbolInterval();
     this.saveChoiceToState(state.intervalIndex);
 
-    const gameResult = new Winner().saveWinner();
+    const winner = new Winner();
+    const gameResult = winner.saveWinnerToState();
+
+    winner.updateScoreView();
+    winner.updateMessageView(gameResult);
+    winner.renderWinnerView(gameResult);
+
+    winner.btnOnclick(() => {
+      this.playAgain.forEach(s => s());
+    });
+
     console.log(gameResult);
     console.log(state.intervalIndex);
     console.log(state);
+  }
+
+  getPlayAgain(fn) {
+    this.playAgain.push(fn);
   }
 
   changeCurrentVariant(variant) {

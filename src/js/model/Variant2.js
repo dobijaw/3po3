@@ -1,4 +1,4 @@
-import { state } from '../state';
+import { state } from "../state";
 
 class Variant2 {
   constructor(name, timeInterval) {
@@ -13,12 +13,13 @@ class Variant2 {
     return {
       headline,
       copy
-    }
+    };
   }
 
   aiChoice() {
+    state.intervals = null;
     const randomNumber = () => Math.floor(Math.random() * 3);
-    const allImg = [...document.querySelectorAll('.board__img--ai')];
+    const allImg = [...document.querySelectorAll(".board__img--ai")];
     let counter = randomNumber();
 
     allImg[counter].style.opacity = 1;
@@ -32,14 +33,15 @@ class Variant2 {
 
       counter = random;
 
-      allImg.forEach(symbol => { symbol.style.opacity = 0 });
+      allImg.forEach(symbol => {
+        symbol.style.opacity = 0;
+      });
       allImg[counter].style.opacity = 1;
 
       state.intervalIndex = counter;
-      console.log('Wariant 2 ' + state.intervalIndex);
+      console.log("Wariant 2 " + state.intervalIndex);
     }, this.timeInterval);
   }
-
 }
 
 export default Variant2;
