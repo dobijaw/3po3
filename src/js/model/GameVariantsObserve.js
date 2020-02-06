@@ -23,33 +23,38 @@ export class GameVariantsObserve {
   changeVariantOnKeybord() {
     let blocked = false;
 
+    const changeVariant = variant => {
+      blocked = true;
+
+      this.saveSelectedVariantToState(variant);
+      this.subscribers.forEach(sub => sub(variant));
+
+      setTimeout(() => {
+        blocked = false;
+      }, 200);
+    };
+
     document.addEventListener("keydown", ({ keyCode, which }) => {
       if (blocked) return;
+
       switch (keyCode || which) {
         case 49:
-          this.saveSelectedVariantToState("variant1");
-          this.subscribers.forEach(sub => sub("variant1"));
-          blocked = true;
-          setTimeout(() => {
-            1;
-            blocked = false;
-          }, 200);
+          changeVariant("variant1");
+          break;
+        case 97:
+          changeVariant("variant1");
           break;
         case 50:
-          this.saveSelectedVariantToState("variant2");
-          this.subscribers.forEach(sub => sub("variant2"));
-          blocked = true;
-          setTimeout(() => {
-            blocked = false;
-          }, 200);
+          changeVariant("variant2");
+          break;
+        case 98:
+          changeVariant("variant2");
           break;
         case 51:
-          this.saveSelectedVariantToState("variant3");
-          this.subscribers.forEach(sub => sub("variant3"));
-          blocked = true;
-          setTimeout(() => {
-            blocked = false;
-          }, 200);
+          changeVariant("variant3");
+          break;
+        case 99:
+          changeVariant("variant3");
           break;
       }
     });
