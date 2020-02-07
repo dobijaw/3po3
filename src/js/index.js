@@ -1,21 +1,27 @@
 import "../scss/index.scss";
 
 import { PopUp } from "./model/PopUp";
+import { Sound } from "./model/Sound";
 import { Scores } from "./model/Scores";
 import { GameBoard } from "./model/GameBoard";
 import { VariantsFactory } from "./model/VariantsFactory";
-import { GameVariantsObserve } from "./model/GameVariantsObserve";
+import { GameVariants } from "./model/GameVariants";
 import { GamePlayControler } from "./model/GamePlayControler";
 
+const sound = new Sound();
 const popUp = new PopUp();
 const scores = new Scores();
 const gameBoard = new GameBoard();
 const variantsFactory = new VariantsFactory();
-const gameVariants = new GameVariantsObserve();
+const gameVariants = new GameVariants();
 const gamePlayControler = new GamePlayControler();
+
+const myKeys = variantsFactory.getKeybordKey();
+gameVariants.getKeyCodesFromFactory(myKeys);
 
 gameVariants.subscribe(selectedVariant => {
   const currentVariant = variantsFactory.getVariantGame(selectedVariant);
+
   gamePlayControler.changeCurrentVariant(currentVariant);
   gameBoard.changeCurrentVariant(currentVariant);
 
@@ -28,6 +34,7 @@ gameVariants.subscribe(selectedVariant => {
   });
 });
 
+sound.btnOnClickView();
 scores.resetScoresInState();
 scores.resetScoresView();
 gameVariants.initFirstScreen();

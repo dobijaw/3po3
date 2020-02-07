@@ -12,5 +12,6 @@ export const state = {
   keyBlocked: false,
   enterBlocked: false,
   intervals: null,
-  randomIndex: -1
+  randomIndex: -1,
+  isSoundOn: false
 };

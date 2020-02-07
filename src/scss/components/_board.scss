@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center;
 
-    @media(min-width: 360px) and (min-height: 530px) {
+    @media (min-width: 360px) and (min-height: 530px) {
       padding: 40px 0;
     }
 
@@ -28,22 +28,22 @@
         justify-content: center;
       }
 
-      @media(min-width: 415px) and (min-height: 768px) and (orientation: portrait) {
+      @media (min-width: 415px) and (min-height: 768px) and (orientation: portrait) {
         padding-top: 60px;
         padding-bottom: 60px;
       }
 
-      @media(min-width: 680px) and (min-height: 360px) and (orientation: landscape) {
+      @media (min-width: 680px) and (min-height: 360px) and (orientation: landscape) {
         padding-top: 40px;
         padding-bottom: 40px;
       }
 
-      @media(min-height: 900px) and (min-width: 1280px) and (orientation: landscape) {
+      @media (min-height: 900px) and (min-width: 1280px) and (orientation: landscape) {
         padding-top: 60px;
         padding-bottom: 50px;
       }
 
-      @media(min-height: 900px) and (min-width: 1366px) and (orientation: landscape) {
+      @media (min-height: 900px) and (min-width: 1366px) and (orientation: landscape) {
         padding-top: 80px;
         padding-bottom: 70px;
       }
@@ -60,7 +60,7 @@
   &__img {
     &--ai {
       opacity: 0;
-      transition: .2s;
+      transition: 0.2s;
     }
   }
 
@@ -76,7 +76,6 @@
       width: 15vw;
       margin: 0 6px;
     }
-
 
     @media (min-width: 660px) {
       margin: 0 10px;
@@ -130,16 +129,16 @@
         width: 16vw;
       }
 
-      @media(min-width: 960px) and (min-height: 600px) and (orientation: landscape) {
+      @media (min-width: 960px) and (min-height: 600px) and (orientation: landscape) {
         width: 100px;
       }
 
-      @media(min-width: 1024px) and (min-height: 768px) and (orientation: landscape) {
+      @media (min-width: 1024px) and (min-height: 768px) and (orientation: landscape) {
         width: 160px;
         margin: 0 5px;
       }
 
-      @media(min-width: 1800px) and (min-height: 960px) and (orientation: landscape) {
+      @media (min-width: 1800px) and (min-height: 960px) and (orientation: landscape) {
         width: 186px;
       }
     }
@@ -156,7 +155,7 @@
         width: auto;
       }
 
-      @media(min-width: 1366px) and(min-height: 768px) and (orientation: landscape) {
+      @media (min-width: 1366px) and(min-height: 768px) and (orientation: landscape) {
         flex-direction: column;
       }
     }
@@ -165,7 +164,7 @@
   &__ai {
     margin: 15px 0 0;
 
-    @media (min-width:360px) and (min-height: 600px) and (orientation: portrait) {
+    @media (min-width: 360px) and (min-height: 600px) and (orientation: portrait) {
       margin-top: 20px;
     }
 
@@ -173,11 +172,11 @@
       margin: 0 0 0 15px;
     }
 
-    @media(min-width: 1024px) and (min-height: 768px) and (orientation: landscape) {
+    @media (min-width: 1024px) and (min-height: 768px) and (orientation: landscape) {
       margin-left: 40px;
     }
 
-    @media(min-width: 1280px) and (min-height: 768px) and (orientation: landscape) {
+    @media (min-width: 1280px) and (min-height: 768px) and (orientation: landscape) {
       margin-left: 48px;
     }
   }
@@ -190,7 +189,15 @@
     background: $neutral-color;
     padding: 0;
     cursor: pointer;
-    transition: background .35s ease-in-out;
+    transition: background 0.35s ease-in-out;
+
+    &--choice {
+      animation: renderSymbols 0.25s;
+    }
+
+    &--result {
+      animation: playerChoice 0.25s;
+    }
 
     &:hover {
       background: $neutral-color-hover;
@@ -221,7 +228,6 @@
     }
 
     &--neutral {
-
       &:hover {
         background: $neutral-color;
       }
@@ -240,12 +246,10 @@
       width: 55px;
       height: 55px;
 
-
       @media (min-width: 380px) and (min-height: 540px) and (orientation: portrait) {
         width: 19vw;
         height: 19vw;
       }
-
 
       @media (min-width: 440px) and (min-height: 520px) and (orientation: portrait) {
         width: 16vw;
@@ -266,7 +270,6 @@
         width: 24vw;
         height: 24vw;
       }
-
 
       @media (min-width: 540px) and (min-height: 540px) and (orientation: portrait) {
         width: 80px;
@@ -293,17 +296,17 @@
         height: 16vw;
       }
 
-      @media(min-width: 960px) and (min-height: 600px) and (orientation: landscape) {
+      @media (min-width: 960px) and (min-height: 600px) and (orientation: landscape) {
         width: 100px;
         height: 100px;
       }
 
-      @media(min-width: 1024px) and (min-height: 768px) and (orientation: landscape) {
+      @media (min-width: 1024px) and (min-height: 768px) and (orientation: landscape) {
         width: 160px;
         height: 160px;
       }
 
-      @media(min-width: 1800px) and (min-height: 960px) and (orientation: landscape) {
+      @media (min-width: 1800px) and (min-height: 960px) and (orientation: landscape) {
         width: 186px;
         height: 186px;
       }
@@ -332,7 +335,7 @@
     width: 45px;
     margin: 10px 0 0;
 
-    @media(min-width: 1366px) and(min-height: 768px) and (orientation: landscape) {
+    @media (min-width: 1366px) and(min-height: 768px) and (orientation: landscape) {
       display: block;
     }
   }
@@ -345,7 +348,7 @@
       display: block;
     }
 
-    @media(min-width: 1366px) and(min-height: 768px) and (orientation: landscape) {
+    @media (min-width: 1366px) and(min-height: 768px) and (orientation: landscape) {
       transform: rotate(0);
       margin-left: 0;
       margin-right: 0;
@@ -358,12 +361,12 @@
     font-weight: 600;
     text-transform: uppercase;
 
-    @media (min-width:360px) and (min-height: 533px) and (orientation: portrait) {
+    @media (min-width: 360px) and (min-height: 533px) and (orientation: portrait) {
       margin-bottom: 10px;
       font-size: 16px;
     }
 
-    @media(min-width: 415px) and (min-height: 768px) and (orientation: portrait) {
+    @media (min-width: 415px) and (min-height: 768px) and (orientation: portrait) {
       font-size: 20px;
     }
 
@@ -371,14 +374,14 @@
       margin: 0;
     }
 
-    @media(min-width: 800px) and (min-height: 360px) and (orientation: landscape) {
+    @media (min-width: 800px) and (min-height: 360px) and (orientation: landscape) {
       font-size: 16px;
     }
 
-    @media(min-width: 1366px) and(min-height: 768px) and (orientation: landscape) {
+    @media (min-width: 1366px) and(min-height: 768px) and (orientation: landscape) {
       margin-top: 20px;
       font-size: 20px;
-      letter-spacing: .2em;
+      letter-spacing: 0.2em;
     }
   }
 
@@ -389,5 +392,37 @@
 
   &__btn {
     margin-top: 20px;
+  }
+}
+
+@keyframes renderSymbols {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes playerChoice {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  15% {
+    transform: rotate(10deg);
+  }
+
+  45% {
+    transform: rotate(-10deg);
+  }
+
+  75% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(-10deg);
   }
 }

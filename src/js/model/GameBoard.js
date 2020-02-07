@@ -1,39 +1,38 @@
-import { DOMelements } from '../base';
+import { DOMelements } from "../base";
 
 export class GameBoard {
-    constructor() {
-        this.currentVariant = null;
-    }
+  constructor() {
+    this.currentVariant = null;
+  }
 
-    clearGameBoardView() {
-        DOMelements.board.textContent = '';
-    }
+  clearGameBoardView() {
+    DOMelements.gameBoard.textContent = "";
+  }
 
-    renderGameBoardView(variant) {
-        this.clearGameBoardView();
+  renderGameBoardView() {
+    this.clearGameBoardView();
 
-        DOMelements.boardTemplates.forEach(template => {
-            if (template.dataset.board !== variant) return;
+    DOMelements.gameBoardTemplates.forEach(template => {
+      if (template.dataset.board !== this.currentVariant.name) return;
 
-            const clon = template.content.cloneNode(true);
-            DOMelements.board.appendChild(clon);
+      const clon = template.content.cloneNode(true);
+      DOMelements.gameBoard.appendChild(clon);
+    });
+  }
 
-        });
-    }
+  renderMessageView() {
+    const message = this.currentVariant.getMessage();
 
-    renderMessageView() {
-        const message = this.currentVariant.getMessage();
+    DOMelements.messageHeadline.textContent = message.headline;
+    DOMelements.messageCopy.textContent = message.copy;
+  }
 
-        DOMelements.messageHeadline.textContent = message.headline;
-        DOMelements.messageCopy.textContent = message.copy;
-    }
+  startGame() {
+    this.renderMessageView();
+    this.renderGameBoardView();
+  }
 
-    startGame() {
-        this.renderMessageView();
-        this.renderGameBoardView(this.currentVariant.name);
-    }
-
-    changeCurrentVariant(variant) {
-        this.currentVariant = variant;
-    }
+  changeCurrentVariant(variant) {
+    this.currentVariant = variant;
+  }
 }

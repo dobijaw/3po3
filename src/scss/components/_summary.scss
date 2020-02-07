@@ -1,5 +1,5 @@
 .summary {
-  @media(orientation: portrait) {
+  @media (orientation: portrait) {
     position: fixed;
     bottom: 50px;
     left: 50%;
@@ -18,19 +18,19 @@
     text-transform: capitalize;
     text-align: center;
 
-    @media (min-width:360px) and (min-height: 560px) {
+    @media (min-width: 360px) and (min-height: 560px) {
       font-size: 18px;
     }
 
-    @media (min-width:420px) and (min-height: 640px) {
+    @media (min-width: 420px) and (min-height: 640px) {
       font-size: 24px;
     }
 
-    @media(min-width: 680px) and (min-height: 360px) and (orientation: landscape) {
+    @media (min-width: 680px) and (min-height: 360px) and (orientation: landscape) {
       font-size: 18px;
     }
 
-    @media(min-width: 1280px) and(min-height: 900px) and (orientation: landscape) {
+    @media (min-width: 1280px) and(min-height: 900px) and (orientation: landscape) {
       font-size: 24px;
       margin-bottom: 14px;
     }
@@ -46,16 +46,16 @@
   &__box {
     padding: 5px 10px;
 
-    @media (min-width:360px) and (min-height: 560px) {
+    @media (min-width: 360px) and (min-height: 560px) {
       padding-top: 10px;
       padding-bottom: 10px;
     }
 
-    @media (min-width:420px) and (min-height: 680px) {
+    @media (min-width: 420px) and (min-height: 680px) {
       padding: 20px;
     }
 
-    @media(min-width: 680px) and (min-height: 360px) and (orientation: landscape) {
+    @media (min-width: 680px) and (min-height: 360px) and (orientation: landscape) {
       padding-top: 13px;
       padding-bottom: 13px;
     }
@@ -80,47 +80,76 @@
     font-weight: 400;
     text-transform: uppercase;
 
-    @media (min-width:360px) and (min-height: 560px) {
+    @media (min-width: 360px) and (min-height: 560px) {
       margin: 0 0 4px;
       font-size: 16px;
     }
 
-    @media (min-width:360px) and (min-height: 680px) {
+    @media (min-width: 360px) and (min-height: 680px) {
       font-size: 18px;
     }
 
-    @media(min-width: 680px) and (min-height: 360px) and (orientation: landscape) {
+    @media (min-width: 680px) and (min-height: 360px) and (orientation: landscape) {
       font-size: 16px;
     }
 
-    @media(min-width: 1280px) and(min-height: 900px) and (orientation: landscape) {
+    @media (min-width: 1280px) and(min-height: 900px) and (orientation: landscape) {
       font-size: 18px;
     }
   }
 
   &__score {
+    display: block;
     margin: 0;
     font-size: 20px;
     font-weight: 500;
 
-    @media (min-width:360px) and (min-height: 560px) {
+    &--wins,
+    &--draws,
+    &--losses {
+      animation: addPoint 0.5s;
+    }
+
+    &--wins {
+      transform-origin: right;
+    }
+
+    &--draws {
+      transform-origin: center;
+    }
+
+    &--losses {
+      transform-origin: left;
+    }
+
+    @media (min-width: 360px) and (min-height: 560px) {
       font-size: 24px;
     }
 
-    @media (min-width:420px) and (min-height: 680px) {
+    @media (min-width: 420px) and (min-height: 680px) {
       font-size: 30px;
     }
 
-    @media (min-width:420px) and (min-height: 720px) {
+    @media (min-width: 420px) and (min-height: 720px) {
       font-size: 34px;
     }
 
-    @media(min-width: 680px) and (min-height: 360px) and (orientation: landscape) {
+    @media (min-width: 680px) and (min-height: 360px) and (orientation: landscape) {
       font-size: 24px;
     }
 
-    @media(min-width: 1280px) and(min-height: 900px) and (orientation: landscape) {
+    @media (min-width: 1280px) and(min-height: 900px) and (orientation: landscape) {
       font-size: 34px;
     }
+  }
+}
+
+@keyframes addPoint {
+  0% {
+    transform: scale(2);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

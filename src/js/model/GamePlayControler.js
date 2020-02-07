@@ -2,11 +2,13 @@ import { DOMclasses } from "../base";
 import { state } from "../state";
 
 import { Winner } from "./Winner";
+import { Sound } from "./Sound";
 
 export class GamePlayControler {
   constructor() {
     this.currentVariant = null;
     this.playAgain = [];
+    this.sound = new Sound();
   }
 
   stopSymbolInterval() {
@@ -39,6 +41,8 @@ export class GamePlayControler {
 
     playerSymbols.forEach(symbol => {
       symbol.addEventListener("mousedown", () => {
+        this.sound.playSound();
+
         if (state.playerChoice.length === 3) state.playerChoice.pop();
         state.playerChoice.unshift(symbol.dataset.symbol);
         state.keyBlocked = true;

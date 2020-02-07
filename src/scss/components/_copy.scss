@@ -1,34 +1,34 @@
 .copy {
-    margin: 5px 0 0;
-    padding: 0;
-    font-size: 16px;
-    font-weight: 400;
-    text-align: center;
-    line-height: 1.3;
+  margin: 5px 0 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.3;
 
-    @media(min-width: 360px) and (min-height: 533px) {
-        font-size: 18px;
-    }
+  @media (min-width: 360px) and (min-height: 533px) {
+    font-size: 18px;
+  }
 
-    @media(min-width: 400px) and (min-height: 580px) {
-        margin-top: 8px;
-        font-size: 20.5px;
-    }
+  @media (min-width: 400px) and (min-height: 580px) {
+    margin-top: 8px;
+    font-size: 20.5px;
+  }
 
-    @media(min-width: 800px) and (min-height: 580px) {
-        margin-top: 10px;
-        font-size: 23px;
-    }
+  @media (min-width: 800px) and (min-height: 580px) {
+    margin-top: 10px;
+    font-size: 23px;
+  }
 
-    @media(min-width: 680px) and (min-height: 360px) and (orientation: landscape) {
-        font-size: 18px;
-    }
+  @media (min-width: 680px) and (min-height: 360px) and (orientation: landscape) {
+    font-size: 18px;
+  }
 
-    @media(min-width: 1024px) and (min-height: 768px) and (orientation: landscape) {
-        font-size: 21px;
-    }
+  @media (min-width: 1024px) and (min-height: 768px) and (orientation: landscape) {
+    font-size: 21px;
+  }
 
-    @media(min-width: 1280px) and(min-height: 900px) and (orientation: landscape) {
-        font-size: 23px;
-    }
+  @media (min-width: 1280px) and(min-height: 900px) and (orientation: landscape) {
+    font-size: 23px;
+  }
 }

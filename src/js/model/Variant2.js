@@ -9,6 +9,13 @@ class Variant2 extends Variant {
     this.timeInterval = timeInterval;
   }
 
+  keyCodeSelect() {
+    return {
+      name: this.name,
+      keyCodes: [50, 98]
+    };
+  }
+
   aiChoice() {
     const imgAISymbols = [
       ...document.querySelectorAll(`.${DOMclasses.imgBoardAI}`)

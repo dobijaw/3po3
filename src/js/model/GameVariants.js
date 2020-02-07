@@ -1,7 +1,9 @@
 import { DOMelements, DOMclasses } from "../base";
 import { state } from "../state";
 
-export class GameVariantsObserve {
+import { Sound } from "./Sound";
+
+export class GameVariants {
   constructor() {
     this.subscribers = [];
 
@@ -9,15 +11,15 @@ export class GameVariantsObserve {
     this.changeVariantOnKeybord();
   }
 
-  disabledActiveBtnVariantUI(activeBtn, allBtns) {
-    if (activeBtn.classList.contains(DOMclasses.variantBtnDisabled)) return;
+  disabledActiveBtnVariantView(activeBtn, allBtns) {
+    if (activeBtn.classList.contains(DOMclasses.btnDisabled)) return;
 
     allBtns.forEach(btn => {
-      if (btn.classList.contains(DOMclasses.variantBtnDisabled))
-        btn.classList.remove(DOMclasses.variantBtnDisabled);
+      if (btn.classList.contains(DOMclasses.btnDisabled))
+        btn.classList.remove(DOMclasses.btnDisabled);
     });
 
-    activeBtn.classList.add(DOMclasses.variantBtnDisabled);
+    activeBtn.classList.add(DOMclasses.btnDisabled);
   }
 
   changeVariantOnKeybord() {
@@ -36,6 +38,10 @@ export class GameVariantsObserve {
 
     document.addEventListener("keydown", ({ keyCode, which }) => {
       if (blocked) return;
+
+      // this.keyCodes.forEach(({ keyCodes, name }) => {
+      //   if (keyCodes.some(key => key === keyCode)) changeVariant(name);
+      // });
 
       switch (keyCode || which) {
         case 49:
@@ -64,8 +70,9 @@ export class GameVariantsObserve {
     DOMelements.btnVariants.forEach(btn => {
       btn.addEventListener("click", () => {
         const variant = btn.dataset.variant;
+        new Sound().playSound();
 
-        this.disabledActiveBtnVariantUI(btn, DOMelements.btnVariants);
+        this.disabledActiveBtnVariantView(btn, DOMelements.btnVariants);
         this.saveSelectedVariantToState(variant);
         this.subscribers.forEach(sub => sub(variant));
       });
@@ -78,6 +85,10 @@ export class GameVariantsObserve {
 
   saveSelectedVariantToState(selectedVariant) {
     state.gameVariant = selectedVariant;
+  }
+
+  getKeyCodesFromFactory(keyCodes) {
+    this.keyCodes = keyCodes;
   }
 
   subscribe(subscriber) {

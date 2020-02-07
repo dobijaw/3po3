@@ -1,44 +1,57 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: ['@babel/polyfill', './src/js/index.js'],
+  entry: ["@babel/polyfill", "./src/js/index.js"],
   output: {
-    path: path.resolve(__dirname, 'docs'),
-    filename: 'js/bundle.js'
+    path: path.resolve(__dirname, "docs"),
+    filename: "js/bundle.js"
   },
   devServer: {
-    contentBase: './docs'
+    contentBase: "./docs"
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './src/html/index.html'
+      filename: "index.html",
+      template: "./src/html/index.html"
     }),
     new MiniCssExtractPlugin({
-      filename: 'index.css'
+      filename: "index.css"
     })
   ],
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: "babel-loader"
         }
       },
       {
         test: [/.css$|.scss$/],
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          "sass-loader"
+        ]
       },
       {
-        test: /\.(png|jpe?g|gif|svg|wav|mp3)$/i,
-        loader: 'file-loader',
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        loader: "file-loader",
         options: {
-          name: 'img/[name].[ext]',
+          name: "img/[name].[ext]"
         }
       },
+      {
+        test: /\.(wav|mp3)$/i,
+        loader: "file-loader",
+        options: {
+          name: "audio/[name].[ext]"
+        }
+      }
     ]
   }
-}
+};

@@ -1,17 +1,17 @@
 html {
-    font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
 }
 
 body {
-    background: $background-color;
+  background: $background-color;
 }
 
 *:focus {
-    outline: 0;
+  outline: 0;
 }
 
 *,
 *::after,
 *::before {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
