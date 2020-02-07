@@ -6,17 +6,17 @@ export class GameBoard {
   }
 
   clearGameBoardView() {
-    DOMelements.board.textContent = "";
+    DOMelements.gameBoard.textContent = "";
   }
 
-  renderGameBoardView(variant) {
+  renderGameBoardView() {
     this.clearGameBoardView();
 
-    DOMelements.boardTemplates.forEach(template => {
-      if (template.dataset.board !== variant) return;
+    DOMelements.gameBoardTemplates.forEach(template => {
+      if (template.dataset.board !== this.currentVariant.name) return;
 
       const clon = template.content.cloneNode(true);
-      DOMelements.board.appendChild(clon);
+      DOMelements.gameBoard.appendChild(clon);
     });
   }
 
@@ -29,7 +29,7 @@ export class GameBoard {
 
   startGame() {
     this.renderMessageView();
-    this.renderGameBoardView(this.currentVariant.name);
+    this.renderGameBoardView();
   }
 
   changeCurrentVariant(variant) {

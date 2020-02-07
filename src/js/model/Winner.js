@@ -43,12 +43,12 @@ export class Winner {
       <div class="board__container">
         <ul class="board__list">
           <li class="board__item">
-            <div class="board__box ${classNamePlayer}" data-symbol="${state.playerChoice[0]}">
+            <div class="board__box ${classNamePlayer} board__box--result" data-symbol="${state.playerChoice[0]}">
               <img src="../img/${state.playerChoice[0]}.svg" alt="" class="board__img">
             </div>
           </li>
           <li class="board__item">
-            <div class="board__box ${classNameAI}" data-symbol="${state.aiChoice[0]}">
+            <div class="board__box ${classNameAI} board__box--result" data-symbol="${state.aiChoice[0]}">
               <img src="../img/${state.aiChoice[0]}.svg" alt="" class="board__img">
             </div>
           </li>
@@ -94,23 +94,23 @@ export class Winner {
   }
 
   renderWinnerView(result) {
-    DOMelements.board.textContent = "";
+    DOMelements.gameBoard.textContent = "";
 
     switch (result) {
       case "wins":
-        DOMelements.board.insertAdjacentHTML(
+        DOMelements.gameBoard.insertAdjacentHTML(
           "beforeend",
           this.getWinnerView(DOMclasses.boardWins, DOMclasses.boardNeutral)
         );
         break;
       case "draws":
-        DOMelements.board.insertAdjacentHTML(
+        DOMelements.gameBoard.insertAdjacentHTML(
           "beforeend",
           this.getWinnerView(DOMclasses.boardDraws, DOMclasses.boardDraws)
         );
         break;
       case "losses":
-        DOMelements.board.insertAdjacentHTML(
+        DOMelements.gameBoard.insertAdjacentHTML(
           "beforeend",
           this.getWinnerView(DOMclasses.boardNeutral, DOMclasses.boardLosses)
         );
@@ -121,6 +121,18 @@ export class Winner {
   updateScoreView() {
     DOMelements.summaryScore.forEach(score => {
       score.textContent = state.summary[score.dataset.type];
+
+      if (score.dataset.type === state.winnerStatus[0]) {
+        score.classList.add(
+          `${DOMclasses.summaryScore}--${state.winnerStatus[0]}`
+        );
+
+        setTimeout(() => {
+          score.classList.remove(
+            `${DOMclasses.summaryScore}--${state.winnerStatus[0]}`
+          );
+        }, 500);
+      }
     });
   }
 }

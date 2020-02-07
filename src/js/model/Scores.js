@@ -1,5 +1,5 @@
 import { state } from "../state";
-import { DOMelements } from "../base";
+import { DOMelements, DOMclasses } from "../base";
 
 export class Scores {
   constructor() {}
@@ -22,6 +22,18 @@ export class Scores {
   resetScoresView() {
     DOMelements.summaryScore.forEach(score => {
       score.textContent = state.summary[score.dataset.type];
+
+      if (score.dataset.type === state.winnerStatus[0]) {
+        score.classList.add(
+          `${DOMclasses.summaryScore}--${state.winnerStatus[0]}`
+        );
+
+        setTimeout(() => {
+          score.classList.remove(
+            `${DOMclasses.summaryScore}--${state.winnerStatus[0]}`
+          );
+        }, 500);
+      }
     });
   }
 }

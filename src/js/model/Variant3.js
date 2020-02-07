@@ -1,11 +1,18 @@
 import { state } from "../state";
-import { Variant } from "./Variant";
+import { VariantIQ } from "./VariantIQ";
 
-class Variant3 extends Variant {
+class Variant3 extends VariantIQ {
   constructor(name, timeInterval) {
     super();
     this.name = name;
     this.timeInterval = timeInterval;
+  }
+
+  keyCodeSelect() {
+    return {
+      name: this.name,
+      keyCodes: [51, 99]
+    };
   }
 
   getMessage() {
@@ -20,9 +27,7 @@ class Variant3 extends Variant {
 
   aiChoice() {
     if (state.aiChoice.length === 0) {
-      const randomIndex = Math.floor(Math.random() * 2);
-      state.randomIndex = randomIndex;
-      return;
+      this.firstMove();
     }
 
     // Zwycięzca pierwszej partii powtarza ruch, a przegrany wybiera symbol którym wygrałbym w peirwszej partii
