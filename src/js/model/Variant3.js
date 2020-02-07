@@ -1,10 +1,11 @@
 import { state } from "../state";
+import { Variant } from "./Variant";
 
-class Variant3 {
+class Variant3 extends Variant {
   constructor(name, timeInterval) {
+    super();
     this.name = name;
     this.timeInterval = timeInterval;
-    this.symbols = ["rock", "paper", "scissors"];
   }
 
   getMessage() {
