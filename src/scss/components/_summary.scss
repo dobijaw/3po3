@@ -99,9 +99,28 @@
   }
 
   &__score {
+    display: block;
     margin: 0;
     font-size: 20px;
     font-weight: 500;
+
+    &--wins,
+    &--draws,
+    &--losses {
+      animation: addPoint 0.5s;
+    }
+
+    &--wins {
+      transform-origin: right;
+    }
+
+    &--draws {
+      transform-origin: center;
+    }
+
+    &--losses {
+      transform-origin: left;
+    }
 
     @media (min-width: 360px) and (min-height: 560px) {
       font-size: 24px;
@@ -122,5 +141,15 @@
     @media (min-width: 1280px) and(min-height: 900px) and (orientation: landscape) {
       font-size: 34px;
     }
+  }
+}
+
+@keyframes addPoint {
+  0% {
+    transform: scale(2);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }
