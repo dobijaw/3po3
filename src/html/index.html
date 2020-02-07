@@ -1,221 +1,336 @@
 <!DOCTYPE html>
 <html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>3 po 3 | Kamień Papier Nożyce</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>3 po 3 | Kamień Papier Nożyce</title>
-</head>
-
-<body>
-  <div class="container">
-
-    <header class="header">
-      <h1 class="logo">
-        <a class="logo__link" href="index.html">
-          <img src="../img/logo.svg" alt="3po3 Logo" class="logo__img" title="3po3">
-        </a>
-      </h1>
-      <div>
-        <button class="btn btn--border btn--variant" type="button" data-variant="variant1"
-          aria-label="Wariant 1">1</button>
-        <button class="btn btn--border btn--variant" type="button" data-variant="variant2"
-          aria-label="Wariant 2">2</button>
-        <button class="btn btn--border btn--variant" type="button" data-variant="variant3"
-          aria-label="Wariant 3">3</button>
-      </div>
-    </header>
-
-    <main class="main">
-      <header class="main__headline">
-        <h2 class="headline headline--result">Grasz w wariancie 1</h2>
-        <p class="copy copy--result">Wybierz symbol, aby zagrać.</p>
-      </header>
-
-      <div class="board my-board"></div>
-
-      <section class="summary">
-        <h2 class="summary__headline">Twój wynik</h2>
-        <div class="summary__scoreboard">
-          <section class="summary__box summary__box--to-right">
-            <h3 class="summary__type">Wygrane</h3>
-            <span class="summary__score" data-type="wins">10</span>
-          </section>
-          <section class="summary__box summary__box--center">
-            <h3 class="summary__type">Remisy</h3>
-            <span class="summary__score" data-type="draws">40</span>
-          </section>
-          <section class="summary__box summary__box--to-left">
-            <h3 class="summary__type">Porażki</h3>
-            <span class="summary__score" data-type="losses">90</span>
-          </section>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="footer__col">
-        <button class="btn btn--noborder btn--active" type="button">dźwięk</button>
-      </div>
-      <div class="interval interval--hide">
-        <p class="interval__copy">Interwał</p>
-        <div class="interval__input">
-          <div class="input">
-            <input type="text" class="input__item">
-          </div>
-          <button class="input__btn">
-            <img src="../img/accept.svg" alt="" class="input__img">
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 class="logo">
+          <a class="logo__link" href="index.html">
+            <img
+              src="../img/logo.svg"
+              alt="3po3 Logo"
+              class="logo__img"
+              title="3po3"
+            />
+          </a>
+        </h1>
+        <div>
+          <button
+            class="btn btn--border btn--variant"
+            type="button"
+            data-variant="variant1"
+            aria-label="Wariant 1"
+          >
+            1
+          </button>
+          <button
+            class="btn btn--border btn--variant"
+            type="button"
+            data-variant="variant2"
+            aria-label="Wariant 2"
+          >
+            2
+          </button>
+          <button
+            class="btn btn--border btn--variant"
+            type="button"
+            data-variant="variant3"
+            aria-label="Wariant 3"
+          >
+            3
           </button>
         </div>
-      </div>
-      <div class="footer__col">
-        <button id="reset" class="btn btn--noborder">resetuj wyniki</button>
-        <div class="popup">
-          <div class="popup__container">
-            <p class="copy popup__copy">Jesteś pewny? Twój wynik zostanie utracony!</p>
-            <div class="popup__btns">
-              <div class="popup__btn-container">
-                <button class="btn btn--quickanswer popup__btn" data-btn="no" type="button"
-                  aria-label="Nie">nie</button>
-              </div>
-              <div class="popup__btn-container">
-                <button class="btn btn--quickanswer popup__btn" data-btn="yes" type="button"
-                  aria-label="Tak">tak</button>
+      </header>
+
+      <main class="main">
+        <header class="main__headline">
+          <h2 class="headline headline--result">Grasz w wariancie 1</h2>
+          <p class="copy copy--result">Wybierz symbol, aby zagrać.</p>
+        </header>
+
+        <div class="board my-board"></div>
+
+        <section class="summary">
+          <h2 class="summary__headline">Twój wynik</h2>
+          <div class="summary__scoreboard">
+            <section class="summary__box summary__box--to-right">
+              <h3 class="summary__type">Wygrane</h3>
+              <span class="summary__score" data-type="wins">10</span>
+            </section>
+            <section class="summary__box summary__box--center">
+              <h3 class="summary__type">Remisy</h3>
+              <span class="summary__score" data-type="draws">40</span>
+            </section>
+            <section class="summary__box summary__box--to-left">
+              <h3 class="summary__type">Porażki</h3>
+              <span class="summary__score" data-type="losses">90</span>
+            </section>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__col">
+          <button class="btn btn--noborder btn--active" type="button">
+            dźwięk
+          </button>
+        </div>
+        <div class="interval interval--hide">
+          <p class="interval__copy">Interwał</p>
+          <div class="interval__input">
+            <div class="input">
+              <input type="text" class="input__item" />
+            </div>
+            <button class="input__btn">
+              <img src="../img/accept.svg" alt="" class="input__img" />
+            </button>
+          </div>
+        </div>
+        <div class="footer__col">
+          <button id="reset" class="btn btn--noborder">resetuj wyniki</button>
+          <div class="popup">
+            <div class="popup__container">
+              <p class="copy popup__copy">
+                Jesteś pewny? Twój wynik zostanie utracony!
+              </p>
+              <div class="popup__btns">
+                <div class="popup__btn-container">
+                  <button
+                    class="btn btn--quickanswer popup__btn"
+                    data-btn="no"
+                    type="button"
+                    aria-label="Nie"
+                  >
+                    nie
+                  </button>
+                </div>
+                <div class="popup__btn-container">
+                  <button
+                    class="btn btn--quickanswer popup__btn"
+                    data-btn="yes"
+                    type="button"
+                    aria-label="Tak"
+                  >
+                    tak
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-      </div>
-    </footer>
-  </div>
-
-  <template class="template" data-board="variant1">
-    <div class="board__container">
-      <ul class="board__list">
-        <li class="board__item">
-          <button class="board__box board__box--variant1 board__box--choice" data-symbol="rock">
-            <img src="../img/rock.svg" alt="Kamień" class="board__img">
-          </button>
-          <div class="board__arrow board__arrow--hidden">
-            <img src="../img/arrow-left.svg" alt="Strzałka w lewo" class="board__icon">
-          </div>
-        </li>
-        <li class="board__item">
-          <button class="board__box board__box--variant1 board__box--choice" data-symbol="paper">
-            <img src="../img/paper.svg" alt="Papier" class="board__img">
-          </button>
-          <div class="board__arrow board__arrow--hidden">
-            <img src="../img/arrow-down.svg" alt="Strzałka w dół" class="board__icon">
-          </div>
-        </li>
-        <li class="board__item">
-          <button class="board__box board__box--variant1 board__box--choice" data-symbol="scissors">
-            <img src="../img/scissors.svg" alt="Nożyce" class="board__img">
-          </button>
-          <div class="board__arrow board__arrow--hidden">
-            <img src="../img/arrow-right.svg" alt="Strzałka w prawo" class="board__icon">
-          </div>
-        </li>
-      </ul>
+      </footer>
     </div>
-  </template>
 
-  <template class="template" data-board="variant2">
-    <div class="board__container board__container--option2">
-      <ul class="board__list">
-        <li class="board__item board__item--option2">
-          <button class="board__box board__box--option2 board__box--choice" data-symbol="rock">
-            <img src="../img/rock.svg" alt="Kamień" class="board__img">
-          </button>
-          <div class="board__arrow board__arrow--hidden">
-            <img src="../img/arrow-left.svg" alt="Strzałka w lewo" class="board__icon">
-          </div>
-        </li>
-        <li class="board__item board__item--option2">
-          <button class="board__box board__box--option2 board__box--choice" data-symbol="paper">
-            <img src="../img/paper.svg" alt="Papier" class="board__img">
-          </button>
-          <div class="board__arrow board__arrow--hidden">
-            <img src="../img/arrow-down.svg" alt="Strzałka w dół" class="board__icon">
-          </div>
-        </li>
-        <li class="board__item board__item--option2">
-          <button class="board__box board__box--option2 board__box--choice" data-symbol="scissors">
-            <img src="../img/scissors.svg" alt="Nożyce" class="board__img">
-          </button>
-          <div class="board__arrow board__arrow--hidden">
-            <img src="../img/arrow-right.svg" alt="Strzałka w prawo" class="board__icon">
-          </div>
-        </li>
-      </ul>
+    <template class="template" data-board="variant1">
+      <div class="board__container">
+        <ul class="board__list">
+          <li class="board__item">
+            <button
+              class="board__box board__box--variant1 board__box--choice"
+              data-symbol="rock"
+            >
+              <img src="../img/rock.svg" alt="Kamień" class="board__img" />
+            </button>
+            <div class="board__arrow board__arrow--hidden">
+              <img
+                src="../img/arrow-left.svg"
+                alt="Strzałka w lewo"
+                class="board__icon"
+              />
+            </div>
+          </li>
+          <li class="board__item">
+            <button
+              class="board__box board__box--variant1 board__box--choice"
+              data-symbol="paper"
+            >
+              <img src="../img/paper.svg" alt="Papier" class="board__img" />
+            </button>
+            <div class="board__arrow board__arrow--hidden">
+              <img
+                src="../img/arrow-down.svg"
+                alt="Strzałka w dół"
+                class="board__icon"
+              />
+            </div>
+          </li>
+          <li class="board__item">
+            <button
+              class="board__box board__box--variant1 board__box--choice"
+              data-symbol="scissors"
+            >
+              <img src="../img/scissors.svg" alt="Nożyce" class="board__img" />
+            </button>
+            <div class="board__arrow board__arrow--hidden">
+              <img
+                src="../img/arrow-right.svg"
+                alt="Strzałka w prawo"
+                class="board__icon"
+              />
+            </div>
+          </li>
+        </ul>
+      </div>
+    </template>
 
-      <div class="board__ai">
-        <div class="board__item board__item--ai board__item--option2">
-          <div class="board__box board__box--ai board__box--option2" data-symbol="rock">
-            <img src="../img/rock.svg" alt="Kamień" class="board__img board__img--ai">
-            <img src="../img/paper.svg" alt="Papier" class="board__img board__img--ai">
-            <img src="../img/scissors.svg" alt="Nożyce" class="board__img board__img--ai">
-          </div>
-          <div class="board__player">
-            <p class="board__copy">Przeciwnik</p>
+    <template class="template" data-board="variant2">
+      <div class="board__container board__container--option2">
+        <ul class="board__list">
+          <li class="board__item board__item--option2">
+            <button
+              class="board__box board__box--option2 board__box--choice"
+              data-symbol="rock"
+            >
+              <img src="../img/rock.svg" alt="Kamień" class="board__img" />
+            </button>
+            <div class="board__arrow board__arrow--hidden">
+              <img
+                src="../img/arrow-left.svg"
+                alt="Strzałka w lewo"
+                class="board__icon"
+              />
+            </div>
+          </li>
+          <li class="board__item board__item--option2">
+            <button
+              class="board__box board__box--option2 board__box--choice"
+              data-symbol="paper"
+            >
+              <img src="../img/paper.svg" alt="Papier" class="board__img" />
+            </button>
+            <div class="board__arrow board__arrow--hidden">
+              <img
+                src="../img/arrow-down.svg"
+                alt="Strzałka w dół"
+                class="board__icon"
+              />
+            </div>
+          </li>
+          <li class="board__item board__item--option2">
+            <button
+              class="board__box board__box--option2 board__box--choice"
+              data-symbol="scissors"
+            >
+              <img src="../img/scissors.svg" alt="Nożyce" class="board__img" />
+            </button>
+            <div class="board__arrow board__arrow--hidden">
+              <img
+                src="../img/arrow-right.svg"
+                alt="Strzałka w prawo"
+                class="board__icon"
+              />
+            </div>
+          </li>
+        </ul>
+
+        <div class="board__ai">
+          <div class="board__item board__item--ai board__item--option2">
+            <div
+              class="board__box board__box--ai board__box--option2"
+              data-symbol="rock"
+            >
+              <img
+                src="../img/rock.svg"
+                alt="Kamień"
+                class="board__img board__img--ai"
+              />
+              <img
+                src="../img/paper.svg"
+                alt="Papier"
+                class="board__img board__img--ai"
+              />
+              <img
+                src="../img/scissors.svg"
+                alt="Nożyce"
+                class="board__img board__img--ai"
+              />
+            </div>
+            <div class="board__player">
+              <p class="board__copy">Przeciwnik</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </template>
+    </template>
 
-  <template class="template" data-board="variant3">
-    <div class="board__container">
-      <ul class="board__list">
-        <li class="board__item">
-          <button class="board__box board__box--variant1 board__box--choice" data-symbol="rock">
-            <img src="../img/rock.svg" alt="Kamień" class="board__img">
-          </button>
-          <div class="board__arrow board__arrow--hidden">
-            <img src="../img/arrow-left.svg" alt="Strzałka w lewo" class="board__icon">
-          </div>
-        </li>
-        <li class="board__item">
-          <button class="board__box board__box--variant1 board__box--choice" data-symbol="paper">
-            <img src="../img/paper.svg" alt="Papier" class="board__img">
-          </button>
-          <div class="board__arrow board__arrow--hidden">
-            <img src="../img/arrow-down.svg" alt="Strzałka w dół" class="board__icon">
-          </div>
-        </li>
-        <li class="board__item">
-          <button class="board__box board__box--variant1 board__box--choice" data-symbol="scissors">
-            <img src="../img/scissors.svg" alt="Nożyce" class="board__img">
-          </button>
-          <div class="board__arrow board__arrow--hidden">
-            <img src="../img/arrow-right.svg" alt="Strzałka w prawo" class="board__icon">
-          </div>
-        </li>
-      </ul>
-    </div>
-  </template>
-
-  <template class="template" data-board="result">
-    <div class="board__container">
-      <ul class="board__list">
-        <li class="board__item">
-          <div class="board__box" data-symbol="rock">
-            <img src="../img/rock.svg" alt="" class="board__img">
-          </div>
-        </li>
-        <li class="board__item">
-          <div class="board__box" data-symbol="rock">
-            <img src="../img/rock.svg" alt="" class="board__img">
-          </div>
-        </li>
-      </ul>
-      <div class="board__btn">
-        <button class="btn btn--border btn--play-again">Zagraj ponownie</button>
+    <template class="template" data-board="variant3">
+      <div class="board__container">
+        <ul class="board__list">
+          <li class="board__item">
+            <button
+              class="board__box board__box--variant1 board__box--choice"
+              data-symbol="rock"
+            >
+              <img src="../img/rock.svg" alt="Kamień" class="board__img" />
+            </button>
+            <div class="board__arrow board__arrow--hidden">
+              <img
+                src="../img/arrow-left.svg"
+                alt="Strzałka w lewo"
+                class="board__icon"
+              />
+            </div>
+          </li>
+          <li class="board__item">
+            <button
+              class="board__box board__box--variant1 board__box--choice"
+              data-symbol="paper"
+            >
+              <img src="../img/paper.svg" alt="Papier" class="board__img" />
+            </button>
+            <div class="board__arrow board__arrow--hidden">
+              <img
+                src="../img/arrow-down.svg"
+                alt="Strzałka w dół"
+                class="board__icon"
+              />
+            </div>
+          </li>
+          <li class="board__item">
+            <button
+              class="board__box board__box--variant1 board__box--choice"
+              data-symbol="scissors"
+            >
+              <img src="../img/scissors.svg" alt="Nożyce" class="board__img" />
+            </button>
+            <div class="board__arrow board__arrow--hidden">
+              <img
+                src="../img/arrow-right.svg"
+                alt="Strzałka w prawo"
+                class="board__icon"
+              />
+            </div>
+          </li>
+        </ul>
       </div>
-    </div>
-  </template>
-</body>
+    </template>
 
+    <template class="template" data-board="result">
+      <div class="board__container">
+        <ul class="board__list">
+          <li class="board__item">
+            <div class="board__box" data-symbol="rock">
+              <img src="../img/rock.svg" alt="" class="board__img" />
+            </div>
+          </li>
+          <li class="board__item">
+            <div class="board__box" data-symbol="rock">
+              <img src="../img/rock.svg" alt="" class="board__img" />
+            </div>
+          </li>
+        </ul>
+        <div class="board__btn">
+          <button class="btn btn--border btn--play-again">
+            Zagraj ponownie
+          </button>
+        </div>
+      </div>
+    </template>
+  </body>
 </html>

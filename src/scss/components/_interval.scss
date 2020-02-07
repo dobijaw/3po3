@@ -1,25 +1,25 @@
 .interval {
-    position: fixed;
-    bottom: 80px;
-    left: 50%;
-    transform: translateX(-50%);
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &--hide {
+    display: none;
+  }
+
+  &__input {
     display: flex;
     justify-content: center;
-    align-items: center;
+  }
 
-    &--hide {
-        display: none;
-    }
-
-    &__input {
-        display: flex;
-        justify-content: center;
-    }
-
-    &__copy {
-        padding: 0;
-        margin: 0 10px 0;
-        font-size: 16px;
-        text-align: center;
-    }
+  &__copy {
+    padding: 0;
+    margin: 0 10px 0;
+    font-size: 16px;
+    text-align: center;
+  }
 }

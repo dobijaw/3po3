@@ -8,10 +8,10 @@
   font-weight: 600;
   text-transform: uppercase;
   line-height: 1;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   cursor: pointer;
 
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 16px;
   }
 
@@ -34,21 +34,21 @@
     }
 
     &::before {
-      content: '<';
+      content: "<";
       position: absolute;
       top: 50%;
       left: 0;
       transform: translate(-15px, -50%);
-      transition: all .25s ease-in-out;
+      transition: all 0.25s ease-in-out;
     }
 
     &::after {
-      content: '>';
+      content: ">";
       position: absolute;
       top: 50%;
       right: 0;
       transform: translate(15px, -50%);
-      transition: all .25s ease-in-out;
+      transition: all 0.25s ease-in-out;
     }
 
     &:hover {
@@ -65,35 +65,35 @@
   &--border {
     padding: 10px 24px;
     border: 1px solid $dark-color;
-    transition: all .25s ease-out;
+    transition: all 0.25s ease-out;
 
-    @media(min-width: 768px) {
+    @media (min-width: 768px) {
       padding: 12px 34px;
     }
 
     &:hover {
-      opacity: .4;
+      opacity: 0.4;
     }
   }
 
   &--border.btn--active {
-    opacity: .4;
+    opacity: 0.4;
   }
 
   &--noborder {
     position: relative;
     overflow: hidden;
 
-    @media(min-width:400px) {
-      letter-spacing: .2em;
+    @media (min-width: 400px) {
+      letter-spacing: 0.2em;
     }
 
-    @media(min-width:400px) {
-      letter-spacing: .2em;
+    @media (min-width: 400px) {
+      letter-spacing: 0.2em;
     }
 
-    @media(min-width:540px) {
-      letter-spacing: .4em;
+    @media (min-width: 540px) {
+      letter-spacing: 0.4em;
     }
 
     &::after {
@@ -106,7 +106,7 @@
       height: 1px;
       background: $dark-color;
       transform: translateX(-100%);
-      transition: .35s ease-in-out;
+      transition: 0.35s ease-in-out;
     }
 
     &:hover {

@@ -1,35 +1,35 @@
 .headline {
-    margin: 0;
-    padding: 0;
-    font-size: 18px;
-    font-weight: 600;
-    text-align: center;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
 
-    @media(min-width: 360px) and (min-height: 533px) {
-        font-size: 21px;
-    }
+  @media (min-width: 360px) and (min-height: 533px) {
+    font-size: 21px;
+  }
 
-    @media(min-width: 400px) and (min-height: 580px) {
-        font-size: 24px;
-    }
+  @media (min-width: 400px) and (min-height: 580px) {
+    font-size: 24px;
+  }
 
-    @media(min-width: 480px) and (min-height: 580px) {
-        font-size: 28px;
-    }
+  @media (min-width: 480px) and (min-height: 580px) {
+    font-size: 28px;
+  }
 
-    @media(min-width: 680px) and (min-height: 360px) and (orientation: landscape) {
-        font-size: 21px;
-    }
+  @media (min-width: 680px) and (min-height: 360px) and (orientation: landscape) {
+    font-size: 21px;
+  }
 
-    @media(min-width: 1024px) and (min-height: 768px) and (orientation: landscape) {
-        font-size: 24px;
-    }
+  @media (min-width: 1024px) and (min-height: 768px) and (orientation: landscape) {
+    font-size: 24px;
+  }
 
-    @media(min-width: 1280px) and(min-height: 900px) and (orientation: landscape) {
-        font-size: 26px;
-    }
+  @media (min-width: 1280px) and(min-height: 900px) and (orientation: landscape) {
+    font-size: 26px;
+  }
 
-    @media(min-width: 1600px) and(min-height: 900px) and (orientation: landscape) {
-        font-size: 28px;
-    }
+  @media (min-width: 1600px) and(min-height: 900px) and (orientation: landscape) {
+    font-size: 28px;
+  }
 }
