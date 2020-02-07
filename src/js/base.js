@@ -10,6 +10,7 @@ export const DOMelements = {
 };
 
 export const DOMclasses = {
+  imgBoardAI: "board__img--ai",
   popUpActive: "popup--active",
   popUpContainer: "popup__container",
   popUpBtn: "popup__btn",
