@@ -39,10 +39,17 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpe?g|gif|svg|wav|mp3)$/i,
+        test: /\.(png|jpe?g|gif|svg)$/i,
         loader: "file-loader",
         options: {
           name: "img/[name].[ext]"
+        }
+      },
+      {
+        test: /\.(wav|mp3)$/i,
+        loader: "file-loader",
+        options: {
+          name: "audio/[name].[ext]"
         }
       }
     ]
