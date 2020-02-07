@@ -1,12 +1,14 @@
 import "../scss/index.scss";
 
 import { PopUp } from "./model/PopUp";
+import { Sound } from "./model/Sound";
 import { Scores } from "./model/Scores";
 import { GameBoard } from "./model/GameBoard";
 import { VariantsFactory } from "./model/VariantsFactory";
 import { GameVariantsObserve } from "./model/GameVariantsObserve";
 import { GamePlayControler } from "./model/GamePlayControler";
 
+const sound = new Sound();
 const popUp = new PopUp();
 const scores = new Scores();
 const gameBoard = new GameBoard();
@@ -28,6 +30,7 @@ gameVariants.subscribe(selectedVariant => {
   });
 });
 
+sound.btnOnClickView();
 scores.resetScoresInState();
 scores.resetScoresView();
 gameVariants.initFirstScreen();

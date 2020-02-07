@@ -1,6 +1,8 @@
 import { DOMelements, DOMclasses } from "../base";
 import { state } from "../state";
 
+import { Sound } from "./Sound";
+
 export class GameVariantsObserve {
   constructor() {
     this.subscribers = [];
@@ -10,14 +12,14 @@ export class GameVariantsObserve {
   }
 
   disabledActiveBtnVariantUI(activeBtn, allBtns) {
-    if (activeBtn.classList.contains(DOMclasses.variantBtnDisabled)) return;
+    if (activeBtn.classList.contains(DOMclasses.btnDisabled)) return;
 
     allBtns.forEach(btn => {
-      if (btn.classList.contains(DOMclasses.variantBtnDisabled))
-        btn.classList.remove(DOMclasses.variantBtnDisabled);
+      if (btn.classList.contains(DOMclasses.btnDisabled))
+        btn.classList.remove(DOMclasses.btnDisabled);
     });
 
-    activeBtn.classList.add(DOMclasses.variantBtnDisabled);
+    activeBtn.classList.add(DOMclasses.btnDisabled);
   }
 
   changeVariantOnKeybord() {
@@ -64,6 +66,7 @@ export class GameVariantsObserve {
     DOMelements.btnVariants.forEach(btn => {
       btn.addEventListener("click", () => {
         const variant = btn.dataset.variant;
+        new Sound().playSound();
 
         this.disabledActiveBtnVariantUI(btn, DOMelements.btnVariants);
         this.saveSelectedVariantToState(variant);

@@ -1,6 +1,8 @@
 import { state } from "../state";
 import { DOMelements, DOMclasses } from "../base";
 
+import { Sound } from "./Sound";
+
 export class Winner {
   constructor() {
     this.conditionsForWin = [
@@ -69,6 +71,7 @@ export class Winner {
       if (keyCode === 13 || which === 13) {
         callback();
         state.enterBlocked = true;
+        new Sound().playSound();
       }
     });
   }
