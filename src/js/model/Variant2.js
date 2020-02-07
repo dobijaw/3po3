@@ -1,9 +1,40 @@
-import { state } from '../state';
+import { state } from "../state";
+import { DOMclasses } from "../base";
+import { Variant } from "./Variant";
 
-class Variant2 {
+class Variant2 extends Variant {
   constructor(name, timeInterval) {
+    super();
     this.name = name;
     this.timeInterval = timeInterval;
+  }
+
+  aiChoice() {
+    const imgAISymbols = [
+      ...document.querySelectorAll(`.${DOMclasses.imgBoardAI}`)
+    ];
+    state.randomIndex = this.randomNumber();
+    imgAISymbols[state.randomIndex].style.opacity = 1;
+
+    let counter = 0;
+
+    state.intervals = setInterval(() => {
+      let random = 0;
+
+      do {
+        random = this.randomNumber();
+      } while (counter === random);
+
+      counter = random;
+      state.randomIndex = random;
+
+      imgAISymbols.forEach(symbol => {
+        symbol.style.opacity = 0;
+      });
+      imgAISymbols[counter].style.opacity = 1;
+
+      console.log("Wariant 2 " + state.randomIndex);
+    }, this.timeInterval);
   }
 
   getMessage() {
@@ -13,33 +44,8 @@ class Variant2 {
     return {
       headline,
       copy
-    }
+    };
   }
-
-  aiChoice() {
-    const randomNumber = () => Math.floor(Math.random() * 3);
-    const allImg = [...document.querySelectorAll('.board__img--ai')];
-    let counter = randomNumber();
-
-    allImg[counter].style.opacity = 1;
-
-    state.intervals = setInterval(() => {
-      let random = null;
-
-      do {
-        random = randomNumber();
-      } while (counter === random);
-
-      counter = random;
-
-      allImg.forEach(symbol => { symbol.style.opacity = 0 });
-      allImg[counter].style.opacity = 1;
-
-      state.intervalIndex = counter;
-      console.log('Wariant 2 ' + state.intervalIndex);
-    }, this.timeInterval);
-  }
-
 }
 
 export default Variant2;

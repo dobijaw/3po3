@@ -1,40 +1,38 @@
-import { state } from '../state';
+import { state } from "../state";
+import { Variant } from "./Variant";
 
-class Variant1 {
-    constructor(name, timeInterval) {
-        this.name = name;
-        this.timeInterval = timeInterval;
-    }
+class Variant1 extends Variant {
+  constructor(name, timeInterval) {
+    super();
+    this.name = name;
+    this.timeInterval = timeInterval;
+  }
 
-    getMessage() {
-        const headline = `Los - tryb 1`;
-        const copy = `Runda ${state.summary.games + 1}. Wybierz symbol!`;
+  aiChoice() {
+    state.randomIndex = this.randomNumber();
+    let counter = 0;
 
-        return {
-            headline,
-            copy
-        }
-    }
+    state.intervals = setInterval(() => {
+      let random = 0;
 
-    aiChoice() {
-        const randomNumber = () => Math.floor(Math.random() * 3);
+      do {
+        random = this.randomNumber();
+      } while (counter === random);
 
-        state.intervalIndex = randomNumber();
-        let counter = 0;
+      counter = random;
+      state.randomIndex = random;
+    }, this.timeInterval);
+  }
 
-        state.intervals = setInterval(() => {
-            let random = 0;
+  getMessage() {
+    const headline = `Los - tryb 1`;
+    const copy = `Runda ${state.summary.games + 1}. Wybierz symbol!`;
 
-            do {
-                random = randomNumber();
-            } while (counter === random)
-
-            counter = random;
-            state.intervalIndex = counter;
-
-            console.log('Wariant 1 ' + state.intervalIndex);
-        }, this.timeInterval);
-    }
+    return {
+      headline,
+      copy
+    };
+  }
 }
 
 export default Variant1;

@@ -1,22 +1,43 @@
-import '../scss/index.scss';
+import "../scss/index.scss";
 
-import { VariantFactory } from './model/VariantFactory';
-import { GameVariantsObserve } from './model/GameVariantsObserve';
-import { GamePlay } from './model/GamePlay';
-import { GameBoard } from './model/GameBoard';
+import { PopUp } from "./model/PopUp";
+import { Scores } from "./model/Scores";
+import { GameBoard } from "./model/GameBoard";
+import { VariantsFactory } from "./model/VariantsFactory";
+import { GameVariantsObserve } from "./model/GameVariantsObserve";
+import { GamePlayControler } from "./model/GamePlayControler";
 
-const variant = new VariantFactory();
-const gameVariants = new GameVariantsObserve();
-const gamePlay = new GamePlay();
+const popUp = new PopUp();
+const scores = new Scores();
 const gameBoard = new GameBoard();
+const variantsFactory = new VariantsFactory();
+const gameVariants = new GameVariantsObserve();
+const gamePlayControler = new GamePlayControler();
 
 gameVariants.subscribe(selectedVariant => {
-    const currentVariant = variant.getVariantGame(selectedVariant);
-    gamePlay.changeCurrentVariant(currentVariant);
-    gameBoard.changeCurrentVariant(currentVariant);
+  const currentVariant = variantsFactory.getVariantGame(selectedVariant);
+  gamePlayControler.changeCurrentVariant(currentVariant);
+  gameBoard.changeCurrentVariant(currentVariant);
 
+  gameBoard.startGame();
+  gamePlayControler.startGame();
+
+  gamePlayControler.getPlayAgain(() => {
     gameBoard.startGame();
-    gamePlay.startGame();
-})
+    gamePlayControler.startGame();
+  });
+});
 
-// gameVariants.initFirstScreen();
+scores.resetScoresInState();
+scores.resetScoresView();
+gameVariants.initFirstScreen();
+
+popUp.popUpOnClickView();
+
+popUp.initNewGame(() => {
+  gamePlayControler.stopSymbolInterval();
+
+  scores.resetScoresInState();
+  scores.resetScoresView();
+  gameVariants.initFirstScreen();
+});
