@@ -1,7 +1,7 @@
 import { DOMelements, DOMclasses } from "../base";
 import { state } from "../state";
 
-export class PopUp {
+export class NewGamePopUp {
   constructor() {
     this.newGameSubscriber = [];
   }

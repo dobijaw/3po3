@@ -4,7 +4,7 @@ import { state } from "../state";
 import { Winner } from "./Winner";
 import { Sound } from "./Sound";
 
-export class GamePlayControler {
+export class GameControler {
   constructor() {
     this.currentVariant = null;
     this.playAgain = [];
@@ -30,8 +30,8 @@ export class GamePlayControler {
         break;
     }
 
-    if (state.aiChoice.length === 3) state.aiChoice.pop();
-    state.aiChoice.unshift(choice);
+    if (state.AIChoice.length === 3) state.AIChoice.pop();
+    state.AIChoice.unshift(choice);
   }
 
   playerChoice() {
@@ -87,7 +87,7 @@ export class GamePlayControler {
 
   startGame() {
     this.stopSymbolInterval();
-    this.currentVariant.aiChoice();
+    this.currentVariant.AIChoice();
 
     state.keyBlocked = false;
     this.playerChoice();

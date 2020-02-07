@@ -15,7 +15,7 @@ class Variant1 extends Variant {
     };
   }
 
-  aiChoice() {
+  AIChoice() {
     state.randomIndex = this.randomNumber();
     let counter = 0;
 

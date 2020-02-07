@@ -25,8 +25,8 @@ class Variant3 extends VariantIQ {
     };
   }
 
-  aiChoice() {
-    if (state.aiChoice.length === 0) {
+  AIChoice() {
+    if (state.AIChoice.length === 0) {
       this.firstMove();
     }
 

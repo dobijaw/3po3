@@ -6,9 +6,9 @@ import { Sound } from "./Sound";
 export class Winner {
   constructor() {
     this.conditionsForWin = [
-      state.playerChoice[0] === "rock" && state.aiChoice[0] === "scissors",
-      state.playerChoice[0] === "paper" && state.aiChoice[0] === "rock",
-      state.playerChoice[0] === "scissors" && state.aiChoice[0] === "paper"
+      state.playerChoice[0] === "rock" && state.AIChoice[0] === "scissors",
+      state.playerChoice[0] === "paper" && state.AIChoice[0] === "rock",
+      state.playerChoice[0] === "scissors" && state.AIChoice[0] === "paper"
     ];
   }
 
@@ -16,7 +16,7 @@ export class Winner {
     state.summary.games++;
 
     const isWin = this.conditionsForWin.some(single => single);
-    const isDraw = state.playerChoice[0] === state.aiChoice[0];
+    const isDraw = state.playerChoice[0] === state.AIChoice[0];
 
     if (isWin) {
       state.summary.wins++;
@@ -48,8 +48,8 @@ export class Winner {
             </div>
           </li>
           <li class="board__item">
-            <div class="board__box ${classNameAI} board__box--result" data-symbol="${state.aiChoice[0]}">
-              <img src="../img/${state.aiChoice[0]}.svg" alt="" class="board__img">
+            <div class="board__box ${classNameAI} board__box--result" data-symbol="${state.AIChoice[0]}">
+              <img src="../img/${state.AIChoice[0]}.svg" alt="" class="board__img">
             </div>
           </li>
         </ul>

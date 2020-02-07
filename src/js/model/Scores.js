@@ -7,7 +7,7 @@ export class Scores {
   resetScoresInState() {
     state.gameVariant = "variant1";
     state.playerChoice = [];
-    state.aiChoice = [];
+    state.AIChoice = [];
     state.winnerStatus = [];
     state.keyBlocked = false;
     state.enterBlocked = false;

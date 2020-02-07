@@ -16,7 +16,7 @@ class Variant2 extends Variant {
     };
   }
 
-  aiChoice() {
+  AIChoice() {
     const imgAISymbols = [
       ...document.querySelectorAll(`.${DOMclasses.imgBoardAI}`)
     ];
