@@ -8,7 +8,7 @@ class Variant1 extends Variant {
     this.timeInterval = timeInterval;
   }
 
-  keyCodeSelect() {
+  variantKeyCode() {
     return {
       name: this.name,
       keyCodes: [49, 97]
