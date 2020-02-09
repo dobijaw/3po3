@@ -100,9 +100,6 @@ export class GameControler {
       this.sound.playSound();
       this.playAgainSubscribers.forEach(sub => sub());
     });
-
-    console.log(state.randomIndex);
-    console.log(state);
   }
 
   getPlayAgainSubscribers(subscriber) {
