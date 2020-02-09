@@ -3,9 +3,22 @@ import { state } from "../state";
 export class VariantIQ {
   constructor() {}
 
-  firstMove() {
-    if (state.aiChoice.length !== 0) return;
+  randomNumber() {
+    return Math.floor(Math.random() * 3);
+  }
 
-    state.randomIndex = Math.floor(Math.random() * 2);
+  generateIndex(symbolName) {
+    switch (symbolName) {
+      case "rock":
+        return 0;
+      case "paper":
+        return 1;
+      case "scissors":
+        return 2;
+    }
+  }
+
+  opositeSymbol(playerSymbol) {
+    return playerSymbol + 1 > 2 ? 0 : playerSymbol + 1;
   }
 }

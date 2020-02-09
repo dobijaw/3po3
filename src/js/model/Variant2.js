@@ -9,14 +9,14 @@ class Variant2 extends Variant {
     this.timeInterval = timeInterval;
   }
 
-  keyCodeSelect() {
+  variantKeyCode() {
     return {
       name: this.name,
       keyCodes: [50, 98]
     };
   }
 
-  aiChoice() {
+  AIChoice() {
     const imgAISymbols = [
       ...document.querySelectorAll(`.${DOMclasses.imgBoardAI}`)
     ];
@@ -39,8 +39,6 @@ class Variant2 extends Variant {
         symbol.style.opacity = 0;
       });
       imgAISymbols[counter].style.opacity = 1;
-
-      console.log("Wariant 2 " + state.randomIndex);
     }, this.timeInterval);
   }
 

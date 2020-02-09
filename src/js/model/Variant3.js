@@ -8,7 +8,7 @@ class Variant3 extends VariantIQ {
     this.timeInterval = timeInterval;
   }
 
-  keyCodeSelect() {
+  variantKeyCode() {
     return {
       name: this.name,
       keyCodes: [51, 99]
@@ -25,21 +25,67 @@ class Variant3 extends VariantIQ {
     };
   }
 
-  aiChoice() {
-    if (state.aiChoice.length === 0) {
-      this.firstMove();
+  AIChoice() {
+    if (state.winnerStatus.length === 0) {
+      state.randomIndex = 1;
+      return;
     }
 
-    // Zwycięzca pierwszej partii powtarza ruch, a przegrany wybiera symbol którym wygrałbym w peirwszej partii
-    // Przykładowo jeśli w pierwszej walce wygraliśmy dając papier, a nasz rywal pokazał kamień, to w drugiej turze powinniśmy wybrać kamień, bo rywal najprawdopodobniej zagra nożyce.
+    if (state.winnerStatus.length === 1) {
+      switch (state.winnerStatus[0]) {
+        case "wins":
+          const playerIndex = this.generateIndex(state.playerChoice[0]);
+          const AIIndex = this.opositeSymbol(playerIndex);
 
-    // Jeśli przeciwnik wyrzuci kamień dwukrotnie nastepna forma beda nozyce lub papier, wiec warto wurzycic kamien.
+          state.randomIndex = AIIndex;
+          return;
+        case "draws":
+          state.randomIndex = this.randomNumber();
+          return;
+        case "losses":
+          state.randomIndex = this.generateIndex(state.playerChoice[0]);
+          return;
+      }
+    }
 
-    //Papier rzucany jest najrzadziej statystycznie.
-
-    //jeśli przeciwnik wystawił nożyczki, a my papier, to w kolejnej rundzie powinniśmy wybrać kamień (licząc na to, że wygrywający powtórzy zwycięski wybór czyli nożyczki)
-
-    //a więc jeśli ktoś przegrał nożyczkami postara się zmienić swój wybór w kolejnej rundzie na kamień albo papier, dlatego najrozsądniej będzie wybrać papier
+    if (state.winnerStatus.length > 1) {
+      if (
+        state.winnerStatus[0] === "wins" &&
+        state.winnerStatus[1] === "wins"
+      ) {
+        state.randomIndex = this.generateIndex(state.playerChoice[0]);
+      } else if (
+        state.winnerStatus[0] === "draws" &&
+        state.winnerStatus[1] === "draws"
+      ) {
+        state.randomIndex = this.randomNumber();
+      } else if (
+        state.winnerStatus[0] === "losses" &&
+        state.winnerStatus[1] === "losses"
+      ) {
+        const aiSymbolIndex = this.generateIndex(state.AIChoice[0]);
+        state.randomIndex = this.opositeSymbol(aiSymbolIndex);
+      } else if (
+        state.winnerStatus[0] === "wins" &&
+        state.winnerStatus[1] !== "wins"
+      ) {
+        const playerSymbolIndex = this.generateIndex(state.playerChoice[0]);
+        state.randomIndex = this.opositeSymbol(playerSymbolIndex);
+      } else if (
+        state.winnerStatus[0] === "draws" &&
+        state.winnerStatus[1] !== "draws"
+      ) {
+        state.randomIndex = this.randomNumber();
+      } else if (
+        state.winnerStatus[0] === "losses" &&
+        state.winnerStatus[1] !== "losses"
+      ) {
+        const aiSymbolIndex = this.generateIndex(state.AIChoice[0]);
+        state.randomIndex = this.opositeSymbol(aiSymbolIndex);
+      } else {
+        state.randomIndex = this.randomNumber();
+      }
+    }
   }
 }
 

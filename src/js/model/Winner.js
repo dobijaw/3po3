@@ -1,35 +1,45 @@
 import { state } from "../state";
 import { DOMelements, DOMclasses } from "../base";
 
-import { Sound } from "./Sound";
+import paper from "../../img/paper.svg";
+import rock from "../../img/rock.svg";
+import scissors from "../../img/scissors.svg";
+
+const imgSymbols = {
+  paper,
+  rock,
+  scissors
+};
 
 export class Winner {
   constructor() {
     this.conditionsForWin = [
-      state.playerChoice[0] === "rock" && state.aiChoice[0] === "scissors",
-      state.playerChoice[0] === "paper" && state.aiChoice[0] === "rock",
-      state.playerChoice[0] === "scissors" && state.aiChoice[0] === "paper"
+      state.playerChoice[0] === "rock" && state.AIChoice[0] === "scissors",
+      state.playerChoice[0] === "paper" && state.AIChoice[0] === "rock",
+      state.playerChoice[0] === "scissors" && state.AIChoice[0] === "paper"
     ];
+
+    this.winner = "";
   }
 
   saveWinnerToState() {
     state.summary.games++;
 
     const isWin = this.conditionsForWin.some(single => single);
-    const isDraw = state.playerChoice[0] === state.aiChoice[0];
+    const isDraw = state.playerChoice[0] === state.AIChoice[0];
 
     if (isWin) {
+      this.winner = "wins";
       state.summary.wins++;
       this.saveWinnerStatusToState("wins");
-      return "wins";
     } else if (isDraw) {
+      this.winner = "draws";
       state.summary.draws++;
       this.saveWinnerStatusToState("draws");
-      return "draws";
     } else {
+      this.winner = "losses";
       state.summary.losses++;
       this.saveWinnerStatusToState("losses");
-      return "losses";
     }
   }
 
@@ -43,13 +53,21 @@ export class Winner {
       <div class="board__container">
         <ul class="board__list">
           <li class="board__item">
-            <div class="board__box ${classNamePlayer} board__box--result" data-symbol="${state.playerChoice[0]}">
-              <img src="../img/${state.playerChoice[0]}.svg" alt="" class="board__img">
+            <div class="board__box ${classNamePlayer} board__box--result" data-symbol="${
+      state.playerChoice[0]
+    }">
+              <img src="${imgSymbols[state.playerChoice[0]]}" alt="${
+      state.playerChoice[0]
+    }" class="board__img">
             </div>
           </li>
           <li class="board__item">
-            <div class="board__box ${classNameAI} board__box--result" data-symbol="${state.aiChoice[0]}">
-              <img src="../img/${state.aiChoice[0]}.svg" alt="" class="board__img">
+            <div class="board__box ${classNameAI} board__box--result" data-symbol="${
+      state.AIChoice[0]
+    }">
+              <img src="${imgSymbols[state.AIChoice[0]]}" alt="${
+      state.AIChoice[0]
+    }" class="board__img">
             </div>
           </li>
         </ul>
@@ -60,7 +78,7 @@ export class Winner {
     `;
   }
 
-  btnOnclick(callback) {
+  playAgain(callback) {
     const btn = document.querySelector(`.${DOMclasses.playAgainBtn}`);
 
     btn.addEventListener("click", callback);
@@ -71,32 +89,36 @@ export class Winner {
       if (keyCode === 13 || which === 13) {
         callback();
         state.enterBlocked = true;
-        new Sound().playSound();
       }
     });
   }
 
-  updateMessageView(result) {
-    switch (result) {
+  updateMessageView() {
+    const message = {};
+
+    switch (this.winner) {
       case "wins":
-        DOMelements.messageHeadline.textContent = "Wygrałeś! ;)";
-        DOMelements.messageCopy.textContent = "Zagraj jeszcze raz!";
+        message.headline = "Wygrałeś! ;)";
+        message.copy = "Zagraj jeszcze raz!";
         break;
       case "draws":
-        DOMelements.messageHeadline.textContent = "Remis :P";
-        DOMelements.messageCopy.textContent = "Było blisko. Zagraj.";
+        message.headline = "Remis :P";
+        message.copy = "Było blisko. Zagraj.";
         break;
       case "losses":
-        DOMelements.messageHeadline.textContent = "Przegrałeś :(";
-        DOMelements.messageCopy.textContent = "Czas na reważ!";
+        message.headline = "Przegrałeś :(";
+        message.copy = "Czas na reważ!";
         break;
     }
+
+    DOMelements.messageHeadline.textContent = message.headline;
+    DOMelements.messageCopy.textContent = message.copy;
   }
 
-  renderWinnerView(result) {
+  renderWinnerView() {
     DOMelements.gameBoard.textContent = "";
 
-    switch (result) {
+    switch (this.winner) {
       case "wins":
         DOMelements.gameBoard.insertAdjacentHTML(
           "beforeend",
@@ -116,23 +138,5 @@ export class Winner {
         );
         break;
     }
-  }
-
-  updateScoreView() {
-    DOMelements.summaryScore.forEach(score => {
-      score.textContent = state.summary[score.dataset.type];
-
-      if (score.dataset.type === state.winnerStatus[0]) {
-        score.classList.add(
-          `${DOMclasses.summaryScore}--${state.winnerStatus[0]}`
-        );
-
-        setTimeout(() => {
-          score.classList.remove(
-            `${DOMclasses.summaryScore}--${state.winnerStatus[0]}`
-          );
-        }, 500);
-      }
-    });
   }
 }

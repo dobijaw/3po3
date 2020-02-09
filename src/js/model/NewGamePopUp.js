@@ -1,9 +1,12 @@
 import { DOMelements, DOMclasses } from "../base";
-import { state } from "../state";
 
-export class PopUp {
+import { Sound } from "./Sound";
+
+export class NewGamePopUp {
   constructor() {
     this.newGameSubscriber = [];
+
+    this.sound = new Sound();
   }
 
   showPopUpView() {
@@ -21,20 +24,22 @@ export class PopUp {
     document.querySelectorAll(`.${DOMclasses.popUpBtn}`).forEach(btn => {
       btn.addEventListener("click", ({ currentTarget }) => {
         DOMelements.popup.classList.remove(DOMclasses.popUpActive);
+        this.sound.playSound();
         if (currentTarget.dataset.btn === "no") return;
 
-        this.newGameSubscriber.forEach(s => s());
+        this.newGameSubscriber.forEach(sub => sub());
       });
     });
   }
 
   popUpOnClickView() {
     DOMelements.resetBtn.addEventListener("click", () => {
+      this.sound.playSound();
       this.showPopUpView();
     });
   }
 
-  initNewGame(fn) {
-    this.newGameSubscriber.push(fn);
+  initNewGameSubscribers(subscriber) {
+    this.newGameSubscriber.push(subscriber);
   }
 }
