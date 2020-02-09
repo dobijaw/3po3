@@ -5,7 +5,7 @@ import Variant3 from "./Variant3";
 export class VariantsFactory {
   constructor() {
     this.variant1 = new Variant1("variant1", 400);
-    this.variant2 = new Variant2("variant2", 1000);
+    this.variant2 = new Variant2("variant2", 500);
     this.variant3 = new Variant3("variant3", 400);
   }
 
