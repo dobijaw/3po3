@@ -19,6 +19,7 @@ export class Sound {
   btnOnClickView() {
     DOMelements.soundBtn.addEventListener("click", () => {
       DOMelements.soundBtn.classList.toggle(DOMclasses.btnDisabled);
+
       this.toogleSound();
       this.playSound();
     });
