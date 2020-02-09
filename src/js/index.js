@@ -8,43 +8,45 @@ import { VariantsFactory } from "./model/VariantsFactory";
 import { GameVariants } from "./model/GameVariants";
 import { GameControler } from "./model/GameControler";
 
-const sound = new Sound();
-const newGamePopUp = new NewGamePopUp();
-const scores = new Scores();
-const gameBoard = new GameBoard();
-const variantsFactory = new VariantsFactory();
-const gameVariants = new GameVariants();
-const gameControler = new GameControler();
+const init = () => {
+  const sound = new Sound();
+  const scores = new Scores();
+  const gameBoard = new GameBoard();
+  const newGamePopUp = new NewGamePopUp();
+  const variantsFactory = new VariantsFactory();
+  const gameControler = new GameControler();
+  const gameVariants = new GameVariants();
 
-const myKeys = variantsFactory.getKeybordKey();
-gameVariants.getKeyCodesFromFactory(myKeys);
+  const allVariantsKeyCode = variantsFactory.getVariantKeyCode();
+  gameVariants.getAllVariantsKeyCodes(allVariantsKeyCode);
 
-gameVariants.subscribe(selectedVariant => {
-  const currentVariant = variantsFactory.getVariantGame(selectedVariant);
+  gameVariants.subscribe(selectedVariant => {
+    const currentVariant = variantsFactory.getVariantGame(selectedVariant);
 
-  gameControler.changeCurrentVariant(currentVariant);
-  gameBoard.changeCurrentVariant(currentVariant);
+    gameControler.changeCurrentVariant(currentVariant);
+    gameBoard.changeCurrentVariant(currentVariant);
 
-  gameBoard.startGame();
-  gameControler.startGame();
-
-  gameControler.getPlayAgain(() => {
     gameBoard.startGame();
     gameControler.startGame();
+
+    gameControler.getPlayAgainSubscribers(() => {
+      gameBoard.startGame();
+      gameControler.startGame();
+    });
   });
-});
 
-sound.btnOnClickView();
-scores.resetScoresInState();
-scores.resetScoresView();
-gameVariants.initFirstScreen();
-
-newGamePopUp.popUpOnClickView();
-
-newGamePopUp.initNewGame(() => {
-  gameControler.stopSymbolInterval();
+  sound.btnOnClickView();
+  newGamePopUp.popUpOnClickView();
 
   scores.resetScoresInState();
-  scores.resetScoresView();
+  scores.updateScoresView();
   gameVariants.initFirstScreen();
-});
+
+  newGamePopUp.initNewGameSubscribers(() => {
+    scores.resetScoresInState();
+    scores.updateScoresView();
+    gameVariants.initFirstScreen();
+  });
+};
+
+document.addEventListener("DOMContentLoaded", init);
