@@ -19,7 +19,7 @@ export class Scores {
     }
   }
 
-  resetScoresView() {
+  updateScoresView() {
     DOMelements.summaryScore.forEach(score => {
       score.textContent = state.summary[score.dataset.type];
 
