@@ -7,7 +7,7 @@ import { Sound } from "./Sound";
 export class GameControler {
   constructor() {
     this.currentVariant = null;
-    this.playAgain = [];
+    this.playAgainSubscribers = [];
     this.sound = new Sound();
   }
 
@@ -15,7 +15,7 @@ export class GameControler {
     if (state.intervals) clearInterval(state.intervals);
   }
 
-  saveChoiceToState(symbol) {
+  saveAIChoiceToState(symbol) {
     let choice = "";
 
     switch (symbol) {
@@ -34,19 +34,24 @@ export class GameControler {
     state.AIChoice.unshift(choice);
   }
 
-  playerChoice() {
-    const playerSymbols = [
+  playerChoice(symbol) {
+    state.keyBlocked = true;
+
+    if (state.playerChoice.length === 3) state.playerChoice.pop();
+    state.playerChoice.unshift(symbol);
+
+    this.sound.playSound();
+    this.finishGame();
+  }
+
+  playerChoiceListener() {
+    this.playerSymbols = [
       ...document.querySelectorAll(`.${DOMclasses.playerSymbols}`)
     ];
 
-    playerSymbols.forEach(symbol => {
+    this.playerSymbols.forEach(symbol => {
       symbol.addEventListener("mousedown", () => {
-        this.sound.playSound();
-
-        if (state.playerChoice.length === 3) state.playerChoice.pop();
-        state.playerChoice.unshift(symbol.dataset.symbol);
-        state.keyBlocked = true;
-        this.finishGame();
+        this.playerChoice(symbol.dataset.symbol);
       });
     });
 
@@ -55,31 +60,13 @@ export class GameControler {
 
       switch (keyCode || which) {
         case 37:
-          state.keyBlocked = true;
-          console.log("Strzałka w lewo");
-
-          if (state.playerChoice.length === 3) state.playerChoice.pop();
-          state.playerChoice.unshift("rock");
-
-          this.finishGame();
+          this.playerChoice("rock");
           break;
         case 40:
-          state.keyBlocked = true;
-          console.log("Strzałka w dół");
-
-          if (state.playerChoice.length === 3) state.playerChoice.pop();
-          state.playerChoice.unshift("paper");
-
-          this.finishGame();
+          this.playerChoice("paper");
           break;
         case 39:
-          state.keyBlocked = true;
-          console.log("Strzałka w prawo");
-
-          if (state.playerChoice.length === 3) state.playerChoice.pop();
-          state.playerChoice.unshift("scissors");
-
-          this.finishGame();
+          this.playerChoice("scissors");
           break;
       }
     });
@@ -87,35 +74,36 @@ export class GameControler {
 
   startGame() {
     this.stopSymbolInterval();
-    this.currentVariant.AIChoice();
-
     state.keyBlocked = false;
-    this.playerChoice();
+
+    this.currentVariant.AIChoice();
+    this.playerChoiceListener();
   }
 
   finishGame() {
-    this.stopSymbolInterval();
-    this.saveChoiceToState(state.randomIndex);
     state.enterBlocked = false;
 
+    this.stopSymbolInterval();
+    this.saveAIChoiceToState(state.randomIndex);
+
     const winner = new Winner();
-    const gameResult = winner.saveWinnerToState();
 
+    winner.saveWinnerToState();
     winner.updateScoreView();
-    winner.updateMessageView(gameResult);
-    winner.renderWinnerView(gameResult);
+    winner.updateMessageView();
+    winner.renderWinnerView();
 
-    winner.btnOnclick(() => {
-      this.playAgain.forEach(s => s());
+    winner.playAgain(() => {
+      this.sound.playSound();
+      this.playAgainSubscribers.forEach(sub => sub());
     });
 
-    console.log(gameResult);
     console.log(state.randomIndex);
     console.log(state);
   }
 
-  getPlayAgain(fn) {
-    this.playAgain.push(fn);
+  getPlayAgainSubscribers(subscriber) {
+    this.playAgainSubscribers.push(subscriber);
   }
 
   changeCurrentVariant(variant) {
