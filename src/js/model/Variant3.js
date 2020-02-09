@@ -26,18 +26,66 @@ class Variant3 extends VariantIQ {
   }
 
   AIChoice() {
-    if (state.AIChoice.length === 0) {
-      this.firstMove();
+    if (state.winnerStatus.length === 0) {
+      state.randomIndex = 1;
       return;
     }
 
-    state.randomIndex = Math.floor(Math.random() * 3);
+    if (state.winnerStatus.length === 1) {
+      switch (state.winnerStatus[0]) {
+        case "wins":
+          const playerIndex = this.generateIndex(state.playerChoice[0]);
+          const AIIndex = this.opositeSymbol(playerIndex);
 
-    // The winner of the first game repeats the move, and the loser chooses a symbol that would win him in the first round. This also works in subsequent rounds.
+          state.randomIndex = AIIndex;
+          return;
+        case "draws":
+          state.randomIndex = this.randomNumber();
+          return;
+        case "losses":
+          state.randomIndex = this.generateIndex(state.playerChoice[0]);
+          return;
+      }
+    }
 
-    // If the opponent throws something twice, it is worth to use his symbol in the 3rd round because he will probably change the symbol to not be predictable.
-
-    // Paper is most often thrown away
+    if (state.winnerStatus.length > 1) {
+      if (
+        state.winnerStatus[0] === "wins" &&
+        state.winnerStatus[1] === "wins"
+      ) {
+        state.randomIndex = this.generateIndex(state.playerChoice[0]);
+      } else if (
+        state.winnerStatus[0] === "draws" &&
+        state.winnerStatus[1] === "draws"
+      ) {
+        state.randomIndex = this.randomNumber();
+      } else if (
+        state.winnerStatus[0] === "losses" &&
+        state.winnerStatus[1] === "losses"
+      ) {
+        const aiSymbolIndex = this.generateIndex(state.AIChoice[0]);
+        state.randomIndex = this.opositeSymbol(aiSymbolIndex);
+      } else if (
+        state.winnerStatus[0] === "wins" &&
+        state.winnerStatus[1] !== "wins"
+      ) {
+        const playerSymbolIndex = this.generateIndex(state.playerChoice[0]);
+        state.randomIndex = this.opositeSymbol(playerSymbolIndex);
+      } else if (
+        state.winnerStatus[0] === "draws" &&
+        state.winnerStatus[1] !== "draws"
+      ) {
+        state.randomIndex = this.randomNumber();
+      } else if (
+        state.winnerStatus[0] === "losses" &&
+        state.winnerStatus[1] !== "losses"
+      ) {
+        const aiSymbolIndex = this.generateIndex(state.AIChoice[0]);
+        state.randomIndex = this.opositeSymbol(aiSymbolIndex);
+      } else {
+        state.randomIndex = this.randomNumber();
+      }
+    }
   }
 }
 
