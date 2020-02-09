@@ -8,7 +8,7 @@ class Variant3 extends VariantIQ {
     this.timeInterval = timeInterval;
   }
 
-  keyCodeSelect() {
+  variantKeyCode() {
     return {
       name: this.name,
       keyCodes: [51, 99]
@@ -28,18 +28,16 @@ class Variant3 extends VariantIQ {
   AIChoice() {
     if (state.AIChoice.length === 0) {
       this.firstMove();
+      return;
     }
 
-    // Zwycięzca pierwszej partii powtarza ruch, a przegrany wybiera symbol którym wygrałbym w peirwszej partii
-    // Przykładowo jeśli w pierwszej walce wygraliśmy dając papier, a nasz rywal pokazał kamień, to w drugiej turze powinniśmy wybrać kamień, bo rywal najprawdopodobniej zagra nożyce.
+    state.randomIndex = Math.floor(Math.random() * 3);
 
-    // Jeśli przeciwnik wyrzuci kamień dwukrotnie nastepna forma beda nozyce lub papier, wiec warto wurzycic kamien.
+    // The winner of the first game repeats the move, and the loser chooses a symbol that would win him in the first round. This also works in subsequent rounds.
 
-    //Papier rzucany jest najrzadziej statystycznie.
+    // If the opponent throws something twice, it is worth to use his symbol in the 3rd round because he will probably change the symbol to not be predictable.
 
-    //jeśli przeciwnik wystawił nożyczki, a my papier, to w kolejnej rundzie powinniśmy wybrać kamień (licząc na to, że wygrywający powtórzy zwycięski wybór czyli nożyczki)
-
-    //a więc jeśli ktoś przegrał nożyczkami postara się zmienić swój wybór w kolejnej rundzie na kamień albo papier, dlatego najrozsądniej będzie wybrać papier
+    // Paper is most often thrown away
   }
 }
 
