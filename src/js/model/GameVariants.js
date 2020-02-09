@@ -6,89 +6,73 @@ import { Sound } from "./Sound";
 export class GameVariants {
   constructor() {
     this.subscribers = [];
+    this.variantsKeyCodes = [];
+    this.blocked = false;
+    this.activeKeyCodeVariant = state.gameVariant;
 
-    this.btnOnClickView();
-    this.changeVariantOnKeybord();
+    this.sound = new Sound();
+    this.changeVariantOnClick();
+    this.changeVariantOnKey();
   }
 
-  disabledActiveBtnVariantView(activeBtn, allBtns) {
-    if (activeBtn.classList.contains(DOMclasses.btnDisabled)) return;
+  getAllVariantsKeyCodes(variantsKeyCodes) {
+    this.variantsKeyCodes = variantsKeyCodes;
+  }
 
-    allBtns.forEach(btn => {
+  saveSelectedVariant(selectedVariant) {
+    state.gameVariant = selectedVariant;
+  }
+
+  disabledActiveVariantView() {
+    DOMelements.btnVariants.forEach(btn => {
       if (btn.classList.contains(DOMclasses.btnDisabled))
         btn.classList.remove(DOMclasses.btnDisabled);
-    });
 
-    activeBtn.classList.add(DOMclasses.btnDisabled);
-  }
-
-  changeVariantOnKeybord() {
-    let blocked = false;
-
-    const changeVariant = variant => {
-      blocked = true;
-
-      this.saveSelectedVariantToState(variant);
-      this.subscribers.forEach(sub => sub(variant));
-
-      setTimeout(() => {
-        blocked = false;
-      }, 200);
-    };
-
-    document.addEventListener("keydown", ({ keyCode, which }) => {
-      if (blocked) return;
-
-      // this.keyCodes.forEach(({ keyCodes, name }) => {
-      //   if (keyCodes.some(key => key === keyCode)) changeVariant(name);
-      // });
-
-      switch (keyCode || which) {
-        case 49:
-          changeVariant("variant1");
-          break;
-        case 97:
-          changeVariant("variant1");
-          break;
-        case 50:
-          changeVariant("variant2");
-          break;
-        case 98:
-          changeVariant("variant2");
-          break;
-        case 51:
-          changeVariant("variant3");
-          break;
-        case 99:
-          changeVariant("variant3");
-          break;
-      }
+      if (btn.dataset.variant === state.gameVariant)
+        btn.classList.add(DOMclasses.btnDisabled);
     });
   }
 
-  btnOnClickView() {
+  changeVariant(variant) {
+    if (this.activeKeyCodeVariant === variant) return;
+    this.activeKeyCodeVariant = variant;
+
+    this.blocked = true;
+
+    this.sound.playSound();
+
+    this.saveSelectedVariant(variant);
+    this.disabledActiveVariantView();
+    this.subscribers.forEach(sub => sub(variant));
+
+    setTimeout(() => {
+      this.blocked = false;
+    }, 200);
+  }
+
+  changeVariantOnClick() {
     DOMelements.btnVariants.forEach(btn => {
       btn.addEventListener("click", () => {
-        const variant = btn.dataset.variant;
-        new Sound().playSound();
+        this.changeVariant(btn.dataset.variant);
+      });
+    });
+  }
 
-        this.disabledActiveBtnVariantView(btn, DOMelements.btnVariants);
-        this.saveSelectedVariantToState(variant);
-        this.subscribers.forEach(sub => sub(variant));
+  changeVariantOnKey() {
+    document.addEventListener("keydown", ({ keyCode, which }) => {
+      if (this.blocked) return;
+
+      this.variantsKeyCodes.forEach(({ keyCodes, name: variant }) => {
+        if (keyCodes.some(key => key === keyCode || key === which)) {
+          this.changeVariant(variant);
+        }
       });
     });
   }
 
   initFirstScreen() {
+    this.disabledActiveVariantView();
     this.subscribers.forEach(sub => sub(state.gameVariant));
-  }
-
-  saveSelectedVariantToState(selectedVariant) {
-    state.gameVariant = selectedVariant;
-  }
-
-  getKeyCodesFromFactory(keyCodes) {
-    this.keyCodes = keyCodes;
   }
 
   subscribe(subscriber) {
