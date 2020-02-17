@@ -3,14 +3,12 @@ import { state } from "../state";
 
 import { Winner } from "./Winner";
 import { Sound } from "./Sound";
-import { Scores } from "./Scores";
 
 export class GameControler {
   constructor() {
     this.currentVariant = null;
     this.playAgainSubscribers = [];
     this.sound = new Sound();
-    this.scores = new Scores();
   }
 
   stopSymbolInterval() {
