@@ -3,16 +3,16 @@ import { DOMclasses } from "../base";
 import { Variant } from "./Variant";
 
 class Variant2 extends Variant {
-  constructor(name, timeInterval) {
+  constructor(config) {
     super();
-    this.name = name;
-    this.timeInterval = timeInterval;
+
+    this.config = config;
   }
 
-  variantKeyCode() {
+  getKeyCodes() {
     return {
-      name: this.name,
-      keyCodes: [50, 98]
+      name: this.config.name,
+      keyCodes: this.config.keyCodes
     };
   }
 
@@ -39,7 +39,7 @@ class Variant2 extends Variant {
         symbol.style.opacity = 0;
       });
       imgAISymbols[counter].style.opacity = 1;
-    }, this.timeInterval);
+    }, this.config.interval);
   }
 
   getMessage() {

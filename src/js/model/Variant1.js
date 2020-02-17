@@ -2,16 +2,16 @@ import { state } from "../state";
 import { Variant } from "./Variant";
 
 class Variant1 extends Variant {
-  constructor(name, timeInterval) {
+  constructor(config) {
     super();
-    this.name = name;
-    this.timeInterval = timeInterval;
+
+    this.config = config;
   }
 
-  variantKeyCode() {
+  getKeyCodes() {
     return {
-      name: this.name,
-      keyCodes: [49, 97]
+      name: this.config.name,
+      keyCodes: this.config.keyCodes
     };
   }
 
@@ -28,7 +28,7 @@ class Variant1 extends Variant {
 
       counter = random;
       state.randomIndex = random;
-    }, this.timeInterval);
+    }, this.config.interval);
   }
 
   getMessage() {

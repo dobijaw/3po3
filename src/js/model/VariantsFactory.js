@@ -4,16 +4,28 @@ import Variant3 from "./Variant3";
 
 export class VariantsFactory {
   constructor() {
-    this.variant1 = new Variant1("variant1", 400);
-    this.variant2 = new Variant2("variant2", 500);
-    this.variant3 = new Variant3("variant3", 400);
+    this.variant1 = new Variant1({
+      name: "variant1",
+      interval: 400,
+      keyCodes: [49, 97]
+    });
+    this.variant2 = new Variant2({
+      name: "variant2",
+      interval: 500,
+      keyCodes: [50, 98]
+    });
+    this.variant3 = new Variant3({
+      name: "variant3",
+      interval: 400,
+      keyCodes: [51, 99]
+    });
   }
 
   getVariantKeyCode() {
     return [
-      this.variant1.variantKeyCode(),
-      this.variant2.variantKeyCode(),
-      this.variant3.variantKeyCode()
+      this.variant1.getKeyCodes(),
+      this.variant2.getKeyCodes(),
+      this.variant3.getKeyCodes()
     ];
   }
 

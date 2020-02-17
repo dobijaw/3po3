@@ -13,7 +13,7 @@ export class GameBoard {
     this.clearGameBoardView();
 
     DOMelements.gameBoardTemplates.forEach(template => {
-      if (template.dataset.board !== this.currentVariant.name) return;
+      if (template.dataset.board !== this.currentVariant.config.name) return;
 
       const clon = template.content.cloneNode(true);
       DOMelements.gameBoard.appendChild(clon);
