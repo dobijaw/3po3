@@ -1,15 +1,5 @@
 import { state, Statuses, Symbols } from "../state";
-import { DOMelements, DOMclasses } from "../base";
-
-import paper from "../../img/paper.svg";
-import rock from "../../img/rock.svg";
-import scissors from "../../img/scissors.svg";
-
-const imgSymbols = {
-  paper,
-  rock,
-  scissors
-};
+import { DOMelements, DOMclasses, assets } from "../base";
 
 export class Winner {
   constructor() {
@@ -59,7 +49,7 @@ export class Winner {
             <div class="board__box ${classNamePlayer} board__box--result" data-symbol="${
       state.playerChoice[0]
     }">
-              <img src="${imgSymbols[state.playerChoice[0]]}" alt="${
+              <img src="${assets[state.playerChoice[0]]}" alt="${
       state.playerChoice[0]
     }" class="board__img">
             </div>
@@ -68,7 +58,7 @@ export class Winner {
             <div class="board__box ${classNameAI} board__box--result" data-symbol="${
       state.AIChoice[0]
     }">
-              <img src="${imgSymbols[state.AIChoice[0]]}" alt="${
+              <img src="${assets[state.AIChoice[0]]}" alt="${
       state.AIChoice[0]
     }" class="board__img">
             </div>
