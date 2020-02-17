@@ -1,4 +1,4 @@
-import { state } from "../state";
+import { state, Statuses, Symbols } from "../state";
 import { DOMelements, DOMclasses } from "../base";
 
 import paper from "../../img/paper.svg";
@@ -14,9 +14,12 @@ const imgSymbols = {
 export class Winner {
   constructor() {
     this.conditionsForWin = [
-      state.playerChoice[0] === "rock" && state.AIChoice[0] === "scissors",
-      state.playerChoice[0] === "paper" && state.AIChoice[0] === "rock",
-      state.playerChoice[0] === "scissors" && state.AIChoice[0] === "paper"
+      state.playerChoice[0] === Symbols.Rock &&
+        state.AIChoice[0] === Symbols.Scissors,
+      state.playerChoice[0] === Symbols.Paper &&
+        state.AIChoice[0] === Symbols.Rock,
+      state.playerChoice[0] === Symbols.Scissors &&
+        state.AIChoice[0] === Symbols.Paper
     ];
 
     this.winner = "";
@@ -29,17 +32,17 @@ export class Winner {
     const isDraw = state.playerChoice[0] === state.AIChoice[0];
 
     if (isWin) {
-      this.winner = "wins";
+      this.winner = Statuses.Win;
       state.summary.wins++;
-      this.saveWinnerStatusToState("wins");
+      this.saveWinnerStatusToState(Statuses.Win);
     } else if (isDraw) {
-      this.winner = "draws";
+      this.winner = Statuses.Draw;
       state.summary.draws++;
-      this.saveWinnerStatusToState("draws");
+      this.saveWinnerStatusToState(Statuses.Draw);
     } else {
-      this.winner = "losses";
+      this.winner = Statuses.Loss;
       state.summary.losses++;
-      this.saveWinnerStatusToState("losses");
+      this.saveWinnerStatusToState(Statuses.Loss);
     }
   }
 
@@ -97,15 +100,15 @@ export class Winner {
     const message = {};
 
     switch (this.winner) {
-      case "wins":
+      case Statuses.Win:
         message.headline = "Wygrałeś! ;)";
         message.copy = "Zagraj jeszcze raz!";
         break;
-      case "draws":
+      case Statuses.Draw:
         message.headline = "Remis :P";
         message.copy = "Było blisko. Zagraj.";
         break;
-      case "losses":
+      case Statuses.Loss:
         message.headline = "Przegrałeś :(";
         message.copy = "Czas na reważ!";
         break;
@@ -119,19 +122,19 @@ export class Winner {
     DOMelements.gameBoard.textContent = "";
 
     switch (this.winner) {
-      case "wins":
+      case Statuses.Win:
         DOMelements.gameBoard.insertAdjacentHTML(
           "beforeend",
           this.getWinnerView(DOMclasses.boardWins, DOMclasses.boardNeutral)
         );
         break;
-      case "draws":
+      case Statuses.Draw:
         DOMelements.gameBoard.insertAdjacentHTML(
           "beforeend",
           this.getWinnerView(DOMclasses.boardDraws, DOMclasses.boardDraws)
         );
         break;
-      case "losses":
+      case Statuses.Loss:
         DOMelements.gameBoard.insertAdjacentHTML(
           "beforeend",
           this.getWinnerView(DOMclasses.boardNeutral, DOMclasses.boardLosses)

@@ -1,5 +1,5 @@
 import { DOMclasses, updateScoresView } from "../base";
-import { state } from "../state";
+import { state, Symbols } from "../state";
 
 import { Winner } from "./Winner";
 import { Sound } from "./Sound";
@@ -20,13 +20,13 @@ export class GameControler {
 
     switch (symbol) {
       case 0:
-        choice = "rock";
+        choice = Symbols.Rock;
         break;
       case 1:
-        choice = "paper";
+        choice = Symbols.Paper;
         break;
       case 2:
-        choice = "scissors";
+        choice = Symbols.Scissors;
         break;
     }
 
@@ -60,13 +60,13 @@ export class GameControler {
 
       switch (keyCode || which) {
         case 37:
-          this.playerChoice("rock");
+          this.playerChoice(Symbols.Rock);
           break;
         case 40:
-          this.playerChoice("paper");
+          this.playerChoice(Symbols.Paper);
           break;
         case 39:
-          this.playerChoice("scissors");
+          this.playerChoice(Symbols.Scissors);
           break;
       }
     });

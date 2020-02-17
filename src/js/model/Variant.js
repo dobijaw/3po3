@@ -1,3 +1,5 @@
+import { Symbols } from "../state";
+
 export class Variant {
   constructor() {}
 
@@ -7,11 +9,11 @@ export class Variant {
 
   generateIndex(symbolName) {
     switch (symbolName) {
-      case "rock":
+      case Symbols.Rock:
         return 0;
-      case "paper":
+      case Symbols.Paper:
         return 1;
-      case "scissors":
+      case Symbols.Scissors:
         return 2;
     }
   }

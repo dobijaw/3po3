@@ -16,6 +16,18 @@ export const state = {
   isSoundOn: false
 };
 
+export const Statuses = {
+  Win: "wins",
+  Draw: "draws",
+  Loss: "losses"
+};
+
+export const Symbols = {
+  Rock: "rock",
+  Paper: "paper",
+  Scissors: "scissors"
+};
+
 export function resetState() {
   state.gameVariant = "variant1";
   state.playerChoice = [];
