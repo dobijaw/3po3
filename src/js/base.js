@@ -36,3 +36,17 @@ export const DOMclasses = {
   boardLosses: "board__box--losses",
   boardNeutral: "board__box--neutral"
 };
+
+export function updateScoresView(winner, summary) {
+  DOMelements.summaryScore.forEach(score => {
+    score.textContent = summary[score.dataset.type];
+
+    if (score.dataset.type === winner) {
+      score.classList.add(`${DOMclasses.summaryScore}--${winner}`);
+
+      setTimeout(() => {
+        score.classList.remove(`${DOMclasses.summaryScore}--${winner}`);
+      }, 500);
+    }
+  });
+}

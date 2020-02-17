@@ -1,4 +1,4 @@
-import { DOMclasses } from "../base";
+import { DOMclasses, updateScoresView } from "../base";
 import { state } from "../state";
 
 import { Winner } from "./Winner";
@@ -94,7 +94,7 @@ export class GameControler {
     winner.updateMessageView();
     winner.renderWinnerView();
 
-    this.scores.updateScoresView();
+    updateScoresView(state.winnerStatus[0], state.summary);
 
     winner.playAgain(() => {
       this.sound.playSound();
