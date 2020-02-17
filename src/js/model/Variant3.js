@@ -1,17 +1,17 @@
 import { state } from "../state";
-import { VariantIQ } from "./VariantIQ";
+import { Variant } from "./Variant";
 
-class Variant3 extends VariantIQ {
-  constructor(name, timeInterval) {
+class Variant3 extends Variant {
+  constructor(config) {
     super();
-    this.name = name;
-    this.timeInterval = timeInterval;
+
+    this.config = config;
   }
 
-  variantKeyCode() {
+  getKeyCodes() {
     return {
-      name: this.name,
-      keyCodes: [51, 99]
+      name: this.config.name,
+      keyCodes: this.config.keyCodes
     };
   }
 
