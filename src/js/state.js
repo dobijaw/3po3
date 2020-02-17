@@ -15,3 +15,18 @@ export const state = {
   randomIndex: -1,
   isSoundOn: false
 };
+
+export function resetState() {
+  state.gameVariant = "variant1";
+  state.playerChoice = [];
+  state.AIChoice = [];
+  state.winnerStatus = [];
+  state.keyBlocked = false;
+  state.enterBlocked = false;
+  state.intervals = null;
+  state.randomIndex = -1;
+
+  for (const key of Object.keys(state.summary)) {
+    state.summary[key] = 0;
+  }
+}

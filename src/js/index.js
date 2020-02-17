@@ -7,6 +7,7 @@ import { GameBoard } from "./model/GameBoard";
 import { VariantsFactory } from "./model/VariantsFactory";
 import { GameVariants } from "./model/GameVariants";
 import { GameControler } from "./model/GameControler";
+import { resetState } from "./state";
 
 const init = () => {
   const sound = new Sound();
@@ -38,12 +39,12 @@ const init = () => {
   sound.btnOnClickView();
   newGamePopUp.popUpOnClickView();
 
-  scores.resetScoresInState();
+  resetState();
   scores.updateScoresView();
   gameVariants.initFirstScreen();
 
   newGamePopUp.initNewGameSubscribers(() => {
-    scores.resetScoresInState();
+    resetState();
     scores.updateScoresView();
     gameVariants.initFirstScreen();
   });
