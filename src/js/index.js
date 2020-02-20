@@ -2,16 +2,15 @@ import "../scss/index.scss";
 
 import { NewGamePopUp } from "./model/NewGamePopUp";
 import { Sound } from "./model/Sound";
-import { Scores } from "./model/Scores";
 import { GameBoard } from "./model/GameBoard";
 import { VariantsFactory } from "./model/VariantsFactory";
 import { GameVariants } from "./model/GameVariants";
 import { GameControler } from "./model/GameControler";
-import { resetState } from "./state";
+import { state, resetState } from "./state";
+import { updateScoresView } from "./base";
 
 const init = () => {
   const sound = new Sound();
-  const scores = new Scores();
   const gameBoard = new GameBoard();
   const newGamePopUp = new NewGamePopUp();
   const variantsFactory = new VariantsFactory();
@@ -40,12 +39,12 @@ const init = () => {
   newGamePopUp.popUpOnClickView();
 
   resetState();
-  scores.updateScoresView();
+  updateScoresView(state.winnerStatus[0], state.summary);
   gameVariants.initFirstScreen();
 
   newGamePopUp.initNewGameSubscribers(() => {
     resetState();
-    scores.updateScoresView();
+    updateScoresView(state.winnerStatus[0], state.summary);
     gameVariants.initFirstScreen();
   });
 };

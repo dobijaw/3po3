@@ -1,16 +1,14 @@
-import { DOMclasses } from "../base";
-import { state } from "../state";
+import { DOMclasses, updateScoresView, assets } from "../base";
+import { state, Symbols } from "../state";
 
 import { Winner } from "./Winner";
 import { Sound } from "./Sound";
-import { Scores } from "./Scores";
 
 export class GameControler {
   constructor() {
     this.currentVariant = null;
     this.playAgainSubscribers = [];
-    this.sound = new Sound();
-    this.scores = new Scores();
+    this.sound = new Sound(new Audio(assets.click2));
   }
 
   stopSymbolInterval() {
@@ -22,13 +20,13 @@ export class GameControler {
 
     switch (symbol) {
       case 0:
-        choice = "rock";
+        choice = Symbols.Rock;
         break;
       case 1:
-        choice = "paper";
+        choice = Symbols.Paper;
         break;
       case 2:
-        choice = "scissors";
+        choice = Symbols.Scissors;
         break;
     }
 
@@ -62,13 +60,13 @@ export class GameControler {
 
       switch (keyCode || which) {
         case 37:
-          this.playerChoice("rock");
+          this.playerChoice(Symbols.Rock);
           break;
         case 40:
-          this.playerChoice("paper");
+          this.playerChoice(Symbols.Paper);
           break;
         case 39:
-          this.playerChoice("scissors");
+          this.playerChoice(Symbols.Scissors);
           break;
       }
     });
@@ -94,7 +92,7 @@ export class GameControler {
     winner.updateMessageView();
     winner.renderWinnerView();
 
-    this.scores.updateScoresView();
+    updateScoresView(state.winnerStatus[0], state.summary);
 
     winner.playAgain(() => {
       this.sound.playSound();

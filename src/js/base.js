@@ -1,13 +1,23 @@
+import rock from "../img/rock.svg";
+import paper from "../img/paper.svg";
+import scissors from "../img/scissors.svg";
+import arrowDown from "../img/arrow-down.svg";
+import arrowLeft from "../img/arrow-left.svg";
+import arrowRight from "../img/arrow-right.svg";
+import logo from "../img/logo.svg";
+import click from "../audio/click.wav";
+import click2 from "../audio/click2.wav";
+
 export const assets = {
-  arrowDown: require("../img/arrow-down.svg"),
-  arrowLeft: require("../img/arrow-left.svg"),
-  arrowRight: require("../img/arrow-right.svg"),
-  logo: require("../img/logo.svg"),
-  paper: require("../img/paper.svg"),
-  rock: require("../img/rock.svg"),
-  scissors: require("../img/scissors.svg"),
-  click: require("../audio/click.wav"),
-  click2: require("../audio/click2.wav")
+  rock,
+  paper,
+  scissors,
+  arrowDown,
+  arrowLeft,
+  arrowRight,
+  logo,
+  click,
+  click2
 };
 
 export const DOMelements = {
@@ -36,3 +46,17 @@ export const DOMclasses = {
   boardLosses: "board__box--losses",
   boardNeutral: "board__box--neutral"
 };
+
+export function updateScoresView(winner, summary) {
+  DOMelements.summaryScore.forEach(score => {
+    score.textContent = summary[score.dataset.type];
+
+    if (score.dataset.type === winner) {
+      score.classList.add(`${DOMclasses.summaryScore}--${winner}`);
+
+      setTimeout(() => {
+        score.classList.remove(`${DOMclasses.summaryScore}--${winner}`);
+      }, 500);
+    }
+  });
+}

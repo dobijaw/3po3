@@ -1,11 +1,9 @@
-import clickSound from "../../audio/click2.wav";
-
 import { state } from "../state";
 import { DOMelements, DOMclasses } from "../base";
 
 export class Sound {
-  constructor() {
-    this.audio = new Audio(clickSound);
+  constructor(audio) {
+    this.audio = audio;
   }
 
   playSound() {
