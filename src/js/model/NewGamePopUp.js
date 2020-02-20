@@ -1,4 +1,4 @@
-import { DOMelements, DOMclasses } from "../base";
+import { DOMelements, DOMclasses, assets } from "../base";
 
 import { Sound } from "./Sound";
 
@@ -6,7 +6,7 @@ export class NewGamePopUp {
   constructor() {
     this.newGameSubscriber = [];
 
-    this.sound = new Sound();
+    this.sound = new Sound(new Audio(assets.click2));
   }
 
   showPopUpView() {

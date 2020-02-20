@@ -1,4 +1,4 @@
-import { DOMelements, DOMclasses } from "../base";
+import { DOMelements, DOMclasses, assets } from "../base";
 import { state } from "../state";
 
 import { Sound } from "./Sound";
@@ -10,7 +10,7 @@ export class GameVariants {
     this.blocked = false;
     this.activeKeyCodeVariant = state.gameVariant;
 
-    this.sound = new Sound();
+    this.sound = new Sound(new Audio(assets.click2));
     this.changeVariantOnClick();
     this.changeVariantOnKey();
   }

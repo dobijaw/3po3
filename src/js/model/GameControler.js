@@ -1,4 +1,4 @@
-import { DOMclasses, updateScoresView } from "../base";
+import { DOMclasses, updateScoresView, assets } from "../base";
 import { state, Symbols } from "../state";
 
 import { Winner } from "./Winner";
@@ -8,7 +8,7 @@ export class GameControler {
   constructor() {
     this.currentVariant = null;
     this.playAgainSubscribers = [];
-    this.sound = new Sound();
+    this.sound = new Sound(new Audio(assets.click2));
   }
 
   stopSymbolInterval() {
