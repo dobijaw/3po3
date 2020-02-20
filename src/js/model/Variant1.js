@@ -8,13 +8,6 @@ class Variant1 extends Variant {
     this.config = config;
   }
 
-  getKeyCodes() {
-    return {
-      name: this.config.name,
-      keyCodes: this.config.keyCodes
-    };
-  }
-
   AIChoice() {
     state.randomIndex = this.randomNumber();
     let counter = 0;

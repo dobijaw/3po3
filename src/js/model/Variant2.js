@@ -9,13 +9,6 @@ class Variant2 extends Variant {
     this.config = config;
   }
 
-  getKeyCodes() {
-    return {
-      name: this.config.name,
-      keyCodes: this.config.keyCodes
-    };
-  }
-
   AIChoice() {
     const imgAISymbols = [
       ...document.querySelectorAll(`.${DOMclasses.imgBoardAI}`)

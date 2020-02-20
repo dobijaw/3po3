@@ -8,23 +8,6 @@ class Variant3 extends Variant {
     this.config = config;
   }
 
-  getKeyCodes() {
-    return {
-      name: this.config.name,
-      keyCodes: this.config.keyCodes
-    };
-  }
-
-  getMessage() {
-    const headline = `3IQ - tryb 3`;
-    const copy = `Runda ${state.summary.games + 1}. Wybierz symbol!`;
-
-    return {
-      headline,
-      copy
-    };
-  }
-
   AIChoice() {
     if (state.winnerStatus.length === 0) {
       state.randomIndex = 1;
@@ -86,6 +69,16 @@ class Variant3 extends Variant {
         state.randomIndex = this.randomNumber();
       }
     }
+  }
+
+  getMessage() {
+    const headline = `3IQ - tryb 3`;
+    const copy = `Runda ${state.summary.games + 1}. Wybierz symbol!`;
+
+    return {
+      headline,
+      copy
+    };
   }
 }
 
