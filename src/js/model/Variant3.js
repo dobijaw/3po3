@@ -9,13 +9,13 @@ class Variant3 extends Variant {
   }
 
   AIChoice() {
-    if (state.winnerStatus.length === 0) {
+    if (state.gameResults.length === 0) {
       state.randomIndex = 1;
       return;
     }
 
-    if (state.winnerStatus.length === 1) {
-      switch (state.winnerStatus[0]) {
+    if (state.gameResults.length === 1) {
+      switch (state.gameResults[0]) {
         case Statuses.Win:
           const playerIndex = this.generateIndex(state.playerChoice[0]);
           const AIIndex = this.opositeSymbol(playerIndex);
@@ -31,37 +31,37 @@ class Variant3 extends Variant {
       }
     }
 
-    if (state.winnerStatus.length > 1) {
+    if (state.gameResults.length > 1) {
       if (
-        state.winnerStatus[0] === Statuses.Win &&
-        state.winnerStatus[1] === Statuses.Win
+        state.gameResults[0] === Statuses.Win &&
+        state.gameResults[1] === Statuses.Win
       ) {
         state.randomIndex = this.generateIndex(state.playerChoice[0]);
       } else if (
-        state.winnerStatus[0] === Statuses.Draw &&
-        state.winnerStatus[1] === Statuses.Draw
+        state.gameResults[0] === Statuses.Draw &&
+        state.gameResults[1] === Statuses.Draw
       ) {
         state.randomIndex = this.randomNumber();
       } else if (
-        state.winnerStatus[0] === Statuses.Loss &&
-        state.winnerStatus[1] === Statuses.Loss
+        state.gameResults[0] === Statuses.Loss &&
+        state.gameResults[1] === Statuses.Loss
       ) {
         const aiSymbolIndex = this.generateIndex(state.AIChoice[0]);
         state.randomIndex = this.opositeSymbol(aiSymbolIndex);
       } else if (
-        state.winnerStatus[0] === Statuses.Win &&
-        state.winnerStatus[1] !== Statuses.Win
+        state.gameResults[0] === Statuses.Win &&
+        state.gameResults[1] !== Statuses.Win
       ) {
         const playerSymbolIndex = this.generateIndex(state.playerChoice[0]);
         state.randomIndex = this.opositeSymbol(playerSymbolIndex);
       } else if (
-        state.winnerStatus[0] === Statuses.Draw &&
-        state.winnerStatus[1] !== Statuses.Draw
+        state.gameResults[0] === Statuses.Draw &&
+        state.gameResults[1] !== Statuses.Draw
       ) {
         state.randomIndex = this.randomNumber();
       } else if (
-        state.winnerStatus[0] === Statuses.Loss &&
-        state.winnerStatus[1] !== Statuses.Loss
+        state.gameResults[0] === Statuses.Loss &&
+        state.gameResults[1] !== Statuses.Loss
       ) {
         const aiSymbolIndex = this.generateIndex(state.AIChoice[0]);
         state.randomIndex = this.opositeSymbol(aiSymbolIndex);

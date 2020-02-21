@@ -2,6 +2,7 @@ import { DOMclasses, updateScoresView, assets } from "../base";
 import { state, Symbols } from "../state";
 
 import { Winner } from "./Winner";
+import { renderWinnerView, renderMessage, playAgain } from "../view/winnerView";
 import { Sound } from "./Sound";
 
 export class GameControler {
@@ -88,13 +89,14 @@ export class GameControler {
 
     const winner = new Winner();
 
-    winner.saveWinnerToState();
-    winner.updateMessageView();
-    winner.renderWinnerView();
+    const gameResult = winner.checkGameResult();
+    winner.saveGameResult(gameResult);
+    renderMessage(state.gameResults[0]);
+    renderWinnerView(state.gameResults[0]);
 
-    updateScoresView(state.winnerStatus[0], state.summary);
+    updateScoresView(state.gameResults[0], state.summary);
 
-    winner.playAgain(() => {
+    playAgain(() => {
       this.sound.playSound();
       this.playAgainSubscribers.forEach(sub => sub());
     });

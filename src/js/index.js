@@ -39,12 +39,12 @@ const init = () => {
   newGamePopUp.popUpOnClickView();
 
   resetState();
-  updateScoresView(state.winnerStatus[0], state.summary);
+  updateScoresView(state.gameResults[0], state.summary);
   gameVariants.initFirstScreen();
 
   newGamePopUp.initNewGameSubscribers(() => {
     resetState();
-    updateScoresView(state.winnerStatus[0], state.summary);
+    updateScoresView(state.gameResults[0], state.summary);
     gameVariants.initFirstScreen();
   });
 };

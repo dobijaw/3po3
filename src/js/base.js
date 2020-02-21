@@ -60,3 +60,15 @@ export function updateScoresView(winner, summary) {
     }
   });
 }
+
+export function clearContainer(parent) {
+  parent.textContent = "";
+}
+
+export function updateTextContent(parent, text) {
+  parent.textContent = text;
+}
+
+export function addChild(parent, child, position = "beforeend") {
+  parent.insertAdjacentHTML(position, child);
+}

@@ -2,7 +2,7 @@ export const state = {
   gameVariant: "variant1",
   playerChoice: [],
   AIChoice: [],
-  winnerStatus: [],
+  gameResults: [],
   summary: {
     games: 0,
     wins: 0,
@@ -32,7 +32,7 @@ export function resetState() {
   state.gameVariant = "variant1";
   state.playerChoice = [];
   state.AIChoice = [];
-  state.winnerStatus = [];
+  state.gameResults = [];
   state.keyBlocked = false;
   state.enterBlocked = false;
   state.intervals = null;
@@ -41,4 +41,13 @@ export function resetState() {
   for (const key of Object.keys(state.summary)) {
     state.summary[key] = 0;
   }
+}
+
+export function saveToStateArr(key, value) {
+  if (key.length === 3) key.pop();
+  key.unshift(value);
+}
+
+export function stateIncrementation(status) {
+  state.summary[status]++;
 }
