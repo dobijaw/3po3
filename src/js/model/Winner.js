@@ -1,11 +1,10 @@
 import {
   state,
-  Statuses,
   Symbols,
-  saveToStateArr,
+  Statuses,
+  saveToStateArray,
   stateIncrementation
 } from "../state";
-import { DOMelements, DOMclasses } from "../base";
 
 export class Winner {
   constructor() {}
@@ -13,22 +12,16 @@ export class Winner {
   isWinFn(playerChoice, AIChoice) {
     const conditionsForWin = [
       playerChoice === Symbols.Rock && AIChoice === Symbols.Scissors,
-      playerChoice === Symbols.Paper && AIChoice === Symbols.Rock,
-      playerChoice === Symbols.Scissors && AIChoice === Symbols.Paper
+      playerChoice === Symbols.Scissors && AIChoice === Symbols.Paper,
+      playerChoice === Symbols.Paper && AIChoice === Symbols.Rock
     ];
 
     return conditionsForWin.some(single => single);
   }
 
-  isDrawFn(playerChoice, AIChoice) {
-    return playerChoice === AIChoice;
-  }
-
   checkGameResult() {
-    state.summary.games++;
-
     const isWin = this.isWinFn(state.playerChoice[0], state.AIChoice[0]);
-    const isDraw = this.isDrawFn(state.playerChoice[0], state.AIChoice[0]);
+    const isDraw = state.playerChoice[0] === state.AIChoice[0];
 
     if (isWin) return Statuses.Win;
     if (isDraw) return Statuses.Draw;
@@ -38,6 +31,7 @@ export class Winner {
 
   saveGameResult(status) {
     stateIncrementation(status);
-    saveToStateArr(state.gameResults, status);
+    stateIncrementation(Statuses.Game);
+    saveToStateArray(state.gameResults, status);
   }
 }

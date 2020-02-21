@@ -19,7 +19,8 @@ export const state = {
 export const Statuses = {
   Win: "wins",
   Draw: "draws",
-  Loss: "losses"
+  Loss: "losses",
+  Game: "games"
 };
 
 export const Symbols = {
@@ -43,7 +44,7 @@ export function resetState() {
   }
 }
 
-export function saveToStateArr(key, value) {
+export function saveToStateArray(key, value) {
   if (key.length === 3) key.pop();
   key.unshift(value);
 }
