@@ -1,43 +1,29 @@
-import {
-  state,
-  Statuses,
-  Symbols,
-  saveToStateArr,
-  stateIncrementation
-} from "../state";
-import { DOMelements, DOMclasses } from "../base";
+import { Symbols, Statuses } from "../state";
 
 export class Winner {
-  constructor() {}
-
-  isWinFn(playerChoice, AIChoice) {
-    const conditionsForWin = [
-      playerChoice === Symbols.Rock && AIChoice === Symbols.Scissors,
-      playerChoice === Symbols.Paper && AIChoice === Symbols.Rock,
-      playerChoice === Symbols.Scissors && AIChoice === Symbols.Paper
-    ];
-
-    return conditionsForWin.some(single => single);
+  constructor(playerChoice, AIChoice) {
+    this.playerChoice = playerChoice;
+    this.AIChoice = AIChoice;
   }
 
-  isDrawFn(playerChoice, AIChoice) {
-    return playerChoice === AIChoice;
+  isDraw() {
+    return this.playerChoice === this.AIChoice;
+  }
+
+  isWin() {
+    const conditionsForWin = [
+      this.playerChoice === Symbols.Rock && this.AIChoice === Symbols.Scissors,
+      this.playerChoice === Symbols.Scissors && this.AIChoice === Symbols.Paper,
+      this.playerChoice === Symbols.Paper && this.AIChoice === Symbols.Rock
+    ];
+
+    return conditionsForWin.some(condition => condition);
   }
 
   checkGameResult() {
-    state.summary.games++;
-
-    const isWin = this.isWinFn(state.playerChoice[0], state.AIChoice[0]);
-    const isDraw = this.isDrawFn(state.playerChoice[0], state.AIChoice[0]);
-
-    if (isWin) return Statuses.Win;
-    if (isDraw) return Statuses.Draw;
+    if (this.isDraw()) return Statuses.Draw;
+    if (this.isWin()) return Statuses.Win;
 
     return Statuses.Loss;
-  }
-
-  saveGameResult(status) {
-    stateIncrementation(status);
-    saveToStateArr(state.gameResults, status);
   }
 }
