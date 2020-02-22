@@ -1,5 +1,11 @@
 import { DOMclasses, updateScoresView, assets } from "../base";
-import { state, Symbols } from "../state";
+import {
+  state,
+  Symbols,
+  stateIncrementation,
+  stateSaveToArray,
+  Statuses
+} from "../state";
 
 import { Winner } from "./Winner";
 import { renderWinnerView, renderMessage, playAgain } from "../view/winnerView";
@@ -87,10 +93,13 @@ export class GameControler {
     this.stopSymbolInterval();
     this.saveAIChoiceToState(state.randomIndex);
 
-    const winner = new Winner();
-
+    const winner = new Winner(state.playerChoice[0], state.AIChoice[0]);
     const gameResult = winner.checkGameResult();
-    winner.saveGameResult(gameResult);
+
+    stateIncrementation(gameResult);
+    stateIncrementation(Statuses.Game);
+    stateSaveToArray(state.gameResults, gameResult);
+
     renderMessage(state.gameResults[0]);
     renderWinnerView(state.gameResults[0]);
 

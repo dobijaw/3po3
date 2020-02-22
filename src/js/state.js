@@ -44,7 +44,7 @@ export function resetState() {
   }
 }
 
-export function saveToStateArray(key, value) {
+export function stateSaveToArray(key, value) {
   if (key.length === 3) key.pop();
   key.unshift(value);
 }

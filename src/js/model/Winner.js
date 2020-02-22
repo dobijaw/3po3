@@ -1,37 +1,29 @@
-import {
-  state,
-  Symbols,
-  Statuses,
-  saveToStateArray,
-  stateIncrementation
-} from "../state";
+import { Symbols, Statuses } from "../state";
 
 export class Winner {
-  constructor() {}
+  constructor(playerChoice, AIChoice) {
+    this.playerChoice = playerChoice;
+    this.AIChoice = AIChoice;
+  }
 
-  isWinFn(playerChoice, AIChoice) {
+  isDraw() {
+    return this.playerChoice === this.AIChoice;
+  }
+
+  isWin() {
     const conditionsForWin = [
-      playerChoice === Symbols.Rock && AIChoice === Symbols.Scissors,
-      playerChoice === Symbols.Scissors && AIChoice === Symbols.Paper,
-      playerChoice === Symbols.Paper && AIChoice === Symbols.Rock
+      this.playerChoice === Symbols.Rock && this.AIChoice === Symbols.Scissors,
+      this.playerChoice === Symbols.Scissors && this.AIChoice === Symbols.Paper,
+      this.playerChoice === Symbols.Paper && this.AIChoice === Symbols.Rock
     ];
 
-    return conditionsForWin.some(single => single);
+    return conditionsForWin.some(condition => condition);
   }
 
   checkGameResult() {
-    const isWin = this.isWinFn(state.playerChoice[0], state.AIChoice[0]);
-    const isDraw = state.playerChoice[0] === state.AIChoice[0];
-
-    if (isWin) return Statuses.Win;
-    if (isDraw) return Statuses.Draw;
+    if (this.isDraw()) return Statuses.Draw;
+    if (this.isWin()) return Statuses.Win;
 
     return Statuses.Loss;
-  }
-
-  saveGameResult(status) {
-    stateIncrementation(status);
-    stateIncrementation(Statuses.Game);
-    saveToStateArray(state.gameResults, status);
   }
 }
