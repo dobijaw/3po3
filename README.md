@@ -28,7 +28,7 @@ npm build
 
 ## Running the tests
 
-To run the test, enter in the terminal:
+To run the tests, enter in the terminal:
 
 ```
 npm test
@@ -48,7 +48,7 @@ npm test
 
 ## Author
 
-- **Wojciech Dobija** - _Design and coding_ - [PurpleBooth](https://github.com/dobijaw)
+- **Wojciech Dobija** - _Design and coding_
 
 ## License
 
