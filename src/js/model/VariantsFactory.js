@@ -39,4 +39,8 @@ export class VariantsFactory {
         return this.variant3;
     }
   }
+
+  addThis(num) {
+    return num + 1;
+  }
 }
